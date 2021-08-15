@@ -1,25 +1,18 @@
 import path from 'path'
-import { pipe, map } from 'ramda'
+// import { pipe, map } from 'ramda'
 import { fork } from 'fluture'
 // import {hook} from 'ripjam/test'
-import { reader } from './index'
+import { passwind } from './index'
 const local = x => path.join(__dirname, x)
-const localizer = fn => pipe(local, fn)
 
-const localReader = map(localizer)(reader)
+const fixture = {
+  css: local('../fixture/example.css'),
+  html: local('../fixture/example.html')
+}
 
-test('parse.css', done => {
-  const parsedF = localReader.css('../fixture/example.css')
+test('passwind', done => {
   fork(done)(result => {
     expect(result).toMatchSnapshot()
     done()
-  })(parsedF)
-})
-
-test('parse.html', done => {
-  const parsedF = localReader.html('../fixture/example.html')
-  fork(done)(result => {
-    expect(result).toMatchSnapshot()
-    done()
-  })(parsedF)
+  })(passwind(fixture.html, fixture.css))
 })

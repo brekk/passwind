@@ -1,37 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`parse.css 1`] = `
+exports[`passwind 1`] = `
 Object {
-  "*": Object {
-    "boxSizing": "border-box",
-  },
-  "*,
-:after,
-:before": Object {
-    "--tw-border-opacity": "1",
-    "--tw-ring-color": "rgba(59, 130, 246, 0.5)",
-    "--tw-ring-inset": "var(--tw-empty,  )",
-    "--tw-ring-offset-color": "#fff",
-    "--tw-ring-offset-shadow": "0 0 transparent",
-    "--tw-ring-offset-width": "0px",
-    "--tw-ring-shadow": "0 0 transparent",
-    "--tw-shadow": "0 0 transparent",
-    "border": "0 solid",
-    "borderColor": "rgba(229, 231, 235, var(--tw-border-opacity))",
-    "boxSizing": "border-box",
-  },
-  ".-m-4": Object {
-    "margin": "-1rem",
-  },
   ".-translate-x-full": Object {
     "--tw-translate-x": "-100%",
   },
   ".absolute": Object {
     "position": "absolute",
-  },
-  ".bg-alertred": Object {
-    "--tw-bg-opacity": "1",
-    "backgroundColor": "rgba(241, 89, 41, var(--tw-bg-opacity))",
   },
   ".bg-alertyellow": Object {
     "--tw-bg-opacity": "1",
@@ -40,10 +15,6 @@ Object {
   ".bg-black": Object {
     "--tw-bg-opacity": "1",
     "backgroundColor": "rgba(0, 0, 0, var(--tw-bg-opacity))",
-  },
-  ".bg-iforange": Object {
-    "--tw-bg-opacity": "1",
-    "backgroundColor": "rgba(255, 165, 66, var(--tw-bg-opacity))",
   },
   ".bg-ifpink": Object {
     "--tw-bg-opacity": "1",
@@ -62,25 +33,9 @@ Object {
   ".border-2": Object {
     "borderWidth": "2px",
   },
-  ".border-alertred": Object {
-    "borderColor": "rgba(241, 89, 41, var(--tw-border-opacity))",
-  },
-  ".border-alertred,
-.border-opacity-100": Object {
-    "--tw-border-opacity": "1",
-  },
-  ".border-b": Object {
-    "borderBottomWidth": "1px",
-  },
-  ".border-b-2": Object {
-    "borderBottomWidth": "2px",
-  },
   ".border-black": Object {
     "--tw-border-opacity": "1",
     "borderColor": "rgba(0, 0, 0, var(--tw-border-opacity))",
-  },
-  ".border-r": Object {
-    "borderRightWidth": "1px",
   },
   ".border-solid": Object {
     "borderStyle": "solid",
@@ -88,28 +43,8 @@ Object {
   ".border-t": Object {
     "borderTopWidth": "1px",
   },
-  ".bottom-0": Object {
-    "bottom": "0",
-  },
   ".fill-current": Object {
     "fill": "currentColor",
-  },
-  ".filter": Object {
-    "--tw-blur": "var(--tw-empty,  )",
-    "--tw-brightness": "var(--tw-empty,  )",
-    "--tw-contrast": "var(--tw-empty,  )",
-    "--tw-drop-shadow": "var(--tw-empty,  )",
-    "--tw-grayscale": "var(--tw-empty,  )",
-    "--tw-hue-rotate": "var(--tw-empty,  )",
-    "--tw-invert": "var(--tw-empty,  )",
-    "--tw-saturate": "var(--tw-empty,  )",
-    "--tw-sepia": "var(--tw-empty,  )",
-    "filter": "var(--tw-blur) var(--tw-brightness) var(--tw-contrast)
-    var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert)
-    var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)",
-  },
-  ".fixed": Object {
-    "position": "fixed",
   },
   ".flex": Object {
     "display": "flex",
@@ -120,27 +55,11 @@ Object {
   ".flex-col": Object {
     "flexDirection": "column",
   },
-  ".focus\\\\:outline-none:focus": Object {
-    "outline": "2px solid transparent",
-    "outlineOffset": "2px",
-  },
   ".font-extended": Object {
     "fontFamily": "extended-regular, helvetica, sans-serif",
   },
   ".font-favorit": Object {
     "fontFamily": "favorit-regular, helvetica, sans-serif",
-  },
-  ".gap-4": Object {
-    "gap": "1rem",
-  },
-  ".grid": Object {
-    "display": "grid",
-  },
-  ".grid-cols-2": Object {
-    "gridTemplateColumns": "repeat(2, minmax(0, 1fr))",
-  },
-  ".grid-rows-2": Object {
-    "gridTemplateRows": "repeat(2, minmax(0, 1fr))",
   },
   ".h-10": Object {
     "height": "2.5rem",
@@ -163,35 +82,6 @@ Object {
   ".hidden": Object {
     "display": "none",
   },
-  ".hover\\\\:bg-black:hover": Object {
-    "--tw-bg-opacity": "1",
-    "backgroundColor": "rgba(0, 0, 0, var(--tw-bg-opacity))",
-  },
-  ".hover\\\\:bg-iflightgray:hover": Object {
-    "--tw-bg-opacity": "1",
-    "backgroundColor": "rgba(236, 236, 236, var(--tw-bg-opacity))",
-  },
-  ".hover\\\\:bg-transparent:hover": Object {
-    "backgroundColor": "transparent",
-  },
-  ".hover\\\\:bg-white:hover": Object {
-    "--tw-bg-opacity": "1",
-    "backgroundColor": "rgba(255, 255, 255, var(--tw-bg-opacity))",
-  },
-  ".hover\\\\:shadow-navbar:hover,
-.shadow-navbar": Object {
-    "--tw-shadow": "0px 4px 12px rgba(0, 0, 0, 0.12)",
-    "boxShadow": "var(--tw-ring-offset-shadow, 0 0 transparent),
-    var(--tw-ring-shadow, 0 0 transparent), var(--tw-shadow)",
-  },
-  ".hover\\\\:text-black:hover": Object {
-    "--tw-text-opacity": "1",
-    "color": "rgba(0, 0, 0, var(--tw-text-opacity))",
-  },
-  ".hover\\\\:text-white:hover": Object {
-    "--tw-text-opacity": "1",
-    "color": "rgba(255, 255, 255, var(--tw-text-opacity))",
-  },
   ".items-center": Object {
     "alignItems": "center",
   },
@@ -204,17 +94,11 @@ Object {
   ".justify-center": Object {
     "justifyContent": "center",
   },
-  ".justify-end": Object {
-    "justifyContent": "flex-end",
-  },
   ".leading-loose": Object {
     "lineHeight": 2,
   },
   ".leading-relaxed": Object {
     "lineHeight": 1.625,
-  },
-  ".left-0": Object {
-    "left": "0",
   },
   ".m-auto": Object {
     "margin": "auto",
@@ -222,26 +106,14 @@ Object {
   ".max-h-16": Object {
     "maxHeight": "4rem",
   },
-  ".mb-1": Object {
-    "marginBottom": "0.25rem",
-  },
   ".mb-16": Object {
     "marginBottom": "4rem",
   },
   ".mb-2": Object {
     "marginBottom": "0.5rem",
   },
-  ".mb-24": Object {
-    "marginBottom": "6rem",
-  },
-  ".mb-3": Object {
-    "marginBottom": "0.75rem",
-  },
   ".mb-4": Object {
     "marginBottom": "1rem",
-  },
-  ".mb-7": Object {
-    "marginBottom": "1.75rem",
   },
   ".mb-8": Object {
     "marginBottom": "2rem",
@@ -252,20 +124,11 @@ Object {
   ".min-h-screen": Object {
     "minHeight": "100vh",
   },
-  ".min-w-6": Object {
-    "minWidth": "1.5rem",
-  },
   ".ml-2": Object {
     "marginLeft": "0.5rem",
   },
   ".ml-4": Object {
     "marginLeft": "1rem",
-  },
-  ".mr-2": Object {
-    "marginRight": "0.5rem",
-  },
-  ".mr-5": Object {
-    "marginRight": "1.25rem",
   },
   ".mt-1": Object {
     "marginTop": "0.25rem",
@@ -275,9 +138,6 @@ Object {
   },
   ".mt-2": Object {
     "marginTop": "0.5rem",
-  },
-  ".mt-24": Object {
-    "marginTop": "6rem",
   },
   ".mt-3": Object {
     "marginTop": "0.75rem",
@@ -298,17 +158,6 @@ Object {
     "position": "relative",
     "transformStyle": "preserve-3d",
   },
-  ".offset-box:after": Object {
-    "border": "2px solid #000",
-    "content": "''",
-    "height": "100%",
-    "marginLeft": "calc(1.75rem + 2px)",
-    "marginTop": "1rem",
-    "position": "absolute",
-    "transform": "translateZ(-1px)",
-    "width": "100%",
-    "zIndex": -1,
-  },
   ".p-2": Object {
     "padding": "0.5rem",
   },
@@ -318,40 +167,9 @@ Object {
   ".p-4": Object {
     "padding": "1rem",
   },
-  ".p-8": Object {
-    "padding": "2rem",
-  },
-  ".pb-10": Object {
-    "paddingBottom": "2.5rem",
-  },
-  ".pl-10": Object {
-    "paddingLeft": "2.5rem",
-  },
-  ".pl-14": Object {
-    "paddingLeft": "3.5rem",
-  },
-  ".pl-5": Object {
-    "paddingLeft": "1.25rem",
-  },
-  ".placeholder-black:-ms-input-placeholder": Object {
-    "--tw-placeholder-opacity": "1",
-    "color": "rgba(0, 0, 0, var(--tw-placeholder-opacity))",
-  },
-  ".placeholder-black::-moz-placeholder": Object {
-    "--tw-placeholder-opacity": "1",
-    "color": "rgba(0, 0, 0, var(--tw-placeholder-opacity))",
-  },
-  ".placeholder-black::placeholder": Object {
-    "--tw-placeholder-opacity": "1",
-    "color": "rgba(0, 0, 0, var(--tw-placeholder-opacity))",
-  },
   ".px-0": Object {
     "paddingLeft": "0",
     "paddingRight": "0",
-  },
-  ".px-10": Object {
-    "paddingLeft": "2.5rem",
-    "paddingRight": "2.5rem",
   },
   ".px-2": Object {
     "paddingLeft": "0.5rem",
@@ -377,10 +195,6 @@ Object {
     "paddingBottom": "0.75rem",
     "paddingTop": "0.75rem",
   },
-  ".py-5": Object {
-    "paddingBottom": "1.25rem",
-    "paddingTop": "1.25rem",
-  },
   ".py-7": Object {
     "paddingBottom": "1.75rem",
     "paddingTop": "1.75rem",
@@ -392,35 +206,15 @@ Object {
   ".relative": Object {
     "position": "relative",
   },
-  ".right-0": Object {
-    "right": "0",
-  },
-  ".rotate-180": Object {
-    "--tw-rotate": "180deg",
-  },
-  ".rounded": Object {
-    "borderRadius": "0.25rem",
-  },
   ".rounded-full": Object {
     "borderRadius": "9999px",
   },
   ".rounded-plus": Object {
     "borderRadius": "0.3125rem",
   },
-  ".table": Object {
-    "display": "table",
-  },
-  ".text-2xl": Object {
-    "fontSize": "1.5rem",
-    "lineHeight": "2rem",
-  },
   ".text-4xl": Object {
     "fontSize": "2.25rem",
     "lineHeight": "2.5rem",
-  },
-  ".text-6xl": Object {
-    "fontSize": "3.75rem",
-    "lineHeight": 1,
   },
   ".text-black": Object {
     "--tw-text-opacity": "1",
@@ -433,40 +227,16 @@ Object {
     "--tw-text-opacity": "1",
     "color": "rgba(107, 114, 128, var(--tw-text-opacity))",
   },
-  ".text-green-600": Object {
-    "--tw-text-opacity": "1",
-    "color": "rgba(5, 150, 105, var(--tw-text-opacity))",
-  },
-  ".text-ifbeige": Object {
-    "--tw-text-opacity": "1",
-    "color": "rgba(255, 244, 224, var(--tw-text-opacity))",
-  },
   ".text-ifblue": Object {
     "--tw-text-opacity": "1",
     "color": "rgba(29, 0, 112, var(--tw-text-opacity))",
-  },
-  ".text-ifcubepink": Object {
-    "--tw-text-opacity": "1",
-    "color": "rgba(255, 148, 219, var(--tw-text-opacity))",
-  },
-  ".text-ifgray": Object {
-    "--tw-text-opacity": "1",
-    "color": "rgba(106, 115, 125, var(--tw-text-opacity))",
   },
   ".text-iflightblue": Object {
     "--tw-text-opacity": "1",
     "color": "rgba(3, 60, 224, var(--tw-text-opacity))",
   },
-  ".text-iforange": Object {
-    "--tw-text-opacity": "1",
-    "color": "rgba(255, 165, 66, var(--tw-text-opacity))",
-  },
   ".text-lg": Object {
     "fontSize": "1.125rem",
-  },
-  ".text-lg,
-.text-xl": Object {
-    "lineHeight": "1.75rem",
   },
   ".text-sm": Object {
     "fontSize": "0.875rem",
@@ -519,26 +289,11 @@ Object {
     "transitionProperty": "all",
     "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
   },
-  ".w-11\\\\/12": Object {
-    "width": "91.666667%",
-  },
-  ".w-24": Object {
-    "width": "6rem",
-  },
-  ".w-2\\\\/3": Object {
-    "width": "66.666667%",
-  },
   ".w-40": Object {
     "width": "10rem",
   },
-  ".w-4\\\\/5": Object {
-    "width": "80%",
-  },
   ".w-52": Object {
     "width": "13rem",
-  },
-  ".w-6": Object {
-    "width": "1.5rem",
   },
   ".w-60": Object {
     "width": "15rem",
@@ -558,502 +313,5 @@ Object {
   ".z-20": Object {
     "zIndex": 20,
   },
-  ":root": Object {
-    "--ifm-background-color": "#fff",
-    "--ifm-blue-header-padding-top": "163px",
-    "--ifm-button-background-active-color": "#ebe5e5",
-    "--ifm-button-background-color": "#fbebcf",
-    "--ifm-button-border-color": "#000",
-    "--ifm-button-color": "#fff",
-    "--ifm-button-font-weight": "normal",
-    "--ifm-button-padding-horizontal": "0.7rem",
-    "--ifm-code-background": "rgba(30, 1, 111, 0.0392156862745098)",
-    "--ifm-code-background-color": "#1a395b",
-    "--ifm-code-font-size": "1rem",
-    "--ifm-color-emphasis-300": "transparent",
-    "--ifm-color-primary": "#000",
-    "--ifm-color-primary-contrast": "#fff",
-    "--ifm-color-primary-dark": "#1d0070",
-    "--ifm-color-primary-darker": "#1d0070",
-    "--ifm-color-primary-darkest": "#1d0070",
-    "--ifm-color-primary-light": "#000",
-    "--ifm-color-primary-lighter": "#1d0070",
-    "--ifm-color-primary-lightest": "#1d0070",
-    "--ifm-color-secondary": "#1d0070",
-    "--ifm-color-secondary-hover": "#1d0070",
-    "--ifm-color-thirty": "#687086",
-    "--ifm-container-index-width": "1171px",
-    "--ifm-container-width": "1406px",
-    "--ifm-contrast-background-color": "#1d0070",
-    "--ifm-docs-column-margin-right": "55px",
-    "--ifm-features-separator-color": "#dadada",
-    "--ifm-font-color-base": "#000",
-    "--ifm-font-color-base-inverse": "#000",
-    "--ifm-font-family-base": "favorit-regular, 'Helvetica', sans-serif",
-    "--ifm-font-header-button": "'extended-regular', 'helvetica',
-    sans-serif",
-    "--ifm-font-size-base": "100%",
-    "--ifm-font-size-subtitle": "46px",
-    "--ifm-footer-background-color": "#fff",
-    "--ifm-footer-link-color": "#1d0070",
-    "--ifm-footer-padding-vertical": "0.7rem",
-    "--ifm-global-radius": "0.2rem",
-    "--ifm-heading-color": "#000",
-    "--ifm-index-color-primary": "#252120",
-    "--ifm-large-container-horizontal-padding": "81px",
-    "--ifm-large-vertical-padding": "128px",
-    "--ifm-line-height-subtitle": "55px",
-    "--ifm-link-color": "#05f",
-    "--ifm-link-decoration": "underline",
-    "--ifm-list-border-color": "#ffe7ba",
-    "--ifm-list-item-margin": "20px",
-    "--ifm-list-left-padding": "1rem",
-    "--ifm-main-title-align": "center",
-    "--ifm-main-title-font-size": "80px",
-    "--ifm-main-title-line-height": "83px",
-    "--ifm-main-title-padding": "0px",
-    "--ifm-main-title-width": "100%",
-    "--ifm-markdown-horizontal-padding": "0px",
-    "--ifm-medium-vertical-padding": "64px",
-    "--ifm-menu-color": "#9976ff",
-    "--ifm-menu-color-active": "#fff",
-    "--ifm-menu-color-background-active": "none",
-    "--ifm-menu-color-background-hover": "none",
-    "--ifm-menu-link-padding-horizontal": "20px",
-    "--ifm-menu-link-padding-vertical": "5px",
-    "--ifm-menu-padding-vertical": "15px",
-    "--ifm-navbar--toggle-right": "35px",
-    "--ifm-navbar-background-color": "#1d0070",
-    "--ifm-navbar-background-contrast-color": "#1d0070",
-    "--ifm-navbar-height": "90px",
-    "--ifm-navbar-link-color": "#1d0070",
-    "--ifm-navbar-link-hover-color": "#1d0070",
-    "--ifm-navbar-padding-vertical": "30px",
-    "--ifm-navbar-shadow": "none",
-    "--ifm-navbar-sidebar-width": "100vw",
-    "--ifm-pagination-nav-color-hover": "transparent",
-    "--ifm-small-vertical-padding": "32px",
-    "--ifm-spacing-horizontal": "0px",
-    "--ifm-table-stripe-background": "rgba(30, 1, 111, 0.0392156862745098)",
-    "--ifm-text-container-width": "820px",
-    "--ifm-toc-border-color": "transparent",
-    "--ifm-toc-link-color": "#100060",
-    "--ifm-toc-width": "233px",
-  },
-  "@-webkit-keyframes bounce": Object {
-    "0%,
-  to": Object {
-      "WebkitAnimationTimingFunction": "cubic-bezier(0.8, 0, 1, 1)",
-      "animationTimingFunction": "cubic-bezier(0.8, 0, 1, 1)",
-      "transform": "translateY(-25%)",
-    },
-    "50%": Object {
-      "WebkitAnimationTimingFunction": "cubic-bezier(0, 0, 0.2, 1)",
-      "animationTimingFunction": "cubic-bezier(0, 0, 0.2, 1)",
-      "transform": "none",
-    },
-  },
-  "@-webkit-keyframes ping": Object {
-    "75%,
-  to": Object {
-      "opacity": 0,
-      "transform": "scale(2)",
-    },
-  },
-  "@-webkit-keyframes pulse": Object {
-    "50%": Object {
-      "opacity": 0.5,
-    },
-  },
-  "@-webkit-keyframes spin": Object {
-    "to": Object {
-      "transform": "rotate(1turn)",
-    },
-  },
-  "@font-face": Array [
-    Object {
-      "fontDisplay": "swap",
-      "fontFamily": "extended-regular",
-      "fontStyle": "normal",
-      "fontWeight": 400,
-      "src": Array [
-        "url(/font/extendedregular/favoritextended-regular-webfont.eot)",
-        "url(/font/extendedregular/favoritextended-regular-webfont.eot?#iefix)
-      format('embedded-opentype'),
-    url(/font/extendedregular/favoritextended-regular-webfont.woff2)
-      format('woff2'),
-    url(/font/extendedregular/favoritextended-regular-webfont.woff)
-      format('woff'),
-    url(/font/extendedregular/favoritextended-regular-webfont.ttf)
-      format('truetype'),
-    url(/font/extendedregular/favoritextended-regular-webfont.svg#_.book)
-      format('svg')",
-      ],
-    },
-    Object {
-      "fontDisplay": "swap",
-      "fontFamily": "mono-regular",
-      "fontStyle": "normal",
-      "fontWeight": 400,
-      "src": Array [
-        "url(/font/monoregular/favoritmono-regular-webfont.eot)",
-        "url(/font/monoregular/favoritmono-regular-webfont.eot?#iefix)
-      format('embedded-opentype'),
-    url(/font/monoregular/favoritmono-regular-webfont.woff2)
-      format('woff2'),
-    url(/font/monoregular/favoritmono-regular-webfont.woff)
-      format('woff'),
-    url(/font/monoregular/favoritmono-regular-webfont.ttf)
-      format('truetype'),
-    url(/font/monoregular/favoritmono-regular-webfont.svg#_.book)
-      format('svg')",
-      ],
-    },
-    Object {
-      "fontDisplay": "swap",
-      "fontFamily": "favorit-regular",
-      "fontStyle": "normal",
-      "fontWeight": 400,
-      "src": Array [
-        "url(/font/regular/favorit-regular-webfont.eot)",
-        "url(/font/regular/favorit-regular-webfont.eot?#iefix)
-      format('embedded-opentype'),
-    url(/font/regular/favorit-regular-webfont.woff2) format('woff2'),
-    url(/font/regular/favorit-regular-webfont.woff) format('woff'),
-    url(/font/regular/favorit-regular-webfont.ttf) format('truetype'),
-    url(/font/regular/favorit-regular-webfont.svg#_.book)
-      format('svg')",
-      ],
-    },
-  ],
-  "@keyframes bounce": Object {
-    "0%,
-  to": Object {
-      "WebkitAnimationTimingFunction": "cubic-bezier(0.8, 0, 1, 1)",
-      "animationTimingFunction": "cubic-bezier(0.8, 0, 1, 1)",
-      "transform": "translateY(-25%)",
-    },
-    "50%": Object {
-      "WebkitAnimationTimingFunction": "cubic-bezier(0, 0, 0.2, 1)",
-      "animationTimingFunction": "cubic-bezier(0, 0, 0.2, 1)",
-      "transform": "none",
-    },
-  },
-  "@keyframes ping": Object {
-    "75%,
-  to": Object {
-      "opacity": 0,
-      "transform": "scale(2)",
-    },
-  },
-  "@keyframes pulse": Object {
-    "50%": Object {
-      "opacity": 0.5,
-    },
-  },
-  "@keyframes spin": Object {
-    "to": Object {
-      "transform": "rotate(1turn)",
-    },
-  },
-  "@media (min-width: 1024px)": Object {
-    ".lg\\\\:ml-4": Object {
-      "marginLeft": "1rem",
-    },
-    ".lg\\\\:mr-4": Object {
-      "marginRight": "1rem",
-    },
-    ".lg\\\\:p-4": Object {
-      "padding": "1rem",
-    },
-    ".lg\\\\:px-16": Object {
-      "paddingLeft": "4rem",
-      "paddingRight": "4rem",
-    },
-    ".lg\\\\:px-4": Object {
-      "paddingLeft": "1rem",
-      "paddingRight": "1rem",
-    },
-    ".lg\\\\:px-4\\\\.5": Object {
-      "paddingLeft": "1.125rem",
-      "paddingRight": "1.125rem",
-    },
-    ".lg\\\\:text-xl": Object {
-      "fontSize": "1.25rem",
-      "lineHeight": "1.75rem",
-    },
-  },
-  "@media (min-width: 640px)": Object {
-    ".sm\\\\:w-7\\\\/12": Object {
-      "width": "58.333333%",
-    },
-  },
-  "@media (min-width: 768px)": Object {
-    ".md\\\\:flex": Object {
-      "display": "flex",
-    },
-    ".md\\\\:flex-row": Object {
-      "flexDirection": "row",
-    },
-    ".md\\\\:hidden": Object {
-      "display": "none",
-    },
-    ".md\\\\:inline": Object {
-      "display": "inline",
-    },
-    ".md\\\\:mt-0": Object {
-      "marginTop": "0",
-    },
-    ".md\\\\:px-12": Object {
-      "paddingLeft": "3rem",
-      "paddingRight": "3rem",
-    },
-    ".md\\\\:px-4": Object {
-      "paddingLeft": "1rem",
-      "paddingRight": "1rem",
-    },
-    ".md\\\\:py-5": Object {
-      "paddingBottom": "1.25rem",
-      "paddingTop": "1.25rem",
-    },
-    ".md\\\\:text-xl": Object {
-      "fontSize": "1.25rem",
-      "lineHeight": "1.75rem",
-    },
-    ".md\\\\:w-full": Object {
-      "width": "100%",
-    },
-  },
-  "[role='button'],
-button": Object {
-    "cursor": "pointer",
-  },
-  "[type='button'],
-[type='submit'],
-button": Object {
-    "WebkitAppearance": "button",
-  },
-  "a": Object {
-    "color": "inherit",
-    "textDecoration": "none",
-  },
-  "abbr[title]": Object {
-    "WebkitTextDecoration": "underline dotted",
-    "textDecoration": "underline dotted",
-  },
-  "audio,
-canvas,
-embed,
-iframe,
-img,
-object,
-svg,
-video": Object {
-    "display": "block",
-    "verticalAlign": "middle",
-  },
-  "b,
-strong": Object {
-    "fontWeight": "bolder",
-  },
-  "blockquote,
-dd,
-dl,
-figure,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-hr,
-p,
-pre": Object {
-    "margin": "0",
-  },
-  "body": Object {
-    "fontFamily": "inherit",
-    "lineHeight": "inherit",
-    "margin": "0",
-  },
-  "body,
-html": Object {
-    "fontFamily": "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-    sans-serif",
-    "margin": "0",
-    "padding": "0",
-  },
-  "button": Object {
-    "backgroundColor": "transparent",
-    "backgroundImage": "none",
-  },
-  "button,
-input,
-optgroup,
-select,
-textarea": Object {
-    "color": "inherit",
-    "fontFamily": "inherit",
-    "fontSize": "100%",
-    "lineHeight": "inherit",
-    "margin": "0",
-    "padding": "0",
-  },
-  "button,
-select": Object {
-    "textTransform": "none",
-  },
-  "code,
-kbd,
-pre,
-samp": Object {
-    "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    Liberation Mono, Courier New, monospace",
-    "fontSize": "1em",
-  },
-  "fieldset,
-ol,
-ul": Object {
-    "margin": "0",
-    "padding": "0",
-  },
-  "h1,
-h2,
-h3,
-h4,
-h5,
-h6": Object {
-    "fontSize": "inherit",
-    "fontWeight": "inherit",
-  },
-  "hr": Object {
-    "borderTopWidth": "1px",
-    "color": "inherit",
-    "height": "0",
-  },
-  "html": Object {
-    "MozTabSize": "4",
-    "OTabSize": "4",
-    "WebkitTextSizeAdjust": "100%",
-    "fontFamily": "ui-sans-serif, system-ui, -apple-system,
-    BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial,
-    Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji,
-    Segoe UI Symbol, Noto Color Emoji",
-    "lineHeight": 1.5,
-    "tabSize": 4,
-  },
-  "img": Object {
-    "borderStyle": "solid",
-  },
-  "img,
-video": Object {
-    "height": "auto",
-    "maxWidth": "100%",
-  },
-  "input:-ms-input-placeholder,
-textarea:-ms-input-placeholder": Object {
-    "color": "#9ca3af",
-    "opacity": 1,
-  },
-  "input::-moz-placeholder,
-textarea::-moz-placeholder": Object {
-    "color": "#9ca3af",
-    "opacity": 1,
-  },
-  "input::placeholder,
-textarea::placeholder": Object {
-    "color": "#9ca3af",
-    "opacity": 1,
-  },
-  "legend": Object {
-    "padding": "0",
-  },
-  "ol,
-ul": Object {
-    "listStyle": "none",
-  },
-  "progress": Object {
-    "verticalAlign": "baseline",
-  },
-  "small": Object {
-    "fontSize": "80%",
-  },
-  "sub": Object {
-    "bottom": "-0.25em",
-  },
-  "sub,
-sup": Object {
-    "fontSize": "75%",
-    "lineHeight": 0,
-    "position": "relative",
-    "verticalAlign": "baseline",
-  },
-  "summary": Object {
-    "display": "list-item",
-  },
-  "sup": Object {
-    "top": "-0.5em",
-  },
-  "table": Object {
-    "borderCollapse": "collapse",
-    "borderColor": "inherit",
-    "textIndent": "0",
-  },
-  "textarea": Object {
-    "resize": "vertical",
-  },
 }
-`;
-
-exports[`parse.html 1`] = `
-"<html><head><meta name=\\"viewport\\" content=\\"width=device-width\\"><meta charset=\\"utf-8\\"><title>Sign up</title><meta name=\\"description\\" content=\\"Sign up\\"><link rel=\\"icon\\" href=\\"/favicon.ico\\"><meta name=\\"next-head-count\\" content=\\"5\\"><link rel=\\"preload\\" href=\\"/_next/static/css/032bc7ba8d192478c883.css\\" as=\\"style\\"><link rel=\\"stylesheet\\" href=\\"/_next/static/css/032bc7ba8d192478c883.css\\" data-n-g=\\"\\"><noscript data-n-css=\\"\\"></noscript><script defer=\\"\\" nomodule=\\"\\" src=\\"/_next/static/chunks/polyfills-a54b4f32bdc1ef890ddd.js\\"></script><script src=\\"/_next/static/chunks/webpack-61095c13c5984b221292.js\\" defer=\\"\\"></script><script src=\\"/_next/static/chunks/framework-92300432a1172ef1338b.js\\" defer=\\"\\"></script><script src=\\"/_next/static/chunks/main-588261c74baf7142d208.js\\" defer=\\"\\"></script><script src=\\"/_next/static/chunks/pages/_app-f3a245cd5487af907762.js\\" defer=\\"\\"></script><script src=\\"/_next/static/chunks/684-95ce378e9f5909ca0df5.js\\" defer=\\"\\"></script><script src=\\"/_next/static/chunks/798-a1c04d26a3e10d880f9d.js\\" defer=\\"\\"></script><script src=\\"/_next/static/chunks/25-edbe23f258a68929c7d3.js\\" defer=\\"\\"></script><script src=\\"/_next/static/chunks/pages/signup-e69783e7457017f55400.js\\" defer=\\"\\"></script><script src=\\"/_next/static/iiavlpcLFUXxkudLojHXm/_buildManifest.js\\" defer=\\"\\"></script><script src=\\"/_next/static/iiavlpcLFUXxkudLojHXm/_ssgManifest.js\\" defer=\\"\\"></script><link as=\\"script\\" rel=\\"prefetch\\" href=\\"/_next/static/chunks/684-95ce378e9f5909ca0df5.js\\"><link as=\\"script\\" rel=\\"prefetch\\" href=\\"/_next/static/chunks/25-edbe23f258a68929c7d3.js\\"><link as=\\"script\\" rel=\\"prefetch\\" href=\\"/_next/static/chunks/pages/login-c12ebc6d33aa49b522f7.js\\"></head><body style=\\"overflow: initial;\\"><div id=\\"__next\\"><div class=\\"min-h-screen flex flex-col\\"><nav class=\\"font-extended relative hover:bg-white hover:shadow-navbar hover:text-black bg-ifpink text-black\\"><div class=\\"absolute z-20 h-screen w-screen bg-white text-black font-extended transition-all transform-gpu -translate-x-full\\"><div class=\\"flex flex-col px-5\\"><div class=\\"flex my-10 justify-between items-center\\"><div><svg width=\\"190\\" height=\\"32\\" viewBox=\\"0 0 165 18\\" fill=\\"none\\" xmlns=\\"http://www.w3.org/2000/svg\\"><path d=\\"M69.33.1c-5.388 0-9.147 3.93-9.147 8.95 0 5.018 3.759 8.95 9.148 8.95 5.388 0 9.147-3.93 9.147-8.95S74.72.1 69.331.1zm.163 15.164c-2.2.057-3.51-2.013-3.617-6.083-.117-4.48 1.093-6.288 3.262-6.346 2.256-.06 3.531 1.713 3.647 6.165.108 4.096-1.065 6.206-3.292 6.264zM40.598.397h-7.12c-.395 0-.643.248-.643.644v.94c0 .42.147.569.518.716l.47.174c.519.197.692.47.692 1.013v10.333c0 .545-.173.815-.692 1.013l-.47.174c-.371.147-.518.296-.518.716v.94c0 .395.248.643.643.643h7.12c.395 0 .643-.248.643-.643v-.94c0-.42-.147-.57-.518-.716l-.47-.174c-.519-.198-.692-.47-.692-1.013V3.884c0-.545.173-.816.692-1.013l.47-.174c.371-.147.518-.296.518-.716v-.94c-.001-.397-.248-.644-.643-.644zM59.624 15.428l-.273-.148c-.667-.37-1.162-.643-1.803-1.656l-2.325-3.732c-.123-.198-.05-.347.174-.396 1.953-.518 3.065-1.656 3.065-3.684 0-3.83-2.987-5.415-9.364-5.415L43.43.446c-.395.05-.593.272-.593.643v.94c0 .42.147.57.47.692l.569.222c.47.198.643.446.643.94v10.334c0 .545-.173.815-.692 1.013l-.47.174c-.37.147-.518.296-.518.716v.94c0 .395.248.643.643.643h7.12c.42 0 .644-.248.644-.643v-.94c0-.42-.15-.57-.519-.716l-.47-.174c-.518-.198-.692-.47-.692-1.013v-3.831c0-.222.075-.297.248-.297.198 0 .321.148.495.446l3.387 6.131c.42.767.742 1.04 1.606 1.04h4.325c.42 0 .594-.223.594-.545v-.89c-.004-.4-.127-.57-.597-.843zM50.476 8.01h-.544a.338.338 0 01-.351-.35V2.938c0-.203.145-.35.35-.35h.572c1.923 0 3.114.697 3.114 2.63 0 1.934-.921 2.793-3.14 2.793zM163.807 2.869l.471-.174c.371-.147.518-.296.518-.716v-.94c0-.396-.222-.644-.643-.644h-7.12c-.396 0-.644.248-.644.644v.94c0 .42.148.569.519.716l.47.174c.518.197.692.47.692 1.013v3.115a.285.285 0 01-.297.296h-5.241a.285.285 0 01-.297-.296V3.882c0-.545.174-.816.692-1.013l.47-.174c.372-.147.519-.296.519-.716v-.94c0-.396-.222-.644-.644-.644h-7.119c-.396 0-.644.248-.644.644v.94c0 .42.147.569.519.716l.47.174c.518.197.692.47.692 1.013v10.333c0 .545-.174.815-.692 1.013l-.47.174c-.372.147-.519.296-.519.716v.94c0 .395.248.643.644.643h7.119c.42 0 .644-.248.644-.643v-.94c0-.42-.149-.569-.519-.716l-.47-.174c-.518-.198-.692-.47-.692-1.013v-4.103c0-.174.123-.297.297-.297h5.241c.174 0 .297.123.297.297v4.103c0 .545-.174.815-.692 1.013l-.47.174c-.371.147-.519.296-.519.716v.94c0 .395.248.643.644.643h7.12c.419 0 .643-.248.643-.643v-.94c0-.42-.147-.569-.518-.716l-.471-.174c-.518-.198-.692-.47-.692-1.013V3.882c0-.543.174-.816.692-1.013zM139.091 6.726l-3.016-.89c-1.483-.443-2.274-.964-2.274-1.83 0-.84.791-1.374 2.003-1.383 1.699-.013 3.216.766 5.391 3.115.296.32.617.445 1.063.197l.519-.296c.445-.246.513-.614.296-.989l-2.16-3.732c-.248-.44-.42-.743-.94-.743h-.239c-.593 0-.667.273-1.261.273-.766 0-1.589-.297-2.992-.297-3.881 0-6.403 1.878-6.403 5.191 0 2.768 2.003 4.326 4.475 5.143l3.214 1.063c1.581.519 2.423 1.114 2.423 2.201 0 1.162-.89 1.68-2.349 1.68-2.225 0-4.154-1.26-6.179-3.93-.321-.42-.644-.494-1.064-.296l-.815.395c-.371.174-.475.547-.246 1.013l2.276 4.673c.205.42.494.593.841.593h.295c.544 0 .914-.371 1.41-.371.914 0 1.83.446 3.881.446 4.104 0 7.021-1.905 7.021-5.563-.003-3.389-2.253-4.823-5.17-5.663zM126.573.397h-7.12c-.396 0-.644.248-.644.644v.94c0 .42.148.569.519.716l.47.174c.519.197.692.47.692 1.013v10.333c0 .545-.173.815-.692 1.013l-.47.174c-.371.147-.519.296-.519.716v.94c0 .395.248.643.644.643h7.12c.395 0 .643-.248.643-.643v-.94c0-.42-.147-.57-.518-.716l-.47-.174c-.519-.198-.692-.47-.692-1.013V3.884c0-.545.173-.816.692-1.013l.47-.174c.371-.147.518-.296.518-.716v-.94c-.002-.397-.248-.644-.643-.644zM115.834.47c-.164-.285-.321-.47-.692-.47h-.492c-.272 0-.424.063-.629.224-.224.171-.418.171-.903.171h-9.207c-.395 0-.643.249-.643.644v.94c0 .42.147.569.518.716l.47.174c.519.198.693.47.693 1.013v10.333c0 .545-.174.816-.693 1.013l-.47.174c-.371.147-.518.296-.518.716v.94c0 .395.248.644.643.644h7.467c.42 0 .644-.249.644-.644v-.94c0-.42-.123-.617-.519-.716l-.815-.222c-.545-.148-.692-.42-.692-.965V9.864c0-.174.123-.297.297-.297h.419c1.929 0 3.115.989 4.326 2.399.173.198.395.272.692.123l.617-.32c.273-.148.373-.387.248-.644l-1.915-3.932c-.11-.226-.247-.36-.53-.36h-.304c-.209 0-.341.056-.532.208a1.016 1.016 0 01-.643.228h-2.378a.285.285 0 01-.297-.297V3.81c0-.89.347-1.237 1.285-1.237 1.608 0 3.807 1.41 5.092 2.696.222.222.495.272.791.098l.668-.42c.222-.147.373-.382.222-.643L115.834.47zM96.514 15.626l-.57-.198c-.518-.174-.691-.47-.691-1.013V3.662c0-.545.173-.817.692-1.013l.47-.174c.371-.147.518-.296.518-.716v-.716c0-.396-.222-.644-.643-.644h-4.747c-.396 0-.644.248-.644.644v.716c0 .42.15.569.519.716l.47.174c.518.197.692.47.692 1.013v6.056a.184.184 0 01-.326.118L85.944.992c-.157-.238-.318-.397-.482-.475-.164-.079-.392-.118-.679-.118h-4.71c-.395 0-.643.248-.643.644v.94c0 .42.149.569.518.716l.47.174c.519.197.692.47.692 1.012V14.44c0 .545-.173.815-.692 1.013l-.47.174c-.371.147-.518.296-.518.716v.716c0 .395.248.644.643.644h4.747c.42 0 .644-.249.644-.644v-.716c0-.42-.147-.57-.519-.716l-.47-.174c-.518-.198-.692-.47-.692-1.013V7.623a.184.184 0 01.327-.117l6.987 9.602c.157.24.317.398.481.476.164.078.392.118.68.118h4.13c.42 0 .644-.249.644-.644v-.716c0-.42-.147-.593-.518-.716zM28.06 8.802L23.47.854a.633.633 0 00-.547-.317h-9.181a.633.633 0 00-.549.317L9.25 7.685a.285.285 0 01-.317.13.283.283 0 01-.21-.272V4.9A4.366 4.366 0 004.364.54H.634A.635.635 0 000 1.172v3.729a4.278 4.278 0 002.64 3.962.28.28 0 010 .518A4.263 4.263 0 000 13.34v3.728c0 .35.284.635.634.635h3.729a4.366 4.366 0 004.36-4.361v-2.643c0-.127.087-.24.21-.273a.287.287 0 01.317.13l3.943 6.831a.635.635 0 00.549.317h9.179a.633.633 0 00.548-.317l4.589-7.948a.628.628 0 00.084-.315.619.619 0 00-.082-.32zm-9.659 3.65c-1.79 0-3.247-1.495-3.247-3.333 0-1.837 1.456-3.333 3.247-3.333 1.79 0 3.247 1.496 3.247 3.333 0 1.838-1.456 3.334-3.247 3.334z\\" fill=\\"black\\"></path></svg></div><button><svg width=\\"27\\" height=\\"26\\" fill=\\"none\\" xmlns=\\"http://www.w3.org/2000/svg\\"><path class=\\"fill-current\\" d=\\"M.86 23.334L24.196 0l1.945 1.944L2.805 25.28z\\"></path><path class=\\"fill-current\\" d=\\"M26.139 23.334L2.804 0 .86 1.945l23.334 23.334z\\"></path></svg></button></div><a class=\\"leading-relaxed text-4xl\\" href=\\"https://ironfish.network/docs/onboarding/iron-fish-tutorial\\">Get Started</a><a class=\\"leading-relaxed text-4xl\\" href=\\"https://ironfish.network/docs/whitepaper/1_introduction\\">Whitepaper</a><button class=\\"leading-relaxed text-4xl\\"><span class=\\"flex items-center h-full relative \\">Company<span class=\\"ml-2 text-black \\">▾</span><span class=\\"\\"></span></span></button><span class=\\"leading-relaxed text-4xl\\">|</span><button class=\\"leading-relaxed text-4xl\\"><span class=\\"flex items-center h-full relative \\">Testnet<span class=\\"ml-2 text-black \\">▾</span><span class=\\"\\"></span></span></button><button class=\\"
-        flex 
-        justify-center
-        items-center
-        font-extended
-        rounded-full
-        whitespace-nowrap
-        transition
-        border-black
-        border-2
-        bg-transparent text-black hover:bg-black hover:text-white
-        p-4 h-10 h-12 ml-4 py-3 px-6
-    \\"><a href=\\"/login\\">Testnet Login</a></button></div></div><div class=\\"flex items-stretch justify-between px-3 lg:px-16\\"><div class=\\"py-7\\"><svg width=\\"190\\" height=\\"32\\" viewBox=\\"0 0 165 18\\" fill=\\"none\\" xmlns=\\"http://www.w3.org/2000/svg\\"><path d=\\"M69.33.1c-5.388 0-9.147 3.93-9.147 8.95 0 5.018 3.759 8.95 9.148 8.95 5.388 0 9.147-3.93 9.147-8.95S74.72.1 69.331.1zm.163 15.164c-2.2.057-3.51-2.013-3.617-6.083-.117-4.48 1.093-6.288 3.262-6.346 2.256-.06 3.531 1.713 3.647 6.165.108 4.096-1.065 6.206-3.292 6.264zM40.598.397h-7.12c-.395 0-.643.248-.643.644v.94c0 .42.147.569.518.716l.47.174c.519.197.692.47.692 1.013v10.333c0 .545-.173.815-.692 1.013l-.47.174c-.371.147-.518.296-.518.716v.94c0 .395.248.643.643.643h7.12c.395 0 .643-.248.643-.643v-.94c0-.42-.147-.57-.518-.716l-.47-.174c-.519-.198-.692-.47-.692-1.013V3.884c0-.545.173-.816.692-1.013l.47-.174c.371-.147.518-.296.518-.716v-.94c-.001-.397-.248-.644-.643-.644zM59.624 15.428l-.273-.148c-.667-.37-1.162-.643-1.803-1.656l-2.325-3.732c-.123-.198-.05-.347.174-.396 1.953-.518 3.065-1.656 3.065-3.684 0-3.83-2.987-5.415-9.364-5.415L43.43.446c-.395.05-.593.272-.593.643v.94c0 .42.147.57.47.692l.569.222c.47.198.643.446.643.94v10.334c0 .545-.173.815-.692 1.013l-.47.174c-.37.147-.518.296-.518.716v.94c0 .395.248.643.643.643h7.12c.42 0 .644-.248.644-.643v-.94c0-.42-.15-.57-.519-.716l-.47-.174c-.518-.198-.692-.47-.692-1.013v-3.831c0-.222.075-.297.248-.297.198 0 .321.148.495.446l3.387 6.131c.42.767.742 1.04 1.606 1.04h4.325c.42 0 .594-.223.594-.545v-.89c-.004-.4-.127-.57-.597-.843zM50.476 8.01h-.544a.338.338 0 01-.351-.35V2.938c0-.203.145-.35.35-.35h.572c1.923 0 3.114.697 3.114 2.63 0 1.934-.921 2.793-3.14 2.793zM163.807 2.869l.471-.174c.371-.147.518-.296.518-.716v-.94c0-.396-.222-.644-.643-.644h-7.12c-.396 0-.644.248-.644.644v.94c0 .42.148.569.519.716l.47.174c.518.197.692.47.692 1.013v3.115a.285.285 0 01-.297.296h-5.241a.285.285 0 01-.297-.296V3.882c0-.545.174-.816.692-1.013l.47-.174c.372-.147.519-.296.519-.716v-.94c0-.396-.222-.644-.644-.644h-7.119c-.396 0-.644.248-.644.644v.94c0 .42.147.569.519.716l.47.174c.518.197.692.47.692 1.013v10.333c0 .545-.174.815-.692 1.013l-.47.174c-.372.147-.519.296-.519.716v.94c0 .395.248.643.644.643h7.119c.42 0 .644-.248.644-.643v-.94c0-.42-.149-.569-.519-.716l-.47-.174c-.518-.198-.692-.47-.692-1.013v-4.103c0-.174.123-.297.297-.297h5.241c.174 0 .297.123.297.297v4.103c0 .545-.174.815-.692 1.013l-.47.174c-.371.147-.519.296-.519.716v.94c0 .395.248.643.644.643h7.12c.419 0 .643-.248.643-.643v-.94c0-.42-.147-.569-.518-.716l-.471-.174c-.518-.198-.692-.47-.692-1.013V3.882c0-.543.174-.816.692-1.013zM139.091 6.726l-3.016-.89c-1.483-.443-2.274-.964-2.274-1.83 0-.84.791-1.374 2.003-1.383 1.699-.013 3.216.766 5.391 3.115.296.32.617.445 1.063.197l.519-.296c.445-.246.513-.614.296-.989l-2.16-3.732c-.248-.44-.42-.743-.94-.743h-.239c-.593 0-.667.273-1.261.273-.766 0-1.589-.297-2.992-.297-3.881 0-6.403 1.878-6.403 5.191 0 2.768 2.003 4.326 4.475 5.143l3.214 1.063c1.581.519 2.423 1.114 2.423 2.201 0 1.162-.89 1.68-2.349 1.68-2.225 0-4.154-1.26-6.179-3.93-.321-.42-.644-.494-1.064-.296l-.815.395c-.371.174-.475.547-.246 1.013l2.276 4.673c.205.42.494.593.841.593h.295c.544 0 .914-.371 1.41-.371.914 0 1.83.446 3.881.446 4.104 0 7.021-1.905 7.021-5.563-.003-3.389-2.253-4.823-5.17-5.663zM126.573.397h-7.12c-.396 0-.644.248-.644.644v.94c0 .42.148.569.519.716l.47.174c.519.197.692.47.692 1.013v10.333c0 .545-.173.815-.692 1.013l-.47.174c-.371.147-.519.296-.519.716v.94c0 .395.248.643.644.643h7.12c.395 0 .643-.248.643-.643v-.94c0-.42-.147-.57-.518-.716l-.47-.174c-.519-.198-.692-.47-.692-1.013V3.884c0-.545.173-.816.692-1.013l.47-.174c.371-.147.518-.296.518-.716v-.94c-.002-.397-.248-.644-.643-.644zM115.834.47c-.164-.285-.321-.47-.692-.47h-.492c-.272 0-.424.063-.629.224-.224.171-.418.171-.903.171h-9.207c-.395 0-.643.249-.643.644v.94c0 .42.147.569.518.716l.47.174c.519.198.693.47.693 1.013v10.333c0 .545-.174.816-.693 1.013l-.47.174c-.371.147-.518.296-.518.716v.94c0 .395.248.644.643.644h7.467c.42 0 .644-.249.644-.644v-.94c0-.42-.123-.617-.519-.716l-.815-.222c-.545-.148-.692-.42-.692-.965V9.864c0-.174.123-.297.297-.297h.419c1.929 0 3.115.989 4.326 2.399.173.198.395.272.692.123l.617-.32c.273-.148.373-.387.248-.644l-1.915-3.932c-.11-.226-.247-.36-.53-.36h-.304c-.209 0-.341.056-.532.208a1.016 1.016 0 01-.643.228h-2.378a.285.285 0 01-.297-.297V3.81c0-.89.347-1.237 1.285-1.237 1.608 0 3.807 1.41 5.092 2.696.222.222.495.272.791.098l.668-.42c.222-.147.373-.382.222-.643L115.834.47zM96.514 15.626l-.57-.198c-.518-.174-.691-.47-.691-1.013V3.662c0-.545.173-.817.692-1.013l.47-.174c.371-.147.518-.296.518-.716v-.716c0-.396-.222-.644-.643-.644h-4.747c-.396 0-.644.248-.644.644v.716c0 .42.15.569.519.716l.47.174c.518.197.692.47.692 1.013v6.056a.184.184 0 01-.326.118L85.944.992c-.157-.238-.318-.397-.482-.475-.164-.079-.392-.118-.679-.118h-4.71c-.395 0-.643.248-.643.644v.94c0 .42.149.569.518.716l.47.174c.519.197.692.47.692 1.012V14.44c0 .545-.173.815-.692 1.013l-.47.174c-.371.147-.518.296-.518.716v.716c0 .395.248.644.643.644h4.747c.42 0 .644-.249.644-.644v-.716c0-.42-.147-.57-.519-.716l-.47-.174c-.518-.198-.692-.47-.692-1.013V7.623a.184.184 0 01.327-.117l6.987 9.602c.157.24.317.398.481.476.164.078.392.118.68.118h4.13c.42 0 .644-.249.644-.644v-.716c0-.42-.147-.593-.518-.716zM28.06 8.802L23.47.854a.633.633 0 00-.547-.317h-9.181a.633.633 0 00-.549.317L9.25 7.685a.285.285 0 01-.317.13.283.283 0 01-.21-.272V4.9A4.366 4.366 0 004.364.54H.634A.635.635 0 000 1.172v3.729a4.278 4.278 0 002.64 3.962.28.28 0 010 .518A4.263 4.263 0 000 13.34v3.728c0 .35.284.635.634.635h3.729a4.366 4.366 0 004.36-4.361v-2.643c0-.127.087-.24.21-.273a.287.287 0 01.317.13l3.943 6.831a.635.635 0 00.549.317h9.179a.633.633 0 00.548-.317l4.589-7.948a.628.628 0 00.084-.315.619.619 0 00-.082-.32zm-9.659 3.65c-1.79 0-3.247-1.495-3.247-3.333 0-1.837 1.456-3.333 3.247-3.333 1.79 0 3.247 1.496 3.247 3.333 0 1.838-1.456 3.334-3.247 3.334z\\" fill=\\"black\\"></path></svg></div><div class=\\"hidden md:flex items-center lg:text-xl\\"><a class=\\"px-3 lg:px-4.5 h-full flex items-center whitespace-nowrap\\" href=\\"https://ironfish.network/docs/onboarding/iron-fish-tutorial\\">Get Started</a><a class=\\"px-3 lg:px-4.5 h-full flex items-center whitespace-nowrap\\" href=\\"https://ironfish.network/docs/whitepaper/1_introduction\\">Whitepaper</a><button class=\\"px-3 lg:px-4.5 h-full flex items-center whitespace-nowrap\\"><span class=\\"flex items-center h-full relative \\">Company<span class=\\"ml-2 text-black \\">▾</span><span class=\\"\\"></span></span></button><span class=\\"px-3 lg:px-4.5 h-full flex items-center whitespace-nowrap\\">|</span><button class=\\"px-3 lg:px-4.5 h-full flex items-center whitespace-nowrap\\"><span class=\\"flex items-center h-full relative \\">Testnet<span class=\\"ml-2 text-black \\">▾</span><span class=\\"\\"></span></span></button><button class=\\"
-        flex 
-        justify-center
-        items-center
-        font-extended
-        rounded-full
-        whitespace-nowrap
-        transition
-        border-black
-        border-2
-        bg-transparent text-black hover:bg-black hover:text-white
-        p-4 h-10 h-12 ml-4 py-3 px-6
-    \\"><a href=\\"/login\\">Testnet Login</a></button></div><button class=\\"md:hidden\\"><svg xmlns=\\"http://www.w3.org/2000/svg\\" width=\\"30\\" height=\\"30\\" viewBox=\\"0 0 30 30\\" role=\\"img\\" focusable=\\"false\\"><title>Menu</title><path stroke=\\"currentColor\\" stroke-linecap=\\"round\\" stroke-miterlimit=\\"10\\" stroke-width=\\"2\\" d=\\"M4 7h22M4 15h22M4 23h22\\"></path></svg></button></div></nav><main class=\\"bg-ifpink flex-1 font-extended\\"><section class=\\"offset-box z-10 w-4/5 flex flex-col m-auto md:px-4 h-auto mb-16 border-opacity-100 border-2 border-solid border-black bg-white items-center mt-8 px-5\\"><h1 class=\\"text-4xl text-center mb-8 mt-16\\">Sign up and get incentivized.</h1><div class=\\"font-favorit flex flex-col px-2 py-3 mt-3 w-full border rounded-plus border-solid h-16 max-h-16 border-black \\"><label for=\\"email\\" class=\\"text-xs mb-px3\\">Email<span class=\\"text-md text-gray-500\\">*</span></label><input id=\\"email\\" type=\\"text\\" placeholder=\\"Your email\\" value=\\"\\"></div><div class=\\"font-favorit flex flex-col px-2 py-3 mt-3 w-full border rounded-plus border-solid h-16 max-h-16 border-black \\"><label for=\\"graffiti\\" class=\\"text-xs mb-px3\\">Graffiti<span class=\\"text-md text-gray-500\\">*</span></label><input id=\\"graffiti\\" type=\\"text\\" placeholder=\\"Your tag\\" value=\\"\\"></div><div class=\\"font-favorit flex flex-col px-2 py-3 mt-3 w-full border rounded-plus border-solid h-16 max-h-16 border-black \\"><div class=\\"flex\\"><label class=\\"text-xs\\"><input type=\\"radio\\" name=\\"social-group\\" value=\\"discord\\" checked=\\"\\"><span class=\\"mx-1\\">Discord</span></label><label class=\\"text-xs\\"><input type=\\"radio\\" name=\\"social-group\\" value=\\"telegram\\"><span class=\\"mx-1\\">Telegram</span></label></div><input id=\\"social\\" type=\\"text\\" placeholder=\\"Your proof\\" value=\\"\\"></div><div class=\\"font-favorit flex flex-col px-2 py-3 mt-3 w-full border rounded-plus border-solid h-16 max-h-16 border-black \\"><label for=\\"country\\" class=\\"text-xs mb-px3\\">Country<span class=\\"text-md text-gray-500\\">*</span></label><select><option value=\\"AFG\\">Afghanistan</option><option value=\\"ALB\\">Albania</option><option value=\\"DZA\\">Algeria</option><option value=\\"ASM\\">American Samoa</option><option value=\\"AND\\">Andorra</option><option value=\\"AGO\\">Angola</option><option value=\\"AIA\\">Anguilla</option><option value=\\"ATA\\">Antarctica</option><option value=\\"ATG\\">Antigua and Barbuda</option><option value=\\"ARG\\">Argentina</option><option value=\\"ARM\\">Armenia</option><option value=\\"ABW\\">Aruba</option><option value=\\"AUS\\">Australia</option><option value=\\"AUT\\">Austria</option><option value=\\"AZE\\">Azerbaijan</option><option value=\\"BHS\\">Bahamas</option><option value=\\"BHR\\">Bahrain</option><option value=\\"BGD\\">Bangladesh</option><option value=\\"BRB\\">Barbados</option><option value=\\"BLR\\">Belarus</option><option value=\\"BEL\\">Belgium</option><option value=\\"BLZ\\">Belize</option><option value=\\"BEN\\">Benin</option><option value=\\"BMU\\">Bermuda</option><option value=\\"BTN\\">Bhutan</option><option value=\\"BOL\\">Bolivia</option><option value=\\"BES\\">Bonaire</option><option value=\\"BIH\\">Bosnia and Herzegovina</option><option value=\\"BWA\\">Botswana</option><option value=\\"BVT\\">Bouvet Island</option><option value=\\"BRA\\">Brazil</option><option value=\\"IOT\\">British Indian Ocean Territory</option><option value=\\"BRN\\">Brunei Darussalam</option><option value=\\"BGR\\">Bulgaria</option><option value=\\"BFA\\">Burkina Faso</option><option value=\\"BDI\\">Burundi</option><option value=\\"CPV\\">Cabo Verde</option><option value=\\"KHM\\">Cambodia</option><option value=\\"CMR\\">Cameroon</option><option value=\\"CAN\\">Canada</option><option value=\\"CYM\\">Cayman Islands</option><option value=\\"CAF\\">Central African Republic</option><option value=\\"TCD\\">Chad</option><option value=\\"CHL\\">Chile</option><option value=\\"CHN\\">China</option><option value=\\"CXR\\">Christmas Island</option><option value=\\"CCK\\">Cocos</option><option value=\\"COL\\">Colombia</option><option value=\\"COM\\">Comoros</option><option value=\\"COD\\">Congo</option><option value=\\"COG\\">Congo</option><option value=\\"COK\\">Cook Islands</option><option value=\\"CRI\\">Costa Rica</option><option value=\\"HRV\\">Croatia</option><option value=\\"CUB\\">Cuba</option><option value=\\"CUW\\">Curaçao</option><option value=\\"CYP\\">Cyprus</option><option value=\\"CZE\\">Czechia</option><option value=\\"CIV\\">Côte d'Ivoire</option><option value=\\"DNK\\">Denmark</option><option value=\\"DJI\\">Djibouti</option><option value=\\"DMA\\">Dominica</option><option value=\\"DOM\\">Dominican Republic</option><option value=\\"ECU\\">Ecuador</option><option value=\\"EGY\\">Egypt</option><option value=\\"SLV\\">El Salvador</option><option value=\\"GNQ\\">Equatorial Guinea</option><option value=\\"ERI\\">Eritrea</option><option value=\\"EST\\">Estonia</option><option value=\\"SWZ\\">Eswatini</option><option value=\\"ETH\\">Ethiopia</option><option value=\\"FLK\\">Falkland Islands [Malvinas]</option><option value=\\"FRO\\">Faroe Islands</option><option value=\\"FJI\\">Fiji</option><option value=\\"FIN\\">Finland</option><option value=\\"FRA\\">France</option><option value=\\"GUF\\">French Guiana</option><option value=\\"PYF\\">French Polynesia</option><option value=\\"ATF\\">French Southern Territories</option><option value=\\"GAB\\">Gabon</option><option value=\\"GMB\\">Gambia</option><option value=\\"GEO\\">Georgia</option><option value=\\"DEU\\">Germany</option><option value=\\"GHA\\">Ghana</option><option value=\\"GIB\\">Gibraltar</option><option value=\\"GRC\\">Greece</option><option value=\\"GRL\\">Greenland</option><option value=\\"GRD\\">Grenada</option><option value=\\"GLP\\">Guadeloupe</option><option value=\\"GUM\\">Guam</option><option value=\\"GTM\\">Guatemala</option><option value=\\"GGY\\">Guernsey</option><option value=\\"GIN\\">Guinea</option><option value=\\"GNB\\">Guinea-Bissau</option><option value=\\"GUY\\">Guyana</option><option value=\\"HTI\\">Haiti</option><option value=\\"HMD\\">Heard Island and McDonald Islands</option><option value=\\"VAT\\">Holy See</option><option value=\\"HND\\">Honduras</option><option value=\\"HKG\\">Hong Kong</option><option value=\\"HUN\\">Hungary</option><option value=\\"ISL\\">Iceland</option><option value=\\"IND\\">India</option><option value=\\"IDN\\">Indonesia</option><option value=\\"IRN\\">Iran</option><option value=\\"IRQ\\">Iraq</option><option value=\\"IRL\\">Ireland</option><option value=\\"IMN\\">Isle of Man</option><option value=\\"ISR\\">Israel</option><option value=\\"ITA\\">Italy</option><option value=\\"JAM\\">Jamaica</option><option value=\\"JPN\\">Japan</option><option value=\\"JEY\\">Jersey</option><option value=\\"JOR\\">Jordan</option><option value=\\"KAZ\\">Kazakhstan</option><option value=\\"KEN\\">Kenya</option><option value=\\"KIR\\">Kiribati</option><option value=\\"PRK\\">Korea</option><option value=\\"KOR\\">Korea</option><option value=\\"KWT\\">Kuwait</option><option value=\\"KGZ\\">Kyrgyzstan</option><option value=\\"LAO\\">Laos</option><option value=\\"LVA\\">Latvia</option><option value=\\"LBN\\">Lebanon</option><option value=\\"LSO\\">Lesotho</option><option value=\\"LBR\\">Liberia</option><option value=\\"LBY\\">Libya</option><option value=\\"LIE\\">Liechtenstein</option><option value=\\"LTU\\">Lithuania</option><option value=\\"LUX\\">Luxembourg</option><option value=\\"MAC\\">Macao</option><option value=\\"MDG\\">Madagascar</option><option value=\\"MWI\\">Malawi</option><option value=\\"MYS\\">Malaysia</option><option value=\\"MDV\\">Maldives</option><option value=\\"MLI\\">Mali</option><option value=\\"MLT\\">Malta</option><option value=\\"MHL\\">Marshall Islands</option><option value=\\"MTQ\\">Martinique</option><option value=\\"MRT\\">Mauritania</option><option value=\\"MUS\\">Mauritius</option><option value=\\"MYT\\">Mayotte</option><option value=\\"MEX\\">Mexico</option><option value=\\"FSM\\">Micronesia</option><option value=\\"MDA\\">Moldova</option><option value=\\"MCO\\">Monaco</option><option value=\\"MNG\\">Mongolia</option><option value=\\"MNE\\">Montenegro</option><option value=\\"MSR\\">Montserrat</option><option value=\\"MAR\\">Morocco</option><option value=\\"MOZ\\">Mozambique</option><option value=\\"MMR\\">Myanmar</option><option value=\\"NAM\\">Namibia</option><option value=\\"NRU\\">Nauru</option><option value=\\"NPL\\">Nepal</option><option value=\\"NLD\\">Netherlands</option><option value=\\"NCL\\">New Caledonia</option><option value=\\"NZL\\">New Zealand</option><option value=\\"NIC\\">Nicaragua</option><option value=\\"NER\\">Niger</option><option value=\\"NGA\\">Nigeria</option><option value=\\"NIU\\">Niue</option><option value=\\"NFK\\">Norfolk Island</option><option value=\\"MKD\\">North Macedonia</option><option value=\\"MNP\\">Northern Mariana Islands</option><option value=\\"NOR\\">Norway</option><option value=\\"OMN\\">Oman</option><option value=\\"PAK\\">Pakistan</option><option value=\\"PLW\\">Palau</option><option value=\\"PSE\\">Palestine</option><option value=\\"PAN\\">Panama</option><option value=\\"PNG\\">Papua New Guinea</option><option value=\\"PRY\\">Paraguay</option><option value=\\"PER\\">Peru</option><option value=\\"PHL\\">Philippines</option><option value=\\"PCN\\">Pitcairn</option><option value=\\"POL\\">Poland</option><option value=\\"PRT\\">Portugal</option><option value=\\"PRI\\">Puerto Rico</option><option value=\\"QAT\\">Qatar</option><option value=\\"ROU\\">Romania</option><option value=\\"RUS\\">Russian Federation</option><option value=\\"RWA\\">Rwanda</option><option value=\\"REU\\">Réunion</option><option value=\\"BLM\\">Saint Barthélemy</option><option value=\\"SHN\\">Saint Helena</option><option value=\\"KNA\\">Saint Kitts and Nevis</option><option value=\\"LCA\\">Saint Lucia</option><option value=\\"MAF\\">Saint Martin</option><option value=\\"SPM\\">Saint Pierre and Miquelon</option><option value=\\"VCT\\">Saint Vincent and the Grenadines</option><option value=\\"WSM\\">Samoa</option><option value=\\"SMR\\">San Marino</option><option value=\\"STP\\">Sao Tome and Principe</option><option value=\\"SAU\\">Saudi Arabia</option><option value=\\"SEN\\">Senegal</option><option value=\\"SRB\\">Serbia</option><option value=\\"SYC\\">Seychelles</option><option value=\\"SLE\\">Sierra Leone</option><option value=\\"SGP\\">Singapore</option><option value=\\"SXM\\">Sint Maarten</option><option value=\\"SVK\\">Slovakia</option><option value=\\"SVN\\">Slovenia</option><option value=\\"SLB\\">Solomon Islands</option><option value=\\"SOM\\">Somalia</option><option value=\\"ZAF\\">South Africa</option><option value=\\"SGS\\">South Georgia and the South Sandwich Islands</option><option value=\\"SSD\\">South Sudan</option><option value=\\"ESP\\">Spain</option><option value=\\"LKA\\">Sri Lanka</option><option value=\\"SDN\\">Sudan</option><option value=\\"SUR\\">Suriname</option><option value=\\"SJM\\">Svalbard and Jan Mayen</option><option value=\\"SWE\\">Sweden</option><option value=\\"CHE\\">Switzerland</option><option value=\\"SYR\\">Syrian Arab Republic</option><option value=\\"TWN\\">Taiwan</option><option value=\\"TJK\\">Tajikistan</option><option value=\\"TZA\\">Tanzania</option><option value=\\"THA\\">Thailand</option><option value=\\"TLS\\">Timor-Leste</option><option value=\\"TGO\\">Togo</option><option value=\\"TKL\\">Tokelau</option><option value=\\"TON\\">Tonga</option><option value=\\"TTO\\">Trinidad and Tobago</option><option value=\\"TUN\\">Tunisia</option><option value=\\"TUR\\">Turkey</option><option value=\\"TKM\\">Turkmenistan</option><option value=\\"TCA\\">Turks and Caicos Islands</option><option value=\\"TUV\\">Tuvalu</option><option value=\\"UGA\\">Uganda</option><option value=\\"UKR\\">Ukraine</option><option value=\\"ARE\\">United Arab Emirates</option><option value=\\"GBR\\">United Kingdom</option><option value=\\"USA\\">United States</option><option value=\\"UMI\\">United States Minor Outlying Islands</option><option value=\\"URY\\">Uruguay</option><option value=\\"UZB\\">Uzbekistan</option><option value=\\"VUT\\">Vanuatu</option><option value=\\"VEN\\">Venezuela</option><option value=\\"VNM\\">Viet Nam</option><option value=\\"VGB\\">Virgin Islands</option><option value=\\"VIR\\">Virgin Islands</option><option value=\\"WLF\\">Wallis and Futuna</option><option value=\\"ESH\\">Western Sahara*</option><option value=\\"YEM\\">Yemen</option><option value=\\"ZMB\\">Zambia</option><option value=\\"ZWE\\">Zimbabwe</option><option value=\\"ALA\\">Åland Islands</option></select></div><div class=\\"p-2 text-sm mb-8 mt-2 bg-alertyellow text-center w-full\\"><strong>Please note</strong>: US participants are not eligible for Iron Fish coin rewards</div><button class=\\"
-        flex 
-        justify-center
-        items-center
-        font-extended
-        rounded-full
-        whitespace-nowrap
-        transition
-        border-black
-        border-2
-        bg-black text-white hover:bg-transparent hover:text-black
-        w-11/12 sm:w-7/12 mb-4 text-lg md:text-xl p-3 md:py-5 md:px-4
-    \\">Sign Up</button><span class=\\"font-favorit p-2 w-11/12 sm:w-7/12 mb-4 text-xs text-center\\">By clicking on sign up, you agree to Iron Fish's Testnet Guidelines.</span><div class=\\"text-center text-xl py-8\\">Have an account?<!-- --> <a class=\\"text-iflightblue\\" href=\\"/login\\">Log In</a></div></section></main><footer class=\\"font-extended border-t text-ifblue\\"><div class=\\"px-0 md:px-12\\"><div class=\\"flex flex-col md:flex-row w-52 md:w-full m-auto justify-between py-14\\"><div class=\\"mt-1\\"><a href=\\"https://www.ironfish.network\\"><svg width=\\"165\\" height=\\"18\\" viewBox=\\"0 0 165 18\\" fill=\\"none\\" xmlns=\\"http://www.w3.org/2000/svg\\"><path d=\\"M69.33.1c-5.388 0-9.147 3.93-9.147 8.95 0 5.018 3.759 8.95 9.148 8.95 5.388 0 9.147-3.93 9.147-8.95S74.72.1 69.331.1zm.163 15.164c-2.2.057-3.51-2.013-3.617-6.083-.117-4.48 1.093-6.288 3.262-6.346 2.256-.06 3.531 1.713 3.647 6.165.108 4.096-1.065 6.206-3.292 6.264zM40.598.397h-7.12c-.395 0-.643.248-.643.644v.94c0 .42.147.569.518.716l.47.174c.519.197.692.47.692 1.013v10.333c0 .545-.173.815-.692 1.013l-.47.174c-.371.147-.518.296-.518.716v.94c0 .395.248.643.643.643h7.12c.395 0 .643-.248.643-.643v-.94c0-.42-.147-.57-.518-.716l-.47-.174c-.519-.198-.692-.47-.692-1.013V3.884c0-.545.173-.816.692-1.013l.47-.174c.371-.147.518-.296.518-.716v-.94c-.001-.397-.248-.644-.643-.644zM59.624 15.428l-.273-.148c-.667-.37-1.162-.643-1.803-1.656l-2.325-3.732c-.123-.198-.05-.347.174-.396 1.953-.518 3.065-1.656 3.065-3.684 0-3.83-2.987-5.415-9.364-5.415L43.43.446c-.395.05-.593.272-.593.643v.94c0 .42.147.57.47.692l.569.222c.47.198.643.446.643.94v10.334c0 .545-.173.815-.692 1.013l-.47.174c-.37.147-.518.296-.518.716v.94c0 .395.248.643.643.643h7.12c.42 0 .644-.248.644-.643v-.94c0-.42-.15-.57-.519-.716l-.47-.174c-.518-.198-.692-.47-.692-1.013v-3.831c0-.222.075-.297.248-.297.198 0 .321.148.495.446l3.387 6.131c.42.767.742 1.04 1.606 1.04h4.325c.42 0 .594-.223.594-.545v-.89c-.004-.4-.127-.57-.597-.843zM50.476 8.01h-.544a.338.338 0 01-.351-.35V2.938c0-.203.145-.35.35-.35h.572c1.923 0 3.114.697 3.114 2.63 0 1.934-.921 2.793-3.14 2.793zM163.807 2.869l.471-.174c.371-.147.518-.296.518-.716v-.94c0-.396-.222-.644-.643-.644h-7.12c-.396 0-.644.248-.644.644v.94c0 .42.148.569.519.716l.47.174c.518.197.692.47.692 1.013v3.115a.285.285 0 01-.297.296h-5.241a.285.285 0 01-.297-.296V3.882c0-.545.174-.816.692-1.013l.47-.174c.372-.147.519-.296.519-.716v-.94c0-.396-.222-.644-.644-.644h-7.119c-.396 0-.644.248-.644.644v.94c0 .42.147.569.519.716l.47.174c.518.197.692.47.692 1.013v10.333c0 .545-.174.815-.692 1.013l-.47.174c-.372.147-.519.296-.519.716v.94c0 .395.248.643.644.643h7.119c.42 0 .644-.248.644-.643v-.94c0-.42-.149-.569-.519-.716l-.47-.174c-.518-.198-.692-.47-.692-1.013v-4.103c0-.174.123-.297.297-.297h5.241c.174 0 .297.123.297.297v4.103c0 .545-.174.815-.692 1.013l-.47.174c-.371.147-.519.296-.519.716v.94c0 .395.248.643.644.643h7.12c.419 0 .643-.248.643-.643v-.94c0-.42-.147-.569-.518-.716l-.471-.174c-.518-.198-.692-.47-.692-1.013V3.882c0-.543.174-.816.692-1.013zM139.091 6.726l-3.016-.89c-1.483-.443-2.274-.964-2.274-1.83 0-.84.791-1.374 2.003-1.383 1.699-.013 3.216.766 5.391 3.115.296.32.617.445 1.063.197l.519-.296c.445-.246.513-.614.296-.989l-2.16-3.732c-.248-.44-.42-.743-.94-.743h-.239c-.593 0-.667.273-1.261.273-.766 0-1.589-.297-2.992-.297-3.881 0-6.403 1.878-6.403 5.191 0 2.768 2.003 4.326 4.475 5.143l3.214 1.063c1.581.519 2.423 1.114 2.423 2.201 0 1.162-.89 1.68-2.349 1.68-2.225 0-4.154-1.26-6.179-3.93-.321-.42-.644-.494-1.064-.296l-.815.395c-.371.174-.475.547-.246 1.013l2.276 4.673c.205.42.494.593.841.593h.295c.544 0 .914-.371 1.41-.371.914 0 1.83.446 3.881.446 4.104 0 7.021-1.905 7.021-5.563-.003-3.389-2.253-4.823-5.17-5.663zM126.573.397h-7.12c-.396 0-.644.248-.644.644v.94c0 .42.148.569.519.716l.47.174c.519.197.692.47.692 1.013v10.333c0 .545-.173.815-.692 1.013l-.47.174c-.371.147-.519.296-.519.716v.94c0 .395.248.643.644.643h7.12c.395 0 .643-.248.643-.643v-.94c0-.42-.147-.57-.518-.716l-.47-.174c-.519-.198-.692-.47-.692-1.013V3.884c0-.545.173-.816.692-1.013l.47-.174c.371-.147.518-.296.518-.716v-.94c-.002-.397-.248-.644-.643-.644zM115.834.47c-.164-.285-.321-.47-.692-.47h-.492c-.272 0-.424.063-.629.224-.224.171-.418.171-.903.171h-9.207c-.395 0-.643.249-.643.644v.94c0 .42.147.569.518.716l.47.174c.519.198.693.47.693 1.013v10.333c0 .545-.174.816-.693 1.013l-.47.174c-.371.147-.518.296-.518.716v.94c0 .395.248.644.643.644h7.467c.42 0 .644-.249.644-.644v-.94c0-.42-.123-.617-.519-.716l-.815-.222c-.545-.148-.692-.42-.692-.965V9.864c0-.174.123-.297.297-.297h.419c1.929 0 3.115.989 4.326 2.399.173.198.395.272.692.123l.617-.32c.273-.148.373-.387.248-.644l-1.915-3.932c-.11-.226-.247-.36-.53-.36h-.304c-.209 0-.341.056-.532.208a1.016 1.016 0 01-.643.228h-2.378a.285.285 0 01-.297-.297V3.81c0-.89.347-1.237 1.285-1.237 1.608 0 3.807 1.41 5.092 2.696.222.222.495.272.791.098l.668-.42c.222-.147.373-.382.222-.643L115.834.47zM96.514 15.626l-.57-.198c-.518-.174-.691-.47-.691-1.013V3.662c0-.545.173-.817.692-1.013l.47-.174c.371-.147.518-.296.518-.716v-.716c0-.396-.222-.644-.643-.644h-4.747c-.396 0-.644.248-.644.644v.716c0 .42.15.569.519.716l.47.174c.518.197.692.47.692 1.013v6.056a.184.184 0 01-.326.118L85.944.992c-.157-.238-.318-.397-.482-.475-.164-.079-.392-.118-.679-.118h-4.71c-.395 0-.643.248-.643.644v.94c0 .42.149.569.518.716l.47.174c.519.197.692.47.692 1.012V14.44c0 .545-.173.815-.692 1.013l-.47.174c-.371.147-.518.296-.518.716v.716c0 .395.248.644.643.644h4.747c.42 0 .644-.249.644-.644v-.716c0-.42-.147-.57-.519-.716l-.47-.174c-.518-.198-.692-.47-.692-1.013V7.623a.184.184 0 01.327-.117l6.987 9.602c.157.24.317.398.481.476.164.078.392.118.68.118h4.13c.42 0 .644-.249.644-.644v-.716c0-.42-.147-.593-.518-.716zM28.06 8.802L23.47.854a.633.633 0 00-.547-.317h-9.181a.633.633 0 00-.549.317L9.25 7.685a.285.285 0 01-.317.13.283.283 0 01-.21-.272V4.9A4.366 4.366 0 004.364.54H.634A.635.635 0 000 1.172v3.729a4.278 4.278 0 002.64 3.962.28.28 0 010 .518A4.263 4.263 0 000 13.34v3.728c0 .35.284.635.634.635h3.729a4.366 4.366 0 004.36-4.361v-2.643c0-.127.087-.24.21-.273a.287.287 0 01.317.13l3.943 6.831a.635.635 0 00.549.317h9.179a.633.633 0 00.548-.317l4.589-7.948a.628.628 0 00.084-.315.619.619 0 00-.082-.32zm-9.659 3.65c-1.79 0-3.247-1.495-3.247-3.333 0-1.837 1.456-3.333 3.247-3.333 1.79 0 3.247 1.496 3.247 3.333 0 1.838-1.456 3.334-3.247 3.334z\\" fill=\\"#1D0070\\"></path></svg></a><p class=\\"mt-3 text-xs w-60\\">Iron Fish is a novel cryptocurrency focused on privacy and accessibility</p></div><div class=\\"mt-8 md:mt-0 mx-1\\"><h3 class=\\"font-extended mb-2 text-xl\\">Company</h3><ul><li class=\\"font-extended leading-loose\\"><a href=\\"/about\\">About Us</a></li><li class=\\"font-extended leading-loose\\"><a href=\\"/careers\\">Careers</a></li><li class=\\"font-extended leading-loose\\"><a href=\\"/blog\\">Blog</a></li></ul></div><div class=\\"mt-8 md:mt-0 mx-1\\"><h3 class=\\"font-extended mb-2 text-xl\\">Product</h3><ul><li class=\\"font-extended leading-loose\\"><a href=\\"https://explorer.ironfish.network/\\">Block Explorer</a></li><li class=\\"font-extended leading-loose\\"><a href=\\"/docs/whitepaper/1_introduction\\">Whitepaper</a></li><li class=\\"font-extended leading-loose\\"><a href=\\"/faq\\">FAQ</a></li></ul></div><button class=\\"
-        flex 
-        justify-center
-        items-center
-        font-extended
-        rounded-full
-        whitespace-nowrap
-        transition
-        border-black
-        border-2
-        bg-black text-white hover:bg-transparent hover:text-black
-        p-4 h-10 mt-8 md:mt-0
-    \\"><a href=\\"mailto:contact@ironfish.network\\">Drop us a line!</a></button></div><div class=\\"flex justify-between items-center border-t w-full p-4\\"><p class=\\"text-xs\\"><span>Copyright <!-- -->2021<!-- --> Iron Fish</span><span class=\\"hidden md:inline\\">. All rights reserved.</span></p><div class=\\"flex justify-between items-center w-40\\"><a href=\\"https://t.me/ironfishcryptochat\\"><div style=\\"overflow:hidden;box-sizing:border-box;display:inline-block;position:relative;width:14px;height:16px\\"><noscript><img alt=\\"Telegram\\" srcSet=\\"/_next/image?url=%2Ffooter%2Ftelegram.svg&amp;w=16&amp;q=75 1x, /_next/image?url=%2Ffooter%2Ftelegram.svg&amp;w=32&amp;q=75 2x\\" src=\\"/_next/image?url=%2Ffooter%2Ftelegram.svg&amp;w=32&amp;q=75\\" decoding=\\"async\\" style=\\"position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%\\"/></noscript><img alt=\\"Telegram\\" src=\\"data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7\\" decoding=\\"async\\" style=\\"position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%\\"></div></a><a href=\\"https://github.com/iron-fish\\"><div style=\\"overflow:hidden;box-sizing:border-box;display:inline-block;position:relative;width:16px;height:16px\\"><noscript><img alt=\\"Github\\" srcSet=\\"/_next/image?url=%2Ffooter%2Fgithub.svg&amp;w=16&amp;q=75 1x, /_next/image?url=%2Ffooter%2Fgithub.svg&amp;w=32&amp;q=75 2x\\" src=\\"/_next/image?url=%2Ffooter%2Fgithub.svg&amp;w=32&amp;q=75\\" decoding=\\"async\\" style=\\"position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%\\"/></noscript><img alt=\\"Github\\" src=\\"data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7\\" decoding=\\"async\\" style=\\"position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%\\"></div></a><a href=\\"http://reddit.com/r/ironfish\\"><div style=\\"overflow:hidden;box-sizing:border-box;display:inline-block;position:relative;width:17px;height:16px\\"><noscript><img alt=\\"Reddit\\" srcSet=\\"/_next/image?url=%2Ffooter%2Freddit.svg&amp;w=32&amp;q=75 1x, /_next/image?url=%2Ffooter%2Freddit.svg&amp;w=48&amp;q=75 2x\\" src=\\"/_next/image?url=%2Ffooter%2Freddit.svg&amp;w=48&amp;q=75\\" decoding=\\"async\\" style=\\"position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%\\"/></noscript><img alt=\\"Reddit\\" src=\\"data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7\\" decoding=\\"async\\" style=\\"position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%\\"></div></a><a href=\\"https://twitter.com/ironfishcrypto\\"><div style=\\"overflow:hidden;box-sizing:border-box;display:inline-block;position:relative;width:17px;height:16px\\"><noscript><img alt=\\"Twitter\\" srcSet=\\"/_next/image?url=%2Ffooter%2Ftwitter.svg&amp;w=32&amp;q=75 1x, /_next/image?url=%2Ffooter%2Ftwitter.svg&amp;w=48&amp;q=75 2x\\" src=\\"/_next/image?url=%2Ffooter%2Ftwitter.svg&amp;w=48&amp;q=75\\" decoding=\\"async\\" style=\\"position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%\\"/></noscript><img alt=\\"Twitter\\" src=\\"data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7\\" decoding=\\"async\\" style=\\"position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%\\"></div></a><a href=\\"https://discord.gg/EkQkEcm8DH\\"><div style=\\"overflow:hidden;box-sizing:border-box;display:inline-block;position:relative;width:15px;height:16px\\"><noscript><img alt=\\"Discord\\" srcSet=\\"/_next/image?url=%2Ffooter%2Fdiscord.svg&amp;w=16&amp;q=75 1x, /_next/image?url=%2Ffooter%2Fdiscord.svg&amp;w=32&amp;q=75 2x\\" src=\\"/_next/image?url=%2Ffooter%2Fdiscord.svg&amp;w=32&amp;q=75\\" decoding=\\"async\\" style=\\"position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%\\"/></noscript><img alt=\\"Discord\\" src=\\"data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7\\" decoding=\\"async\\" style=\\"position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%\\"></div></a></div></div></div></footer></div></div><script id=\\"__NEXT_DATA__\\" type=\\"application/json\\">{\\"props\\":{\\"pageProps\\":{}},\\"page\\":\\"/signup\\",\\"query\\":{},\\"buildId\\":\\"iiavlpcLFUXxkudLojHXm\\",\\"nextExport\\":true,\\"autoExport\\":true,\\"isFallback\\":false,\\"scriptLoader\\":[]}</script><next-route-announcer><p aria-live=\\"assertive\\" id=\\"__next-route-announcer__\\" role=\\"alert\\" style=\\"border: 0px none; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap; overflow-wrap: normal;\\"></p></next-route-announcer><script src=\\"/_next/static/chunks/pages/login-c12ebc6d33aa49b522f7.js\\"></script></body></html>"
 `;
