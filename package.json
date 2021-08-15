@@ -31,10 +31,14 @@
   "dependencies": {
     "fluture": "^14.0.0",
     "postcss": "^8.3.6",
+    "postcss-discard-empty": "^5.0.1",
+    "postcss-discard-unused": "^5.0.1",
     "postcss-html": "^0.36.0",
     "postcss-js": "^3.0.3",
     "postcss-safe-parser": "^6.0.0",
+    "postcss-selector-parser": "^6.0.6",
     "postcss-syntax": "^0.36.2",
+    "posthtml-parser": "^0.10.0",
     "ramda": "^0.27.1",
     "torpor": "^0.1.0",
     "yargs-parser": "^20.2.9"

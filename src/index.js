@@ -1,2 +1,2 @@
-export * from './passwind'
+export * from './core'
 export * from './reader'
