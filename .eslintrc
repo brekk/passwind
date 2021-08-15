@@ -1,0 +1,9 @@
+ignorePatterns:
+- passwind.js
+- passwind.mjs
+- passwind.umd.js
+extends: sorcerers
+rules:
+  no-unused-vars:
+  - 2
+  - varsIgnorePattern: _

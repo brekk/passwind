@@ -1,0 +1,5 @@
+.wakatime.cfg
+node_modules
+coverage
+.DS_Store
+.eslintcache

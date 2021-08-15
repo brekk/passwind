@@ -1,0 +1,54 @@
+{
+  "devDependencies": {
+    "@babel/core": "^7.0.0-0",
+    "@babel/eslint-parser": "^7.13.14",
+    "@babel/plugin-proposal-object-rest-spread": "^7.13.8",
+    "@babel/plugin-transform-destructuring": "^7.13.0",
+    "@babel/preset-env": "^7.13.15",
+    "@rollup/plugin-alias": "^3.1.2",
+    "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-commonjs": "^18.0.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^11.2.1",
+    "eslint": "^7.24.0",
+    "eslint-config-sorcerers": "^0.0.7",
+    "husky": ">=6",
+    "lint-staged": ">=10",
+    "nps": "^5.10.0",
+    "prettier": "^2.2.1",
+    "prettier-eslint": "^12.0.0",
+    "ripjam": "^0.0.9",
+    "rollup": "^2.45.2"
+  },
+  "name": "passwind",
+  "version": "0.0.0",
+  "description": "tailwind? pass",
+  "main": "passwind.js",
+  "repository": "https://github.com/brekk/passwind",
+  "author": "Brekk <brekk@brekkbockrath.com>",
+  "license": "ISC",
+  "private": false,
+  "dependencies": {
+    "fluture": "^14.0.0",
+    "postcss": "^8.3.6",
+    "postcss-html": "^0.36.0",
+    "postcss-js": "^3.0.3",
+    "postcss-safe-parser": "^6.0.0",
+    "postcss-syntax": "^0.36.2",
+    "ramda": "^0.27.1",
+    "torpor": "^0.1.0",
+    "yargs-parser": "^20.2.9"
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix",
+    "*.{js,css,md}": "prettier --write"
+  },
+  "scripts": {
+    "prepare": "husky install"
+  },
+  "files": [
+    "passwind.js",
+    "passwind.mjs",
+    "passwind.umd.js"
+  ]
+}
