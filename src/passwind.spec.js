@@ -14,5 +14,5 @@ test('passwind', done => {
   fork(done)(result => {
     expect(result).toMatchSnapshot()
     done()
-  })(passwind(fixture.html, fixture.css))
+  })(passwind(fixture.css, fixture.html))
 })
