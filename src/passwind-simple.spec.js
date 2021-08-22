@@ -2,7 +2,6 @@ import path from 'path'
 // import { pipe, map } from 'ramda'
 import { fork } from 'fluture'
 // import {hook} from 'ripjam/test'
-import { cancel } from './parser'
 import { passwind } from './index'
 const local = x => path.join(__dirname, x)
 
@@ -12,13 +11,9 @@ const fixture = {
   html: local('../fixture/example.html'),
 }
 
-test('passwind', done => {
+test('passwind - small case', done => {
   fork(done)(result => {
     expect(result).toMatchSnapshot()
     done()
-  })(passwind(fixture.css, fixture.html))
-})
-
-test('cancel', () => {
-  expect(cancel()).toBeFalsy()
+  })(passwind(fixture.smallCSS, fixture.html))
 })

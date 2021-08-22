@@ -1,4 +1,4 @@
-import { pipe as pipe$1, times, join, pathOr, memoizeWith, ifElse, equals, always as always$1, split, map, trim, replace, filter as filter$1, length as length$1, lt, curry as curry$1, chain, head, uniqBy, prop as prop$1, __, any, includes, reduce, concat, toPairs, fromPairs } from 'ramda';
+import { pipe as pipe$1, times, join, pathOr, memoizeWith, ifElse, equals, always, split, map, trim, replace, filter as filter$1, length as length$1, lt, curry as curry$1, chain, is, head, uniqBy, prop as prop$1, __, any, includes, identity, indexOf, when, slice, keys as keys$1, complement, startsWith, both, nth, toPairs, objOf, mergeRight, of, concat, reduce, fromPairs, propOr } from 'ramda';
 import { readFile } from 'torpor';
 import { parse } from 'postcss';
 import { objectify } from 'postcss-js';
@@ -215,7 +215,7 @@ var version$1 = "0.7.7";
 
 var K = function (x) { return function () { return x; }; };
 
-var I$1 = function (x) { return x; };
+var I = function (x) { return x; };
 
 var remapParameters = function (indices, arr) {
   var copy = Array.from(arr);
@@ -255,7 +255,7 @@ var katsuCurry_es = /*#__PURE__*/Object.freeze({
   curryify: curryify,
   version: version$1,
   K: K,
-  I: I$1,
+  I: I,
   remap: remap,
   remapArray: remapArray
 });
@@ -688,15 +688,15 @@ const fashion = memoizeWith(
   classAttributes,
   pipe$1(
     classAttributes,
-    ifElse(equals(''), always$1(false), classes => ({
+    ifElse(equals(''), always(false), classes => ({
       id: uniqId(),
       selector: pipe$1(
         split(' '),
         map(pipe$1(trim, replace(/\n/g, ''))),
-        filter$1(z => !!z)
-      )(classes)
-    }))
-  )
+        filter$1(z => !!z),
+      )(classes),
+    })),
+  ),
 );
 
 const hasKids = pipe$1(length$1, lt(0));
@@ -713,7 +713,7 @@ const walk = curry$1(function _walk(steps, node) {
 function cancel() {}
 const cssWithCancel = curry$1(function _cssWithCancel(
   canceller,
-  raw
+  raw,
 ) {
   return new Future(function parseCSS(bad, good) {
     try {
@@ -727,17 +727,21 @@ const cssWithCancel = curry$1(function _cssWithCancel(
 
 const htmlWithCancel = curry$1(function _htmlWithCancel(
   canceller,
-  raw
+  raw,
 ) {
   return new Future(function parseHTMLAsync(bad, good) {
     try {
-      const steps = [];
-      const parsed = parser$1(raw, { lowerCaseTags: true });
-      pipe$1(head, walk(steps), uniqBy(prop$1('id')), good)(parsed);
+      if (!is(String, raw)) {
+        bad(new TypeError('Expected an html string'));
+      } else {
+        const steps = [];
+        const parsed = parser$1(raw, { lowerCaseTags: true });
+        pipe$1(head, walk(steps), uniqBy(prop$1('id')), good)(parsed);
+      }
     } catch (e) {
       bad(e);
     }
-    return () => {}
+    return canceller
   })
 });
 
@@ -750,54 +754,6 @@ const readAndParseWith = fn =>
 const css = readAndParseWith(css$1);
 const html = readAndParseWith(html$1);
 
-var callWithScopeWhen = curry(function (effect, when, what, value) {
-  var scope = what(value);
-  if (when(scope)) effect(scope);
-  return value;
-});
-var callBinaryWithScopeWhen = curry(function (effect, when, what, tag, value) {
-  var scope = what(value);
-  if (when(tag, scope)) effect(tag, scope);
-  return value;
-});
-
-var always = function always() {
-  return true;
-};
-var I = function I(x) {
-  return x;
-};
-
-callWithScopeWhen($, $, I);
-callWithScopeWhen($, always, I);
-callWithScopeWhen($, always);
-callBinaryWithScopeWhen($, $, I);
-callBinaryWithScopeWhen($, always);
-callBinaryWithScopeWhen($, always, I);
-
-var traceWithScopeWhen = callBinaryWithScopeWhen(console.log);
-var traceWithScope = traceWithScopeWhen(always);
-var inspect = traceWithScope;
-inspect(I);
-callBinaryWithScopeWhen(console.log, $, I);
-
-var segment = curryObjectN(3, function (_ref) {
-  var _ref$what = _ref.what,
-      what = _ref$what === void 0 ? I : _ref$what,
-      _ref$when = _ref.when,
-      when = _ref$when === void 0 ? always : _ref$when,
-      tag = _ref.tag,
-      value = _ref.value,
-      effect = _ref.effect;
-  if (when(tag, what(value))) {
-    effect(tag, what(value));
-  }
-  return value;
-});
-segment({
-  effect: console.log
-});
-
 const classify = z => `.${z}`;
 const classifyAll = map(classify);
 
@@ -807,45 +763,100 @@ const anyMatch = curry$1(function _anyMatch(a, b) {
 
 const cleanSplit = pipe$1(
   split(' '),
-  map(pipe$1(replace(/\n/g, ''), trim))
+  map(pipe$1(replace(/,\n/g, ''), trim)),
+);
+
+pipe$1(split(/,\n/g), filter$1(identity));
+
+const hasColon = pipe$1(indexOf(':'), lt(0));
+when(
+  hasColon,
+  pipe$1(indexOf(':'), slice(__, Infinity)),
+);
+
+const isEmptyObject = pipe$1(keys$1, length$1, equals(0));
+const isNotEmptyObject = complement(isEmptyObject);
+
+const isAtRule = startsWith('@');
+const isMediaRule = includes('media');
+const isAtMediaRule = both(isAtRule, isMediaRule);
+filter$1(pipe$1(head, isAtRule));
+const getResponsiveSelectors = pipe$1(
+  filter$1(pipe$1(head, isAtMediaRule)),
+  chain(
+    pipe$1(
+      nth(1),
+      toPairs,
+      map(([k, v]) => [k.replace(/\\:/g, ':'), v]),
+    ),
+  ),
+);
+
+const matchingSelectors = curry$1(function _matchingSelectors(
+  dotClasses,
+  cssPairs,
+) {
+  return filter$1(pipe$1(head, cleanSplit, anyMatch(dotClasses)))(
+    cssPairs,
+  )
+});
+
+const conditionalMergeAs = curry$1((key, list, a, b) =>
+  ifElse(
+    isNotEmptyObject,
+    pipe$1(objOf(key), mergeRight(a), of, concat(list)),
+    always(list),
+  )(b),
 );
 
 const getAllClasses = pipe$1(
   map(prop$1('selector')),
   reduce(concat, []),
-  classifyAll
+  classifyAll,
 );
 
 const cutClasses = curry$1(function _cutDownClasses(
   parsedCSS,
-  htmlClasses
+  htmlClasses,
 ) {
   const dotClasses = getAllClasses(htmlClasses);
   return pipe$1(
     toPairs,
-    filter$1(([k]) => anyMatch(dotClasses, cleanSplit(k))),
-    fromPairs
+    pairs =>
+      pipe$1(
+        getResponsiveSelectors,
+        concat(pairs),
+        matchingSelectors(dotClasses),
+      )(pairs),
+    fromPairs,
   )(parsedCSS)
 });
 
-const grabDefinition = curry$1(function _grabDefinition(defs, lookup) {
-  return pipe$1(map(cls => defs[cls]))(lookup)
+const looseClassMatch = curry$1(function _looseClassMatch(defs, cls) {
+  const lookup = defs[cls];
+  return lookup ? [cls, lookup] : false
 });
 
-const consumer = curry$1((parsedCSS, htmlClasses) => {
-  const filtered = cutClasses(parsedCSS, htmlClasses);
-  console.log({ filtered });
-  pipe$1(
-    reduce((agg, def) => {
-      const grabbed = grabDefinition(
-        filtered,
-        classifyAll(def.selector)
-      );
-      console.log({ def, grabbed });
-      return agg.concat(grabbed)
-    }, [])
-  )(htmlClasses);
-  return filtered
+const grabDefinition = curry$1(function _grabDefinition(defs, lookup) {
+  return pipe$1(
+    map(looseClassMatch(defs)),
+    filter$1(identity),
+    fromPairs,
+  )(lookup)
+});
+
+const consumer = curry$1(function _consumer(parsedCSS, htmlClasses) {
+  return reduce(
+    (agg, def) =>
+      pipe$1(
+        propOr([], 'selector'),
+        classifyAll,
+        grabDefinition(cutClasses(parsedCSS, htmlClasses)),
+        conditionalMergeAs('definitions', agg, def),
+      )(def),
+    [],
+    htmlClasses,
+  )
 });
 
 const passwind = curry$1(function _passwind(cssFile, htmlFile) {
@@ -855,7 +866,7 @@ const passwind = curry$1(function _passwind(cssFile, htmlFile) {
 const reader = {
   readAndParseWith,
   css: css,
-  html: html
+  html: html,
 };
 
 const parser = {
@@ -863,7 +874,7 @@ const parser = {
   cssWithCancel,
   css: css$1,
   htmlWithCancel,
-  html: html$1
+  html: html$1,
 };
 
 export { parser, passwind, reader };

@@ -1,6 +1,7 @@
 import { parse as cssParse } from 'postcss'
 import { objectify } from 'postcss-js'
 import {
+  is,
   always,
   chain,
   curry,
@@ -8,7 +9,6 @@ import {
   filter,
   head,
   prop,
-  identity as I,
   ifElse,
   length,
   lt,
@@ -19,7 +19,7 @@ import {
   split,
   trim,
   uniqBy,
-  memoizeWith
+  memoizeWith,
 } from 'ramda'
 import { Future } from 'fluture'
 import { parser as htmlParse } from 'posthtml-parser'
@@ -37,10 +37,10 @@ const fashion = memoizeWith(
       selector: pipe(
         split(' '),
         map(pipe(trim, replace(/\n/g, ''))),
-        filter(z => !!z)
-      )(classes)
-    }))
-  )
+        filter(z => !!z),
+      )(classes),
+    })),
+  ),
 )
 
 const hasKids = pipe(length, lt(0))
@@ -57,7 +57,7 @@ export const walk = curry(function _walk(steps, node) {
 export function cancel() {}
 export const cssWithCancel = curry(function _cssWithCancel(
   canceller,
-  raw
+  raw,
 ) {
   return new Future(function parseCSS(bad, good) {
     try {
@@ -71,17 +71,21 @@ export const cssWithCancel = curry(function _cssWithCancel(
 
 export const htmlWithCancel = curry(function _htmlWithCancel(
   canceller,
-  raw
+  raw,
 ) {
   return new Future(function parseHTMLAsync(bad, good) {
     try {
-      const steps = []
-      const parsed = htmlParse(raw, { lowerCaseTags: true })
-      pipe(head, walk(steps), uniqBy(prop('id')), good)(parsed)
+      if (!is(String, raw)) {
+        bad(new TypeError('Expected an html string'))
+      } else {
+        const steps = []
+        const parsed = htmlParse(raw, { lowerCaseTags: true })
+        pipe(head, walk(steps), uniqBy(prop('id')), good)(parsed)
+      }
     } catch (e) {
       bad(e)
     }
-    return () => {}
+    return canceller
   })
 })
 

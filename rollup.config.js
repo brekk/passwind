@@ -11,7 +11,7 @@ const external = (
 const plugins = [
   json(),
   resolve({ preferBuiltins: true }),
-  commonjs()
+  commonjs(),
 ]
 
 const build = (input, name) => [
@@ -20,10 +20,10 @@ const build = (input, name) => [
     external,
     output: [
       { name, file: name + '.js', format: 'cjs', exports: 'auto' },
-      { name, file: name + '.mjs', format: 'esm' }
+      { name, file: name + '.mjs', format: 'esm' },
     ],
-    plugins
-  }
+    plugins,
+  },
 ]
 
 const toBuild = [...build(`src/index.js`, pkg.name)]

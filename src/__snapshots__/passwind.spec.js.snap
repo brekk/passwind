@@ -1,267 +1,85 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`passwind 1`] = `
-Object {
-  ".-translate-x-full": Object {
-    "--tw-translate-x": "-100%",
-  },
-  ".absolute": Object {
-    "position": "absolute",
-  },
-  ".bg-alertyellow": Object {
-    "--tw-bg-opacity": "1",
-    "backgroundColor": "rgba(255, 241, 138, var(--tw-bg-opacity))",
-  },
-  ".bg-black": Object {
-    "--tw-bg-opacity": "1",
-    "backgroundColor": "rgba(0, 0, 0, var(--tw-bg-opacity))",
-  },
-  ".bg-ifpink": Object {
-    "--tw-bg-opacity": "1",
-    "backgroundColor": "rgba(255, 194, 235, var(--tw-bg-opacity))",
-  },
-  ".bg-transparent": Object {
-    "backgroundColor": "transparent",
-  },
-  ".bg-white": Object {
-    "--tw-bg-opacity": "1",
-    "backgroundColor": "rgba(255, 255, 255, var(--tw-bg-opacity))",
-  },
-  ".border": Object {
-    "borderWidth": "1px",
-  },
-  ".border-2": Object {
-    "borderWidth": "2px",
-  },
-  ".border-black": Object {
-    "--tw-border-opacity": "1",
-    "borderColor": "rgba(0, 0, 0, var(--tw-border-opacity))",
-  },
-  ".border-solid": Object {
-    "borderStyle": "solid",
-  },
-  ".border-t": Object {
-    "borderTopWidth": "1px",
-  },
-  ".fill-current": Object {
-    "fill": "currentColor",
-  },
-  ".flex": Object {
-    "display": "flex",
-  },
-  ".flex-1": Object {
-    "flex": "1 1 0%",
-  },
-  ".flex-col": Object {
-    "flexDirection": "column",
-  },
-  ".font-extended": Object {
-    "fontFamily": "extended-regular, helvetica, sans-serif",
-  },
-  ".font-favorit": Object {
-    "fontFamily": "favorit-regular, helvetica, sans-serif",
-  },
-  ".h-10": Object {
-    "height": "2.5rem",
-  },
-  ".h-12": Object {
-    "height": "3rem",
-  },
-  ".h-16": Object {
-    "height": "4rem",
-  },
-  ".h-auto": Object {
-    "height": "auto",
-  },
-  ".h-full": Object {
-    "height": "100%",
-  },
-  ".h-screen": Object {
-    "height": "100vh",
-  },
-  ".hidden": Object {
-    "display": "none",
-  },
-  ".items-center": Object {
-    "alignItems": "center",
-  },
-  ".items-stretch": Object {
-    "alignItems": "stretch",
-  },
-  ".justify-between": Object {
-    "justifyContent": "space-between",
-  },
-  ".justify-center": Object {
-    "justifyContent": "center",
-  },
-  ".leading-loose": Object {
-    "lineHeight": 2,
-  },
-  ".leading-relaxed": Object {
-    "lineHeight": 1.625,
-  },
-  ".m-auto": Object {
-    "margin": "auto",
-  },
-  ".max-h-16": Object {
-    "maxHeight": "4rem",
-  },
-  ".mb-16": Object {
-    "marginBottom": "4rem",
-  },
-  ".mb-2": Object {
-    "marginBottom": "0.5rem",
-  },
-  ".mb-4": Object {
-    "marginBottom": "1rem",
-  },
-  ".mb-8": Object {
-    "marginBottom": "2rem",
-  },
-  ".mb-px3": Object {
-    "marginBottom": "0.1875rem",
-  },
-  ".min-h-screen": Object {
-    "minHeight": "100vh",
-  },
-  ".ml-2": Object {
-    "marginLeft": "0.5rem",
-  },
-  ".ml-4": Object {
-    "marginLeft": "1rem",
-  },
-  ".mt-1": Object {
-    "marginTop": "0.25rem",
-  },
-  ".mt-16": Object {
-    "marginTop": "4rem",
-  },
-  ".mt-2": Object {
-    "marginTop": "0.5rem",
-  },
-  ".mt-3": Object {
-    "marginTop": "0.75rem",
-  },
-  ".mt-8": Object {
-    "marginTop": "2rem",
-  },
-  ".mx-1": Object {
-    "marginLeft": "0.25rem",
-    "marginRight": "0.25rem",
-  },
-  ".my-10": Object {
-    "marginBottom": "2.5rem",
-    "marginTop": "2.5rem",
-  },
-  ".offset-box": Object {
-    "border": "2px solid #000",
-    "position": "relative",
-    "transformStyle": "preserve-3d",
-  },
-  ".p-2": Object {
-    "padding": "0.5rem",
-  },
-  ".p-3": Object {
-    "padding": "0.75rem",
-  },
-  ".p-4": Object {
-    "padding": "1rem",
-  },
-  ".px-0": Object {
-    "paddingLeft": "0",
-    "paddingRight": "0",
-  },
-  ".px-2": Object {
-    "paddingLeft": "0.5rem",
-    "paddingRight": "0.5rem",
-  },
-  ".px-3": Object {
-    "paddingLeft": "0.75rem",
-    "paddingRight": "0.75rem",
-  },
-  ".px-5": Object {
-    "paddingLeft": "1.25rem",
-    "paddingRight": "1.25rem",
-  },
-  ".px-6": Object {
-    "paddingLeft": "1.5rem",
-    "paddingRight": "1.5rem",
-  },
-  ".py-14": Object {
-    "paddingBottom": "3.5rem",
-    "paddingTop": "3.5rem",
-  },
-  ".py-3": Object {
-    "paddingBottom": "0.75rem",
-    "paddingTop": "0.75rem",
-  },
-  ".py-7": Object {
-    "paddingBottom": "1.75rem",
-    "paddingTop": "1.75rem",
-  },
-  ".py-8": Object {
-    "paddingBottom": "2rem",
-    "paddingTop": "2rem",
-  },
-  ".relative": Object {
-    "position": "relative",
-  },
-  ".rounded-full": Object {
-    "borderRadius": "9999px",
-  },
-  ".rounded-plus": Object {
-    "borderRadius": "0.3125rem",
-  },
-  ".text-4xl": Object {
-    "fontSize": "2.25rem",
-    "lineHeight": "2.5rem",
-  },
-  ".text-black": Object {
-    "--tw-text-opacity": "1",
-    "color": "rgba(0, 0, 0, var(--tw-text-opacity))",
-  },
-  ".text-center": Object {
-    "textAlign": "center",
-  },
-  ".text-gray-500": Object {
-    "--tw-text-opacity": "1",
-    "color": "rgba(107, 114, 128, var(--tw-text-opacity))",
-  },
-  ".text-ifblue": Object {
-    "--tw-text-opacity": "1",
-    "color": "rgba(29, 0, 112, var(--tw-text-opacity))",
-  },
-  ".text-iflightblue": Object {
-    "--tw-text-opacity": "1",
-    "color": "rgba(3, 60, 224, var(--tw-text-opacity))",
-  },
-  ".text-lg": Object {
-    "fontSize": "1.125rem",
-  },
-  ".text-sm": Object {
-    "fontSize": "0.875rem",
-    "lineHeight": "1.25rem",
-  },
-  ".text-white": Object {
-    "--tw-text-opacity": "1",
-    "color": "rgba(255, 255, 255, var(--tw-text-opacity))",
-  },
-  ".text-xl": Object {
-    "fontSize": "1.25rem",
-  },
-  ".text-xs": Object {
-    "fontSize": "0.75rem",
-    "lineHeight": "1rem",
-  },
-  ".transform-gpu": Object {
-    "--tw-rotate": "0",
-    "--tw-scale-x": "1",
-    "--tw-scale-y": "1",
-    "--tw-skew-x": "0",
-    "--tw-skew-y": "0",
-    "--tw-translate-x": "0",
-    "--tw-translate-y": "0",
-    "transform": "translate3d(
+Array [
+  Object {
+    "definitions": Object {
+      ".flex": Object {
+        "display": "flex",
+      },
+      ".flex-col": Object {
+        "flexDirection": "column",
+      },
+      ".min-h-screen": Object {
+        "minHeight": "100vh",
+      },
+    },
+    "id": "gspemxyf",
+    "selector": Array [
+      "min-h-screen",
+      "flex",
+      "flex-col",
+    ],
+  },
+  Object {
+    "definitions": Object {
+      ".bg-ifpink": Object {
+        "--tw-bg-opacity": "1",
+        "backgroundColor": "rgba(255, 194, 235, var(--tw-bg-opacity))",
+      },
+      ".font-extended": Object {
+        "fontFamily": "extended-regular, helvetica, sans-serif",
+      },
+      ".relative": Object {
+        "position": "relative",
+      },
+      ".text-black": Object {
+        "--tw-text-opacity": "1",
+        "color": "rgba(0, 0, 0, var(--tw-text-opacity))",
+      },
+    },
+    "id": "mcmgofus",
+    "selector": Array [
+      "font-extended",
+      "relative",
+      "hover:bg-white",
+      "hover:shadow-navbar",
+      "hover:text-black",
+      "bg-ifpink",
+      "text-black",
+    ],
+  },
+  Object {
+    "definitions": Object {
+      ".-translate-x-full": Object {
+        "--tw-translate-x": "-100%",
+      },
+      ".absolute": Object {
+        "position": "absolute",
+      },
+      ".bg-white": Object {
+        "--tw-bg-opacity": "1",
+        "backgroundColor": "rgba(255, 255, 255, var(--tw-bg-opacity))",
+      },
+      ".font-extended": Object {
+        "fontFamily": "extended-regular, helvetica, sans-serif",
+      },
+      ".h-screen": Object {
+        "height": "100vh",
+      },
+      ".text-black": Object {
+        "--tw-text-opacity": "1",
+        "color": "rgba(0, 0, 0, var(--tw-text-opacity))",
+      },
+      ".transform-gpu": Object {
+        "--tw-rotate": "0",
+        "--tw-scale-x": "1",
+        "--tw-scale-y": "1",
+        "--tw-skew-x": "0",
+        "--tw-skew-y": "0",
+        "--tw-translate-x": "0",
+        "--tw-translate-y": "0",
+        "transform": "translate3d(
       var(--tw-translate-x),
       var(--tw-translate-y),
       0
@@ -269,49 +87,1093 @@ Object {
     rotate(var(--tw-rotate)) skewX(var(--tw-skew-x))
     skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x))
     scaleY(var(--tw-scale-y))",
+      },
+      ".transition-all": Object {
+        "transitionDuration": "0.15s",
+        "transitionProperty": "all",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+      },
+      ".w-screen": Object {
+        "width": "100vw",
+      },
+      ".z-20": Object {
+        "zIndex": 20,
+      },
+    },
+    "id": "fhxblwav",
+    "selector": Array [
+      "absolute",
+      "z-20",
+      "h-screen",
+      "w-screen",
+      "bg-white",
+      "text-black",
+      "font-extended",
+      "transition-all",
+      "transform-gpu",
+      "-translate-x-full",
+    ],
   },
-  ".transition": Object {
-    "transitionDuration": "0.15s",
-    "transitionProperty": Array [
-      "background-color, border-color, color, fill,
+  Object {
+    "definitions": Object {
+      ".flex": Object {
+        "display": "flex",
+      },
+      ".flex-col": Object {
+        "flexDirection": "column",
+      },
+      ".px-5": Object {
+        "paddingLeft": "1.25rem",
+        "paddingRight": "1.25rem",
+      },
+    },
+    "id": "yajtwnup",
+    "selector": Array [
+      "flex",
+      "flex-col",
+      "px-5",
+    ],
+  },
+  Object {
+    "definitions": Object {
+      ".flex": Object {
+        "display": "flex",
+      },
+      ".items-center": Object {
+        "alignItems": "center",
+      },
+      ".justify-between": Object {
+        "justifyContent": "space-between",
+      },
+      ".my-10": Object {
+        "marginBottom": "2.5rem",
+        "marginTop": "2.5rem",
+      },
+    },
+    "id": "gurttxgm",
+    "selector": Array [
+      "flex",
+      "my-10",
+      "justify-between",
+      "items-center",
+    ],
+  },
+  Object {
+    "definitions": Object {
+      ".fill-current": Object {
+        "fill": "currentColor",
+      },
+    },
+    "id": "urfjkbkv",
+    "selector": Array [
+      "fill-current",
+    ],
+  },
+  Object {
+    "definitions": Object {
+      ".leading-relaxed": Object {
+        "lineHeight": 1.625,
+      },
+      ".text-4xl": Object {
+        "fontSize": "2.25rem",
+        "lineHeight": "2.5rem",
+      },
+    },
+    "id": "njcclkrf",
+    "selector": Array [
+      "leading-relaxed",
+      "text-4xl",
+    ],
+  },
+  Object {
+    "definitions": Object {
+      ".flex": Object {
+        "display": "flex",
+      },
+      ".h-full": Object {
+        "height": "100%",
+      },
+      ".items-center": Object {
+        "alignItems": "center",
+      },
+      ".relative": Object {
+        "position": "relative",
+      },
+    },
+    "id": "elfkwtca",
+    "selector": Array [
+      "flex",
+      "items-center",
+      "h-full",
+      "relative",
+    ],
+  },
+  Object {
+    "definitions": Object {
+      ".ml-2": Object {
+        "marginLeft": "0.5rem",
+      },
+      ".text-black": Object {
+        "--tw-text-opacity": "1",
+        "color": "rgba(0, 0, 0, var(--tw-text-opacity))",
+      },
+    },
+    "id": "cddyexlt",
+    "selector": Array [
+      "ml-2",
+      "text-black",
+    ],
+  },
+  Object {
+    "definitions": Object {
+      ".bg-transparent": Object {
+        "backgroundColor": "transparent",
+      },
+      ".border-2": Object {
+        "borderWidth": "2px",
+      },
+      ".border-black": Object {
+        "--tw-border-opacity": "1",
+        "borderColor": "rgba(0, 0, 0, var(--tw-border-opacity))",
+      },
+      ".flex": Object {
+        "display": "flex",
+      },
+      ".font-extended": Object {
+        "fontFamily": "extended-regular, helvetica, sans-serif",
+      },
+      ".h-10": Object {
+        "height": "2.5rem",
+      },
+      ".h-12": Object {
+        "height": "3rem",
+      },
+      ".items-center": Object {
+        "alignItems": "center",
+      },
+      ".justify-center": Object {
+        "justifyContent": "center",
+      },
+      ".ml-4": Object {
+        "marginLeft": "1rem",
+      },
+      ".p-4": Object {
+        "padding": "1rem",
+      },
+      ".px-6": Object {
+        "paddingLeft": "1.5rem",
+        "paddingRight": "1.5rem",
+      },
+      ".py-3": Object {
+        "paddingBottom": "0.75rem",
+        "paddingTop": "0.75rem",
+      },
+      ".rounded-full": Object {
+        "borderRadius": "9999px",
+      },
+      ".text-black": Object {
+        "--tw-text-opacity": "1",
+        "color": "rgba(0, 0, 0, var(--tw-text-opacity))",
+      },
+      ".transition": Object {
+        "transitionDuration": "0.15s",
+        "transitionProperty": Array [
+          "background-color, border-color, color, fill,
     stroke, opacity, box-shadow, transform, filter,
     -webkit-backdrop-filter",
-      "background-color, border-color, color, fill,
+          "background-color, border-color, color, fill,
     stroke, opacity, box-shadow, transform, filter, backdrop-filter",
-      "background-color, border-color, color, fill,
+          "background-color, border-color, color, fill,
     stroke, opacity, box-shadow, transform, filter, backdrop-filter,
     -webkit-backdrop-filter",
+        ],
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+      },
+      ".whitespace-nowrap": Object {
+        "whiteSpace": "nowrap",
+      },
+    },
+    "id": "tarvliqr",
+    "selector": Array [
+      "flex",
+      "justify-center",
+      "items-center",
+      "font-extended",
+      "rounded-full",
+      "whitespace-nowrap",
+      "transition",
+      "border-black",
+      "border-2",
+      "bg-transparent",
+      "text-black",
+      "hover:bg-black",
+      "hover:text-white",
+      "p-4",
+      "h-10",
+      "h-12",
+      "ml-4",
+      "py-3",
+      "px-6",
     ],
-    "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
   },
-  ".transition-all": Object {
-    "transitionDuration": "0.15s",
-    "transitionProperty": "all",
-    "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+  Object {
+    "definitions": Object {
+      ".flex": Object {
+        "display": "flex",
+      },
+      ".items-stretch": Object {
+        "alignItems": "stretch",
+      },
+      ".justify-between": Object {
+        "justifyContent": "space-between",
+      },
+      ".lg:px-16": Object {
+        "paddingLeft": "4rem",
+        "paddingRight": "4rem",
+      },
+      ".px-3": Object {
+        "paddingLeft": "0.75rem",
+        "paddingRight": "0.75rem",
+      },
+    },
+    "id": "animviej",
+    "selector": Array [
+      "flex",
+      "items-stretch",
+      "justify-between",
+      "px-3",
+      "lg:px-16",
+    ],
   },
-  ".w-40": Object {
-    "width": "10rem",
+  Object {
+    "definitions": Object {
+      ".py-7": Object {
+        "paddingBottom": "1.75rem",
+        "paddingTop": "1.75rem",
+      },
+    },
+    "id": "gmnppxab",
+    "selector": Array [
+      "py-7",
+    ],
   },
-  ".w-52": Object {
-    "width": "13rem",
+  Object {
+    "definitions": Object {
+      ".hidden": Object {
+        "display": "none",
+      },
+      ".items-center": Object {
+        "alignItems": "center",
+      },
+      ".lg:text-xl": Object {
+        "fontSize": "1.25rem",
+        "lineHeight": "1.75rem",
+      },
+      ".md:flex": Object {
+        "display": "flex",
+      },
+    },
+    "id": "wvrxbkiw",
+    "selector": Array [
+      "hidden",
+      "md:flex",
+      "items-center",
+      "lg:text-xl",
+    ],
   },
-  ".w-60": Object {
-    "width": "15rem",
+  Object {
+    "definitions": Object {
+      ".flex": Object {
+        "display": "flex",
+      },
+      ".h-full": Object {
+        "height": "100%",
+      },
+      ".items-center": Object {
+        "alignItems": "center",
+      },
+      ".px-3": Object {
+        "paddingLeft": "0.75rem",
+        "paddingRight": "0.75rem",
+      },
+      ".whitespace-nowrap": Object {
+        "whiteSpace": "nowrap",
+      },
+    },
+    "id": "tobmwfjl",
+    "selector": Array [
+      "px-3",
+      "lg:px-4.5",
+      "h-full",
+      "flex",
+      "items-center",
+      "whitespace-nowrap",
+    ],
   },
-  ".w-full": Object {
-    "width": "100%",
+  Object {
+    "definitions": Object {
+      ".md:hidden": Object {
+        "display": "none",
+      },
+    },
+    "id": "cydfagzb",
+    "selector": Array [
+      "md:hidden",
+    ],
   },
-  ".w-screen": Object {
-    "width": "100vw",
+  Object {
+    "definitions": Object {
+      ".bg-ifpink": Object {
+        "--tw-bg-opacity": "1",
+        "backgroundColor": "rgba(255, 194, 235, var(--tw-bg-opacity))",
+      },
+      ".flex-1": Object {
+        "flex": "1 1 0%",
+      },
+      ".font-extended": Object {
+        "fontFamily": "extended-regular, helvetica, sans-serif",
+      },
+    },
+    "id": "fwjkdrng",
+    "selector": Array [
+      "bg-ifpink",
+      "flex-1",
+      "font-extended",
+    ],
   },
-  ".whitespace-nowrap": Object {
-    "whiteSpace": "nowrap",
+  Object {
+    "definitions": Object {
+      ".bg-white": Object {
+        "--tw-bg-opacity": "1",
+        "backgroundColor": "rgba(255, 255, 255, var(--tw-bg-opacity))",
+      },
+      ".border-2": Object {
+        "borderWidth": "2px",
+      },
+      ".border-black": Object {
+        "--tw-border-opacity": "1",
+        "borderColor": "rgba(0, 0, 0, var(--tw-border-opacity))",
+      },
+      ".border-solid": Object {
+        "borderStyle": "solid",
+      },
+      ".flex": Object {
+        "display": "flex",
+      },
+      ".flex-col": Object {
+        "flexDirection": "column",
+      },
+      ".h-auto": Object {
+        "height": "auto",
+      },
+      ".items-center": Object {
+        "alignItems": "center",
+      },
+      ".m-auto": Object {
+        "margin": "auto",
+      },
+      ".mb-16": Object {
+        "marginBottom": "4rem",
+      },
+      ".md:px-4": Object {
+        "paddingLeft": "1rem",
+        "paddingRight": "1rem",
+      },
+      ".mt-8": Object {
+        "marginTop": "2rem",
+      },
+      ".offset-box": Object {
+        "border": "2px solid #000",
+        "position": "relative",
+        "transformStyle": "preserve-3d",
+      },
+      ".px-5": Object {
+        "paddingLeft": "1.25rem",
+        "paddingRight": "1.25rem",
+      },
+      ".z-10": Object {
+        "zIndex": 10,
+      },
+    },
+    "id": "yiitxqor",
+    "selector": Array [
+      "offset-box",
+      "z-10",
+      "w-4/5",
+      "flex",
+      "flex-col",
+      "m-auto",
+      "md:px-4",
+      "h-auto",
+      "mb-16",
+      "border-opacity-100",
+      "border-2",
+      "border-solid",
+      "border-black",
+      "bg-white",
+      "items-center",
+      "mt-8",
+      "px-5",
+    ],
   },
-  ".z-10": Object {
-    "zIndex": 10,
+  Object {
+    "definitions": Object {
+      ".mb-8": Object {
+        "marginBottom": "2rem",
+      },
+      ".mt-16": Object {
+        "marginTop": "4rem",
+      },
+      ".text-4xl": Object {
+        "fontSize": "2.25rem",
+        "lineHeight": "2.5rem",
+      },
+      ".text-center": Object {
+        "textAlign": "center",
+      },
+    },
+    "id": "ygkkcqrk",
+    "selector": Array [
+      "text-4xl",
+      "text-center",
+      "mb-8",
+      "mt-16",
+    ],
   },
-  ".z-20": Object {
-    "zIndex": 20,
+  Object {
+    "definitions": Object {
+      ".border": Object {
+        "borderWidth": "1px",
+      },
+      ".border-black": Object {
+        "--tw-border-opacity": "1",
+        "borderColor": "rgba(0, 0, 0, var(--tw-border-opacity))",
+      },
+      ".border-solid": Object {
+        "borderStyle": "solid",
+      },
+      ".flex": Object {
+        "display": "flex",
+      },
+      ".flex-col": Object {
+        "flexDirection": "column",
+      },
+      ".font-favorit": Object {
+        "fontFamily": "favorit-regular, helvetica, sans-serif",
+      },
+      ".h-16": Object {
+        "height": "4rem",
+      },
+      ".max-h-16": Object {
+        "maxHeight": "4rem",
+      },
+      ".mt-3": Object {
+        "marginTop": "0.75rem",
+      },
+      ".px-2": Object {
+        "paddingLeft": "0.5rem",
+        "paddingRight": "0.5rem",
+      },
+      ".py-3": Object {
+        "paddingBottom": "0.75rem",
+        "paddingTop": "0.75rem",
+      },
+      ".rounded-plus": Object {
+        "borderRadius": "0.3125rem",
+      },
+      ".w-full": Object {
+        "width": "100%",
+      },
+    },
+    "id": "njodlcss",
+    "selector": Array [
+      "font-favorit",
+      "flex",
+      "flex-col",
+      "px-2",
+      "py-3",
+      "mt-3",
+      "w-full",
+      "border",
+      "rounded-plus",
+      "border-solid",
+      "h-16",
+      "max-h-16",
+      "border-black",
+    ],
   },
-}
+  Object {
+    "definitions": Object {
+      ".mb-px3": Object {
+        "marginBottom": "0.1875rem",
+      },
+      ".text-xs": Object {
+        "fontSize": "0.75rem",
+        "lineHeight": "1rem",
+      },
+    },
+    "id": "kqgdeile",
+    "selector": Array [
+      "text-xs",
+      "mb-px3",
+    ],
+  },
+  Object {
+    "definitions": Object {
+      ".text-gray-500": Object {
+        "--tw-text-opacity": "1",
+        "color": "rgba(107, 114, 128, var(--tw-text-opacity))",
+      },
+    },
+    "id": "qusihxrs",
+    "selector": Array [
+      "text-md",
+      "text-gray-500",
+    ],
+  },
+  Object {
+    "definitions": Object {
+      ".flex": Object {
+        "display": "flex",
+      },
+    },
+    "id": "iuzutywi",
+    "selector": Array [
+      "flex",
+    ],
+  },
+  Object {
+    "definitions": Object {
+      ".text-xs": Object {
+        "fontSize": "0.75rem",
+        "lineHeight": "1rem",
+      },
+    },
+    "id": "zmceyeha",
+    "selector": Array [
+      "text-xs",
+    ],
+  },
+  Object {
+    "definitions": Object {
+      ".mx-1": Object {
+        "marginLeft": "0.25rem",
+        "marginRight": "0.25rem",
+      },
+    },
+    "id": "tkuwarvt",
+    "selector": Array [
+      "mx-1",
+    ],
+  },
+  Object {
+    "definitions": Object {
+      ".bg-alertyellow": Object {
+        "--tw-bg-opacity": "1",
+        "backgroundColor": "rgba(255, 241, 138, var(--tw-bg-opacity))",
+      },
+      ".mb-8": Object {
+        "marginBottom": "2rem",
+      },
+      ".mt-2": Object {
+        "marginTop": "0.5rem",
+      },
+      ".p-2": Object {
+        "padding": "0.5rem",
+      },
+      ".text-center": Object {
+        "textAlign": "center",
+      },
+      ".text-sm": Object {
+        "fontSize": "0.875rem",
+        "lineHeight": "1.25rem",
+      },
+      ".w-full": Object {
+        "width": "100%",
+      },
+    },
+    "id": "almvmixl",
+    "selector": Array [
+      "p-2",
+      "text-sm",
+      "mb-8",
+      "mt-2",
+      "bg-alertyellow",
+      "text-center",
+      "w-full",
+    ],
+  },
+  Object {
+    "definitions": Object {
+      ".bg-black": Object {
+        "--tw-bg-opacity": "1",
+        "backgroundColor": "rgba(0, 0, 0, var(--tw-bg-opacity))",
+      },
+      ".border-2": Object {
+        "borderWidth": "2px",
+      },
+      ".border-black": Object {
+        "--tw-border-opacity": "1",
+        "borderColor": "rgba(0, 0, 0, var(--tw-border-opacity))",
+      },
+      ".flex": Object {
+        "display": "flex",
+      },
+      ".font-extended": Object {
+        "fontFamily": "extended-regular, helvetica, sans-serif",
+      },
+      ".items-center": Object {
+        "alignItems": "center",
+      },
+      ".justify-center": Object {
+        "justifyContent": "center",
+      },
+      ".mb-4": Object {
+        "marginBottom": "1rem",
+      },
+      ".md:px-4": Object {
+        "paddingLeft": "1rem",
+        "paddingRight": "1rem",
+      },
+      ".md:py-5": Object {
+        "paddingBottom": "1.25rem",
+        "paddingTop": "1.25rem",
+      },
+      ".md:text-xl": Object {
+        "fontSize": "1.25rem",
+        "lineHeight": "1.75rem",
+      },
+      ".p-3": Object {
+        "padding": "0.75rem",
+      },
+      ".rounded-full": Object {
+        "borderRadius": "9999px",
+      },
+      ".text-lg": Object {
+        "fontSize": "1.125rem",
+      },
+      ".text-white": Object {
+        "--tw-text-opacity": "1",
+        "color": "rgba(255, 255, 255, var(--tw-text-opacity))",
+      },
+      ".transition": Object {
+        "transitionDuration": "0.15s",
+        "transitionProperty": Array [
+          "background-color, border-color, color, fill,
+    stroke, opacity, box-shadow, transform, filter,
+    -webkit-backdrop-filter",
+          "background-color, border-color, color, fill,
+    stroke, opacity, box-shadow, transform, filter, backdrop-filter",
+          "background-color, border-color, color, fill,
+    stroke, opacity, box-shadow, transform, filter, backdrop-filter,
+    -webkit-backdrop-filter",
+        ],
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+      },
+      ".whitespace-nowrap": Object {
+        "whiteSpace": "nowrap",
+      },
+    },
+    "id": "oiblughi",
+    "selector": Array [
+      "flex",
+      "justify-center",
+      "items-center",
+      "font-extended",
+      "rounded-full",
+      "whitespace-nowrap",
+      "transition",
+      "border-black",
+      "border-2",
+      "bg-black",
+      "text-white",
+      "hover:bg-transparent",
+      "hover:text-black",
+      "w-11/12",
+      "sm:w-7/12",
+      "mb-4",
+      "text-lg",
+      "md:text-xl",
+      "p-3",
+      "md:py-5",
+      "md:px-4",
+    ],
+  },
+  Object {
+    "definitions": Object {
+      ".font-favorit": Object {
+        "fontFamily": "favorit-regular, helvetica, sans-serif",
+      },
+      ".mb-4": Object {
+        "marginBottom": "1rem",
+      },
+      ".p-2": Object {
+        "padding": "0.5rem",
+      },
+      ".text-center": Object {
+        "textAlign": "center",
+      },
+      ".text-xs": Object {
+        "fontSize": "0.75rem",
+        "lineHeight": "1rem",
+      },
+    },
+    "id": "ebhnjsmz",
+    "selector": Array [
+      "font-favorit",
+      "p-2",
+      "w-11/12",
+      "sm:w-7/12",
+      "mb-4",
+      "text-xs",
+      "text-center",
+    ],
+  },
+  Object {
+    "definitions": Object {
+      ".py-8": Object {
+        "paddingBottom": "2rem",
+        "paddingTop": "2rem",
+      },
+      ".text-center": Object {
+        "textAlign": "center",
+      },
+      ".text-xl": Object {
+        "fontSize": "1.25rem",
+      },
+    },
+    "id": "jcbjbjcv",
+    "selector": Array [
+      "text-center",
+      "text-xl",
+      "py-8",
+    ],
+  },
+  Object {
+    "definitions": Object {
+      ".text-iflightblue": Object {
+        "--tw-text-opacity": "1",
+        "color": "rgba(3, 60, 224, var(--tw-text-opacity))",
+      },
+    },
+    "id": "oqtpazwg",
+    "selector": Array [
+      "text-iflightblue",
+    ],
+  },
+  Object {
+    "definitions": Object {
+      ".border-t": Object {
+        "borderTopWidth": "1px",
+      },
+      ".font-extended": Object {
+        "fontFamily": "extended-regular, helvetica, sans-serif",
+      },
+      ".text-ifblue": Object {
+        "--tw-text-opacity": "1",
+        "color": "rgba(29, 0, 112, var(--tw-text-opacity))",
+      },
+    },
+    "id": "nnsygkpx",
+    "selector": Array [
+      "font-extended",
+      "border-t",
+      "text-ifblue",
+    ],
+  },
+  Object {
+    "definitions": Object {
+      ".md:px-12": Object {
+        "paddingLeft": "3rem",
+        "paddingRight": "3rem",
+      },
+      ".px-0": Object {
+        "paddingLeft": "0",
+        "paddingRight": "0",
+      },
+    },
+    "id": "mkglgibu",
+    "selector": Array [
+      "px-0",
+      "md:px-12",
+    ],
+  },
+  Object {
+    "definitions": Object {
+      ".flex": Object {
+        "display": "flex",
+      },
+      ".flex-col": Object {
+        "flexDirection": "column",
+      },
+      ".justify-between": Object {
+        "justifyContent": "space-between",
+      },
+      ".m-auto": Object {
+        "margin": "auto",
+      },
+      ".md:flex-row": Object {
+        "flexDirection": "row",
+      },
+      ".md:w-full": Object {
+        "width": "100%",
+      },
+      ".py-14": Object {
+        "paddingBottom": "3.5rem",
+        "paddingTop": "3.5rem",
+      },
+      ".w-52": Object {
+        "width": "13rem",
+      },
+    },
+    "id": "oiourdzo",
+    "selector": Array [
+      "flex",
+      "flex-col",
+      "md:flex-row",
+      "w-52",
+      "md:w-full",
+      "m-auto",
+      "justify-between",
+      "py-14",
+    ],
+  },
+  Object {
+    "definitions": Object {
+      ".mt-1": Object {
+        "marginTop": "0.25rem",
+      },
+    },
+    "id": "fskejmbk",
+    "selector": Array [
+      "mt-1",
+    ],
+  },
+  Object {
+    "definitions": Object {
+      ".mt-3": Object {
+        "marginTop": "0.75rem",
+      },
+      ".text-xs": Object {
+        "fontSize": "0.75rem",
+        "lineHeight": "1rem",
+      },
+      ".w-60": Object {
+        "width": "15rem",
+      },
+    },
+    "id": "sstfoage",
+    "selector": Array [
+      "mt-3",
+      "text-xs",
+      "w-60",
+    ],
+  },
+  Object {
+    "definitions": Object {
+      ".md:mt-0": Object {
+        "marginTop": "0",
+      },
+      ".mt-8": Object {
+        "marginTop": "2rem",
+      },
+      ".mx-1": Object {
+        "marginLeft": "0.25rem",
+        "marginRight": "0.25rem",
+      },
+    },
+    "id": "fuhfdzhy",
+    "selector": Array [
+      "mt-8",
+      "md:mt-0",
+      "mx-1",
+    ],
+  },
+  Object {
+    "definitions": Object {
+      ".font-extended": Object {
+        "fontFamily": "extended-regular, helvetica, sans-serif",
+      },
+      ".mb-2": Object {
+        "marginBottom": "0.5rem",
+      },
+      ".text-xl": Object {
+        "fontSize": "1.25rem",
+      },
+    },
+    "id": "lvvmdenq",
+    "selector": Array [
+      "font-extended",
+      "mb-2",
+      "text-xl",
+    ],
+  },
+  Object {
+    "definitions": Object {
+      ".font-extended": Object {
+        "fontFamily": "extended-regular, helvetica, sans-serif",
+      },
+      ".leading-loose": Object {
+        "lineHeight": 2,
+      },
+    },
+    "id": "cfpgcgrj",
+    "selector": Array [
+      "font-extended",
+      "leading-loose",
+    ],
+  },
+  Object {
+    "definitions": Object {
+      ".bg-black": Object {
+        "--tw-bg-opacity": "1",
+        "backgroundColor": "rgba(0, 0, 0, var(--tw-bg-opacity))",
+      },
+      ".border-2": Object {
+        "borderWidth": "2px",
+      },
+      ".border-black": Object {
+        "--tw-border-opacity": "1",
+        "borderColor": "rgba(0, 0, 0, var(--tw-border-opacity))",
+      },
+      ".flex": Object {
+        "display": "flex",
+      },
+      ".font-extended": Object {
+        "fontFamily": "extended-regular, helvetica, sans-serif",
+      },
+      ".h-10": Object {
+        "height": "2.5rem",
+      },
+      ".items-center": Object {
+        "alignItems": "center",
+      },
+      ".justify-center": Object {
+        "justifyContent": "center",
+      },
+      ".md:mt-0": Object {
+        "marginTop": "0",
+      },
+      ".mt-8": Object {
+        "marginTop": "2rem",
+      },
+      ".p-4": Object {
+        "padding": "1rem",
+      },
+      ".rounded-full": Object {
+        "borderRadius": "9999px",
+      },
+      ".text-white": Object {
+        "--tw-text-opacity": "1",
+        "color": "rgba(255, 255, 255, var(--tw-text-opacity))",
+      },
+      ".transition": Object {
+        "transitionDuration": "0.15s",
+        "transitionProperty": Array [
+          "background-color, border-color, color, fill,
+    stroke, opacity, box-shadow, transform, filter,
+    -webkit-backdrop-filter",
+          "background-color, border-color, color, fill,
+    stroke, opacity, box-shadow, transform, filter, backdrop-filter",
+          "background-color, border-color, color, fill,
+    stroke, opacity, box-shadow, transform, filter, backdrop-filter,
+    -webkit-backdrop-filter",
+        ],
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+      },
+      ".whitespace-nowrap": Object {
+        "whiteSpace": "nowrap",
+      },
+    },
+    "id": "otxutyst",
+    "selector": Array [
+      "flex",
+      "justify-center",
+      "items-center",
+      "font-extended",
+      "rounded-full",
+      "whitespace-nowrap",
+      "transition",
+      "border-black",
+      "border-2",
+      "bg-black",
+      "text-white",
+      "hover:bg-transparent",
+      "hover:text-black",
+      "p-4",
+      "h-10",
+      "mt-8",
+      "md:mt-0",
+    ],
+  },
+  Object {
+    "definitions": Object {
+      ".border-t": Object {
+        "borderTopWidth": "1px",
+      },
+      ".flex": Object {
+        "display": "flex",
+      },
+      ".items-center": Object {
+        "alignItems": "center",
+      },
+      ".justify-between": Object {
+        "justifyContent": "space-between",
+      },
+      ".p-4": Object {
+        "padding": "1rem",
+      },
+      ".w-full": Object {
+        "width": "100%",
+      },
+    },
+    "id": "zesnvftt",
+    "selector": Array [
+      "flex",
+      "justify-between",
+      "items-center",
+      "border-t",
+      "w-full",
+      "p-4",
+    ],
+  },
+  Object {
+    "definitions": Object {
+      ".hidden": Object {
+        "display": "none",
+      },
+      ".md:inline": Object {
+        "display": "inline",
+      },
+    },
+    "id": "mhezyybm",
+    "selector": Array [
+      "hidden",
+      "md:inline",
+    ],
+  },
+  Object {
+    "definitions": Object {
+      ".flex": Object {
+        "display": "flex",
+      },
+      ".items-center": Object {
+        "alignItems": "center",
+      },
+      ".justify-between": Object {
+        "justifyContent": "space-between",
+      },
+      ".w-40": Object {
+        "width": "10rem",
+      },
+    },
+    "id": "pmdwmqji",
+    "selector": Array [
+      "flex",
+      "justify-between",
+      "items-center",
+      "w-40",
+    ],
+  },
+]
 `;

@@ -1,14 +1,14 @@
 import {
   readAndParseWith,
   css as readCSS,
-  html as readHTML
+  html as readHTML,
 } from './reader'
 import {
   walk,
   cssWithCancel,
   htmlWithCancel,
   css,
-  html
+  html,
 } from './parser'
 
 export * from './core'
@@ -16,7 +16,7 @@ export * from './core'
 export const reader = {
   readAndParseWith,
   css: readCSS,
-  html: readHTML
+  html: readHTML,
 }
 
 export const parser = {
@@ -24,5 +24,5 @@ export const parser = {
   cssWithCancel,
   css,
   htmlWithCancel,
-  html
+  html,
 }

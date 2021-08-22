@@ -1,252 +1,263 @@
-'use strict';
+'use strict'
 
-Object.defineProperty(exports, '__esModule', { value: true });
+Object.defineProperty(exports, '__esModule', { value: true })
 
-var ramda = require('ramda');
-var torpor = require('torpor');
-var postcss = require('postcss');
-var postcssJs = require('postcss-js');
-var fluture = require('fluture');
-var posthtmlParser = require('posthtml-parser');
+var ramda = require('ramda')
+var torpor = require('torpor')
+var postcss = require('postcss')
+var postcssJs = require('postcss-js')
+var fluture = require('fluture')
+var posthtmlParser = require('posthtml-parser')
 
-var PLACEHOLDER = "🍛";
-var $ = PLACEHOLDER;
-var bindInternal3 = function bindInternal3 (func, thisContext) {
+var PLACEHOLDER = '🍛'
+var $ = PLACEHOLDER
+var bindInternal3 = function bindInternal3(func, thisContext) {
   return function (a, b, c) {
-    return func.call(thisContext, a, b, c);
-  };
-};
-var some$1 = function fastSome (subject, fn, thisContext) {
+    return func.call(thisContext, a, b, c)
+  }
+}
+var some$1 = function fastSome(subject, fn, thisContext) {
   var length = subject.length,
-      iterator = thisContext !== undefined ? bindInternal3(fn, thisContext) : fn,
-      i;
+    iterator =
+      thisContext !== undefined ? bindInternal3(fn, thisContext) : fn,
+    i
   for (i = 0; i < length; i++) {
     if (iterator(subject[i], i, subject)) {
-      return true;
+      return true
     }
   }
-  return false;
-};
+  return false
+}
 
 var curry = function (fn) {
-  var test = function (x) { return x === PLACEHOLDER; };
+  var test = function (x) {
+    return x === PLACEHOLDER
+  }
   return function curried() {
-    var arguments$1 = arguments;
-    var argLength = arguments.length;
-    var args = new Array(argLength);
+    var arguments$1 = arguments
+    var argLength = arguments.length
+    var args = new Array(argLength)
     for (var i = 0; i < argLength; ++i) {
-      args[i] = arguments$1[i];
+      args[i] = arguments$1[i]
     }
     var countNonPlaceholders = function (toCount) {
-      var count = toCount.length;
+      var count = toCount.length
       while (!test(toCount[count])) {
-        count--;
+        count--
       }
       return count
-    };
-    var length = (
-      some$1(args, test) ?
-        countNonPlaceholders(args) :
-        args.length
-    );
-    function saucy() {
-      var arguments$1 = arguments;
-      var arg2Length = arguments.length;
-      var args2 = new Array(arg2Length);
-      for (var j = 0; j < arg2Length; ++j) {
-        args2[j] = arguments$1[j];
-      }
-      return curried.apply(this, args.map(
-        function (y) { return (
-          test(y) && args2[0] ?
-            args2.shift() :
-            y
-        ); }
-      ).concat(args2))
     }
-    return (
-      length >= fn.length ?
-        fn.apply(this, args) :
-        saucy
-    )
+    var length = some$1(args, test)
+      ? countNonPlaceholders(args)
+      : args.length
+    function saucy() {
+      var arguments$1 = arguments
+      var arg2Length = arguments.length
+      var args2 = new Array(arg2Length)
+      for (var j = 0; j < arg2Length; ++j) {
+        args2[j] = arguments$1[j]
+      }
+      return curried.apply(
+        this,
+        args
+          .map(function (y) {
+            return test(y) && args2[0] ? args2.shift() : y
+          })
+          .concat(args2),
+      )
+    }
+    return length >= fn.length ? fn.apply(this, args) : saucy
   }
-};
+}
 
-var innerpipe = function (args) { return function (x) {
-  var first = args[0];
-  var rest = args.slice(1);
-  var current = first(x);
-  for (var a = 0; a < rest.length; a++) {
-    current = rest[a](current);
+var innerpipe = function (args) {
+  return function (x) {
+    var first = args[0]
+    var rest = args.slice(1)
+    var current = first(x)
+    for (var a = 0; a < rest.length; a++) {
+      current = rest[a](current)
+    }
+    return current
   }
-  return current
-}; };
+}
 function pipe() {
-  var arguments$1 = arguments;
-  var argLength = arguments.length;
-  var args = new Array(argLength);
+  var arguments$1 = arguments
+  var argLength = arguments.length
+  var args = new Array(argLength)
   for (var i = 0; i < argLength; ++i) {
-    args[i] = arguments$1[i];
+    args[i] = arguments$1[i]
   }
   return innerpipe(args)
 }
 
-var prop = curry(function (property, o) { return o && property && o[property]; });
-var _keys = Object.keys;
-var keys = _keys;
+var prop = curry(function (property, o) {
+  return o && property && o[property]
+})
+var _keys = Object.keys
+var keys = _keys
 
-var propLength = prop("length");
-var objectLength = pipe(keys, propLength);
-var length = function (x) { return (typeof x === "object" ? objectLength(x) : propLength(x)); };
+var propLength = prop('length')
+var objectLength = pipe(keys, propLength)
+var length = function (x) {
+  return typeof x === 'object' ? objectLength(x) : propLength(x)
+}
 
-var delegatee = curry(function (method, arg, x) { return (x[method](arg)); });
+var delegatee = curry(function (method, arg, x) {
+  return x[method](arg)
+})
 
-var filter = delegatee("filter");
+var filter = delegatee('filter')
 
-var flipIncludes = curry(function (list, x) { return list.includes(x); });
+var flipIncludes = curry(function (list, x) {
+  return list.includes(x)
+})
 
-var matchingKeys = curry(
-  function (list, o) { return filter(
-    flipIncludes(list),
-    keys(o)
-  ); }
-);
+var matchingKeys = curry(function (list, o) {
+  return filter(flipIncludes(list), keys(o))
+})
 
-var matchingKeyCount = curry(
-  function (list, o) { return pipe(
-    matchingKeys(list),
-    length
-  )(o); }
-);
+var matchingKeyCount = curry(function (list, o) {
+  return pipe(matchingKeys(list), length)(o)
+})
 
-var expectKArgs = function (expected, args) { return (
-  matchingKeyCount(expected, args) >= Object.keys(expected).length
-); };
-var curryObjectK = curry(
-  function (keys, fn) {
-    return function λcurryObjectK(args) {
-      var includes = function (y) { return keys.includes(y); };
-      return (
-        Object.keys(args).filter(includes).length === keys.length ?
-          fn(args) :
-          function (z) { return λcurryObjectK(Object.assign({}, args, z)); }
-      )
+var expectKArgs = function (expected, args) {
+  return (
+    matchingKeyCount(expected, args) >= Object.keys(expected).length
+  )
+}
+var curryObjectK = curry(function (keys, fn) {
+  return function λcurryObjectK(args) {
+    var includes = function (y) {
+      return keys.includes(y)
     }
+    return Object.keys(args).filter(includes).length === keys.length
+      ? fn(args)
+      : function (z) {
+          return λcurryObjectK(Object.assign({}, args, z))
+        }
   }
-);
+})
 
 function curryObjectN(arity, fn) {
   return function λcurryObjectN(args) {
-    var joined = function (z) { return λcurryObjectN(Object.assign({}, args, z)); };
-    return (
-      args && Object.keys(args).length >= arity ?
-        fn(args) :
-        joined
-    )
+    var joined = function (z) {
+      return λcurryObjectN(Object.assign({}, args, z))
+    }
+    return args && Object.keys(args).length >= arity
+      ? fn(args)
+      : joined
   }
 }
 
 function curryObjectKN(ref, fn) {
-  var k = ref.k;
-  var n = ref.n;
+  var k = ref.k
+  var n = ref.n
   return function λcurryObjectKN(args) {
-    var joined = function (z) { return λcurryObjectKN(Object.assign({}, args, z)); };
-    return (
-      expectKArgs(k, args) || Object.keys(args).length >= n ?
-        fn(args) :
-        joined
-    )
+    var joined = function (z) {
+      return λcurryObjectKN(Object.assign({}, args, z))
+    }
+    return expectKArgs(k, args) || Object.keys(args).length >= n
+      ? fn(args)
+      : joined
   }
 }
 
 function compose() {
-  var arguments$1 = arguments;
-  var argLength = arguments.length;
-  var args = new Array(argLength);
+  var arguments$1 = arguments
+  var argLength = arguments.length
+  var args = new Array(argLength)
   for (var i = argLength - 1; i > -1; --i) {
-    args[i] = arguments$1[i];
+    args[i] = arguments$1[i]
   }
   return innerpipe(args)
 }
 
 var curryify = function (test) {
-  if (typeof test !== "function") {
-    throw new TypeError("Expected to be given a function to test placeholders!")
+  if (typeof test !== 'function') {
+    throw new TypeError(
+      'Expected to be given a function to test placeholders!',
+    )
   }
   return function (fn) {
-    if (typeof fn !== "function") {
-      throw new TypeError("Expected to be given a function to curry!")
+    if (typeof fn !== 'function') {
+      throw new TypeError('Expected to be given a function to curry!')
     }
     return function curried() {
-      var arguments$1 = arguments;
-      var argLength = arguments.length;
-      var args = new Array(argLength);
+      var arguments$1 = arguments
+      var argLength = arguments.length
+      var args = new Array(argLength)
       for (var i = 0; i < argLength; ++i) {
-        args[i] = arguments$1[i];
+        args[i] = arguments$1[i]
       }
       var countNonPlaceholders = function (toCount) {
-        var count = toCount.length;
+        var count = toCount.length
         while (!test(toCount[count])) {
-          count--;
+          count--
         }
         return count
-      };
-      var length = some$1(args, test) ? countNonPlaceholders(args) : args.length;
-      return (
-        length >= fn.length ?
-        fn.apply(this, args) :
-        function saucy() {
-          var arguments$1 = arguments;
-          var arg2Length = arguments.length;
-          var args2 = new Array(arg2Length);
-          for (var j = 0; j < arg2Length; ++j) {
-            args2[j] = arguments$1[j];
+      }
+      var length = some$1(args, test)
+        ? countNonPlaceholders(args)
+        : args.length
+      return length >= fn.length
+        ? fn.apply(this, args)
+        : function saucy() {
+            var arguments$1 = arguments
+            var arg2Length = arguments.length
+            var args2 = new Array(arg2Length)
+            for (var j = 0; j < arg2Length; ++j) {
+              args2[j] = arguments$1[j]
+            }
+            return curried.apply(
+              this,
+              args
+                .map(function (y) {
+                  return test(y) && args2[0] ? args2.shift() : y
+                })
+                .concat(args2),
+            )
           }
-          return curried.apply(this, args.map(
-            function (y) { return (
-              test(y) && args2[0] ?
-              args2.shift() :
-              y
-            ); }
-          ).concat(args2))
-        }
-      )
     }
   }
-};
+}
 
-var version$1 = "0.7.7";
+var version$1 = '0.7.7'
 
-var K = function (x) { return function () { return x; }; };
+var K = function (x) {
+  return function () {
+    return x
+  }
+}
 
-var I$1 = function (x) { return x; };
+var I = function (x) {
+  return x
+}
 
 var remapParameters = function (indices, arr) {
-  var copy = Array.from(arr);
+  var copy = Array.from(arr)
   if (!copy.length) {
     return copy
   }
-  return copy.map(
-    function (x, index) {
-      if (indices.includes(index)) {
-        return copy[indices[index]]
-      }
-      return x
+  return copy.map(function (x, index) {
+    if (indices.includes(index)) {
+      return copy[indices[index]]
     }
-  )
-};
-var remapArray = curry(remapParameters);
+    return x
+  })
+}
+var remapArray = curry(remapParameters)
 var remapFunction = function (indices, fn) {
-  var remapArgs = remapArray(indices);
-  var curried = curry(fn);
+  var remapArgs = remapArray(indices)
+  var curried = curry(fn)
   return function remappedFn() {
-    var args = remapArgs(Array.from(arguments));
+    var args = remapArgs(Array.from(arguments))
     return curried.apply(null, args)
   }
-};
-var remap = curry(remapFunction);
+}
+var remap = curry(remapFunction)
 
-var katsuCurry_es = /*#__PURE__*/Object.freeze({
+var katsuCurry_es = /*#__PURE__*/ Object.freeze({
   __proto__: null,
   $: $,
   PLACEHOLDER: PLACEHOLDER,
@@ -259,27 +270,33 @@ var katsuCurry_es = /*#__PURE__*/Object.freeze({
   curryify: curryify,
   version: version$1,
   K: K,
-  I: I$1,
+  I: I,
   remap: remap,
-  remapArray: remapArray
-});
+  remapArray: remapArray,
+})
 
 function getAugmentedNamespace(n) {
-	if (n.__esModule) return n;
-	var a = Object.defineProperty({}, '__esModule', {value: true});
-	Object.keys(n).forEach(function (k) {
-		var d = Object.getOwnPropertyDescriptor(n, k);
-		Object.defineProperty(a, k, d.get ? d : {
-			enumerable: true,
-			get: function () {
-				return n[k];
-			}
-		});
-	});
-	return a;
+  if (n.__esModule) return n
+  var a = Object.defineProperty({}, '__esModule', { value: true })
+  Object.keys(n).forEach(function (k) {
+    var d = Object.getOwnPropertyDescriptor(n, k)
+    Object.defineProperty(
+      a,
+      k,
+      d.get
+        ? d
+        : {
+            enumerable: true,
+            get: function () {
+              return n[k]
+            },
+          },
+    )
+  })
+  return a
 }
 
-var katsuCurry = /*@__PURE__*/getAugmentedNamespace(katsuCurry_es);
+var katsuCurry = /*@__PURE__*/ getAugmentedNamespace(katsuCurry_es)
 
 // This is a nearly 1:1 port of fast-twister
 // A few small modifications were made, in order to:
@@ -371,90 +388,92 @@ While this implementation is based on Stephan Brumme's code, it has been
 
 */
 
-const N = 624;
-const N_MINUS_1 = 623;
-const M = 397;
-const M_MINUS_1 = 396;
-const DIFF = N - M;
-const MATRIX_A = 0x9908b0df;
-const UPPER_MASK = 0x80000000;
-const LOWER_MASK = 0x7fffffff;
+const N = 624
+const N_MINUS_1 = 623
+const M = 397
+const M_MINUS_1 = 396
+const DIFF = N - M
+const MATRIX_A = 0x9908b0df
+const UPPER_MASK = 0x80000000
+const LOWER_MASK = 0x7fffffff
 
 function twist(state) {
-  let bits;
+  let bits
 
   for (let i = 0; i < DIFF; i++) {
-    bits = (state[i] & UPPER_MASK) | (state[i + 1] & LOWER_MASK);
-    state[i] = state[i + M] ^ (bits >>> 1) ^ ((bits & 1) * MATRIX_A);
+    bits = (state[i] & UPPER_MASK) | (state[i + 1] & LOWER_MASK)
+    state[i] = state[i + M] ^ (bits >>> 1) ^ ((bits & 1) * MATRIX_A)
   }
   for (let i = DIFF; i < N_MINUS_1; i++) {
-    bits = (state[i] & UPPER_MASK) | (state[i + 1] & LOWER_MASK);
-    state[i] = state[i - DIFF] ^ (bits >>> 1) ^ ((bits & 1) * MATRIX_A);
+    bits = (state[i] & UPPER_MASK) | (state[i + 1] & LOWER_MASK)
+    state[i] =
+      state[i - DIFF] ^ (bits >>> 1) ^ ((bits & 1) * MATRIX_A)
   }
 
-  bits = (state[N_MINUS_1] & UPPER_MASK) | (state[0] & LOWER_MASK);
-  state[N_MINUS_1] = state[M_MINUS_1] ^ (bits >>> 1) ^ ((bits & 1) * MATRIX_A);
+  bits = (state[N_MINUS_1] & UPPER_MASK) | (state[0] & LOWER_MASK)
+  state[N_MINUS_1] =
+    state[M_MINUS_1] ^ (bits >>> 1) ^ ((bits & 1) * MATRIX_A)
 
   return state
 }
 
 function initializeWithArray(seedArray) {
-  const state = initializeWithNumber(19650218);
-  const len = seedArray.length;
+  const state = initializeWithNumber(19650218)
+  const len = seedArray.length
 
-  let i = 1;
-  let j = 0;
-  let k = N > len ? N : len;
+  let i = 1
+  let j = 0
+  let k = N > len ? N : len
 
   for (; k; k--) {
-    const s = state[i - 1] ^ (state[i - 1] >>> 30);
+    const s = state[i - 1] ^ (state[i - 1] >>> 30)
     state[i] =
       (state[i] ^
         (((((s & 0xffff0000) >>> 16) * 1664525) << 16) +
           (s & 0x0000ffff) * 1664525)) +
       seedArray[j] +
-      j;
-    i++;
-    j++;
+      j
+    i++
+    j++
     if (i >= N) {
-      state[0] = state[N_MINUS_1];
-      i = 1;
+      state[0] = state[N_MINUS_1]
+      i = 1
     }
     if (j >= len) {
-      j = 0;
+      j = 0
     }
   }
   for (k = N_MINUS_1; k; k--) {
-    const s = state[i - 1] ^ (state[i - 1] >>> 30);
+    const s = state[i - 1] ^ (state[i - 1] >>> 30)
 
     state[i] =
       (state[i] ^
         (((((s & 0xffff0000) >>> 16) * 1566083941) << 16) +
           (s & 0x0000ffff) * 1566083941)) -
-      i;
-    i++;
+      i
+    i++
     if (i >= N) {
-      state[0] = state[N_MINUS_1];
-      i = 1;
+      state[0] = state[N_MINUS_1]
+      i = 1
     }
   }
 
-  state[0] = UPPER_MASK;
+  state[0] = UPPER_MASK
 
   return state
 }
 
 function initializeWithNumber(seed) {
-  const state = new Array(N);
+  const state = new Array(N)
 
   // fill initial state
-  state[0] = seed;
+  state[0] = seed
   for (let i = 1; i < N; i++) {
-    const s = state[i - 1] ^ (state[i - 1] >>> 30);
+    const s = state[i - 1] ^ (state[i - 1] >>> 30)
     state[i] =
       ((((s & 0xffff0000) >>> 16) * 1812433253) << 16) +
       (s & 0x0000ffff) * 1812433253 +
-      i;
+      i
   }
 
   return state
@@ -463,28 +482,28 @@ function initializeWithNumber(seed) {
 function initialize(seed = Date.now()) {
   const state = Array.isArray(seed)
     ? initializeWithArray(seed)
-    : initializeWithNumber(seed);
+    : initializeWithNumber(seed)
   return twist(state)
 }
 function MersenneTwister(seed) {
-  let state = initialize(seed);
-  let next = 0;
+  let state = initialize(seed)
+  let next = 0
   const randomInt32 = () => {
-    let x;
+    let x
     if (next >= N) {
-      state = twist(state);
-      next = 0;
+      state = twist(state)
+      next = 0
     }
 
-    x = state[next++];
+    x = state[next++]
 
-    x ^= x >>> 11;
-    x ^= (x << 7) & 0x9d2c5680;
-    x ^= (x << 15) & 0xefc60000;
-    x ^= x >>> 18;
+    x ^= x >>> 11
+    x ^= (x << 7) & 0x9d2c5680
+    x ^= (x << 15) & 0xefc60000
+    x ^= x >>> 18
 
     return x >>> 0
-  };
+  }
   const api = {
     // [0,0xffffffff]
     randomNumber: () => randomInt32(),
@@ -495,32 +514,33 @@ function MersenneTwister(seed) {
     // [0,1)
     random: () => randomInt32() * (1.0 / 4294967296.0),
     // (0,1)
-    randomExclusive: () => (randomInt32() + 0.5) * (1.0 / 4294967296.0),
+    randomExclusive: () =>
+      (randomInt32() + 0.5) * (1.0 / 4294967296.0),
     // [0,1), 53-bit resolution
     random53Bit: () => {
-      const a = randomInt32() >>> 5;
-      const b = randomInt32() >>> 6;
+      const a = randomInt32() >>> 5
+      const b = randomInt32() >>> 6
       return (a * 67108864.0 + b) * (1.0 / 9007199254740992.0)
     },
-  };
+  }
 
   return api
 }
 
-const MAX_INT = 9007199254740992;
+const MAX_INT = 9007199254740992
 const CONSTANTS = {
   MAX_INT,
   MIN_INT: MAX_INT * -1,
-};
+}
 
 const ERRORS = {
-  TOO_BIG: "Number exceeds acceptable JavaScript integer size!",
-  TOO_SMALL: "Number is below acceptable JavaScript integer size!",
-  MIN_UNDER_MAX: "Minimum must be smaller than maximum!",
-};
+  TOO_BIG: 'Number exceeds acceptable JavaScript integer size!',
+  TOO_SMALL: 'Number is below acceptable JavaScript integer size!',
+  MIN_UNDER_MAX: 'Minimum must be smaller than maximum!',
+}
 
 function throwOnInvalidInteger(x) {
-  const minTest = testValidInteger(x);
+  const minTest = testValidInteger(x)
   if (minTest) {
     throw new RangeError(ERRORS[minTest])
   }
@@ -528,10 +548,10 @@ function throwOnInvalidInteger(x) {
 
 function testValidInteger(x) {
   if (x > CONSTANTS.MAX_INT) {
-    return "TOO_BIG"
+    return 'TOO_BIG'
   }
   if (x < CONSTANTS.MIN_INT) {
-    return "TOO_SMALL"
+    return 'TOO_SMALL'
   }
   return false
 }
@@ -541,153 +561,151 @@ function Unusual(seed) {
     // eslint-disable-next-line no-unused-vars
     return seed ? new Unusual(seed) : new Unusual()
   }
-  this.seed = Array.isArray(seed) || typeof seed === "number" ? seed : 0;
-  if (typeof seed === "string") {
-    let seedling = 0;
-    let hash = 0;
-    seed.split("").forEach((c, i) => {
-      hash = seed.charCodeAt(i) + (hash << 6) + (hash << 16) - hash;
-      seedling += hash;
-    });
-    this.seed += seedling;
+  this.seed =
+    Array.isArray(seed) || typeof seed === 'number' ? seed : 0
+  if (typeof seed === 'string') {
+    let seedling = 0
+    let hash = 0
+    seed.split('').forEach((c, i) => {
+      hash = seed.charCodeAt(i) + (hash << 6) + (hash << 16) - hash
+      seedling += hash
+    })
+    this.seed += seedling
   }
-  const twister = new MersenneTwister(this.seed);
-  const random = twister.random;
+  const twister = new MersenneTwister(this.seed)
+  const random = twister.random
 
   function integer({ min, max }) {
-    const test = [min, max];
-    test.map(throwOnInvalidInteger);
+    const test = [min, max]
+    test.map(throwOnInvalidInteger)
     if (min > max) {
       throw new RangeError(ERRORS.MIN_UNDER_MAX)
     }
     return Math.floor(random() * (max - min + 1) + min)
   }
   function pick(list) {
-    const max = list.length - 1;
-    const index = integer({ min: 0, max });
+    const max = list.length - 1
+    const index = integer({ min: 0, max })
     return list[index]
   }
 
   function pickKey(obj) {
-    const keys = Object.keys(obj);
+    const keys = Object.keys(obj)
     return pick(keys)
   }
   function pickValue(obj) {
-    const key = pickKey(obj);
+    const key = pickKey(obj)
     return obj[key]
   }
   function floor(x) {
     return Math.floor(random() * x)
   }
   function floorMin(min, x) {
-    const output = floor(x) + min;
+    const output = floor(x) + min
     return output
   }
   function shuffle(list) {
-    const copy = [].concat(list);
-    let start = copy.length;
+    const copy = [].concat(list)
+    let start = copy.length
     while (start-- > 0) {
-      const index = floor(start + 1);
-      const a = copy[index];
-      const b = copy[start];
-      copy[index] = b;
-      copy[start] = a;
+      const index = floor(start + 1)
+      const a = copy[index]
+      const b = copy[start]
+      copy[index] = b
+      copy[start] = a
     }
     return copy
   }
-  this.random = random;
-  this.integer = integer;
-  this.pick = pick;
-  this.pickKey = pickKey;
-  this.pickValue = pickValue;
-  this.floor = floor;
-  this.floorMin = katsuCurry.curry(floorMin);
-  this.shuffle = shuffle;
+  this.random = random
+  this.integer = integer
+  this.pick = pick
+  this.pickKey = pickKey
+  this.pickValue = pickValue
+  this.floor = floor
+  this.floorMin = katsuCurry.curry(floorMin)
+  this.shuffle = shuffle
   return this
 }
 
-var unusual = Unusual;
+var unusual = Unusual
 
 var devDependencies = {
-	"@babel/core": "^7.0.0-0",
-	"@babel/eslint-parser": "^7.13.14",
-	"@babel/plugin-proposal-object-rest-spread": "^7.13.8",
-	"@babel/plugin-transform-destructuring": "^7.13.0",
-	"@babel/preset-env": "^7.13.15",
-	"@rollup/plugin-alias": "^3.1.2",
-	"@rollup/plugin-babel": "^5.3.0",
-	"@rollup/plugin-commonjs": "^18.0.0",
-	"@rollup/plugin-json": "^4.1.0",
-	"@rollup/plugin-node-resolve": "^11.2.1",
-	eslint: "^7.24.0",
-	"eslint-config-sorcerers": "^0.0.7",
-	husky: ">=6",
-	"lint-staged": ">=10",
-	nps: "^5.10.0",
-	prettier: "^2.2.1",
-	"prettier-eslint": "^12.0.0",
-	ripjam: "^0.0.9",
-	rollup: "^2.45.2"
-};
-var name = "passwind";
-var version = "0.0.0";
-var description = "tailwind? pass";
-var main = "passwind.js";
-var repository = "https://github.com/brekk/passwind";
-var author = "Brekk <brekk@brekkbockrath.com>";
-var license = "ISC";
+  '@babel/core': '^7.0.0-0',
+  '@babel/eslint-parser': '^7.13.14',
+  '@babel/plugin-proposal-object-rest-spread': '^7.13.8',
+  '@babel/plugin-transform-destructuring': '^7.13.0',
+  '@babel/preset-env': '^7.13.15',
+  '@rollup/plugin-alias': '^3.1.2',
+  '@rollup/plugin-babel': '^5.3.0',
+  '@rollup/plugin-commonjs': '^18.0.0',
+  '@rollup/plugin-json': '^4.1.0',
+  '@rollup/plugin-node-resolve': '^11.2.1',
+  eslint: '^7.24.0',
+  'eslint-config-sorcerers': '^0.0.7',
+  husky: '>=6',
+  'lint-staged': '>=10',
+  nps: '^5.10.0',
+  prettier: '^2.2.1',
+  'prettier-eslint': '^12.0.0',
+  ripjam: '^0.0.9',
+  rollup: '^2.45.2',
+}
+var name = 'passwind'
+var version = '0.0.0'
+var description = 'tailwind? pass'
+var main = 'passwind.js'
+var repository = 'https://github.com/brekk/passwind'
+var author = 'Brekk <brekk@brekkbockrath.com>'
+var license = 'ISC'
 var dependencies = {
-	fluture: "^14.0.0",
-	postcss: "^8.3.6",
-	"postcss-discard-empty": "^5.0.1",
-	"postcss-discard-unused": "^5.0.1",
-	"postcss-html": "^0.36.0",
-	"postcss-js": "^3.0.3",
-	"postcss-safe-parser": "^6.0.0",
-	"postcss-selector-parser": "^6.0.6",
-	"postcss-syntax": "^0.36.2",
-	"posthtml-parser": "^0.10.0",
-	ramda: "^0.27.1",
-	torpor: "^0.1.0",
-	"yargs-parser": "^20.2.9"
-};
+  fluture: '^14.0.0',
+  postcss: '^8.3.6',
+  'postcss-discard-empty': '^5.0.1',
+  'postcss-discard-unused': '^5.0.1',
+  'postcss-html': '^0.36.0',
+  'postcss-js': '^3.0.3',
+  'postcss-safe-parser': '^6.0.0',
+  'postcss-selector-parser': '^6.0.6',
+  'postcss-syntax': '^0.36.2',
+  'posthtml-parser': '^0.10.0',
+  ramda: '^0.27.1',
+  torpor: '^0.1.0',
+  'yargs-parser': '^20.2.9',
+}
 var scripts = {
-	prepare: "husky install"
-};
-var files = [
-	"passwind.js",
-	"passwind.mjs",
-	"passwind.umd.js"
-];
+  prepare: 'husky install',
+}
+var files = ['passwind.js', 'passwind.mjs', 'passwind.umd.js']
 var pkg = {
-	devDependencies: devDependencies,
-	name: name,
-	version: version,
-	description: description,
-	main: main,
-	repository: repository,
-	author: author,
-	license: license,
-	"private": false,
-	dependencies: dependencies,
-	"lint-staged": {
-	"*.js": "eslint --cache --fix",
-	"*.{js,css,md}": "prettier --write"
-},
-	scripts: scripts,
-	files: files
-};
+  devDependencies: devDependencies,
+  name: name,
+  version: version,
+  description: description,
+  main: main,
+  repository: repository,
+  author: author,
+  license: license,
+  private: false,
+  dependencies: dependencies,
+  'lint-staged': {
+    '*.js': 'eslint --cache --fix',
+    '*.{js,css,md}': 'prettier --write',
+  },
+  scripts: scripts,
+  files: files,
+}
 
-const random = new unusual(`${pkg.name}${pkg.version}`);
+const random = new unusual(`${pkg.name}${pkg.version}`)
 
-const ALPHABET = `abcdefghijklmnopqrstuvwxyz`;
-const letter = () => random.pick(ALPHABET);
+const ALPHABET = `abcdefghijklmnopqrstuvwxyz`
+const letter = () => random.pick(ALPHABET)
 
-const uniqId = () => ramda.pipe(ramda.times(letter), ramda.join(''))(8);
+const uniqId = () =>
+  ramda.pipe(ramda.times(letter), ramda.join(''))(8)
 
 // const uniq = uniqBy(I)
 //
-const classAttributes = ramda.pathOr('', ['attrs', 'class']);
+const classAttributes = ramda.pathOr('', ['attrs', 'class'])
 const fashion = ramda.memoizeWith(
   classAttributes,
   ramda.pipe(
@@ -697,179 +715,218 @@ const fashion = ramda.memoizeWith(
       selector: ramda.pipe(
         ramda.split(' '),
         ramda.map(ramda.pipe(ramda.trim, ramda.replace(/\n/g, ''))),
-        ramda.filter(z => !!z)
-      )(classes)
-    }))
-  )
-);
+        ramda.filter(z => !!z),
+      )(classes),
+    })),
+  ),
+)
 
-const hasKids = ramda.pipe(ramda.length, ramda.lt(0));
+const hasKids = ramda.pipe(ramda.length, ramda.lt(0))
 
 const walk = ramda.curry(function _walk(steps, node) {
-  const pulled = fashion(node);
-  const aggregated = pulled ? steps.concat(pulled) : steps;
+  const pulled = fashion(node)
+  const aggregated = pulled ? steps.concat(pulled) : steps
   if (hasKids(node.content)) {
     return ramda.chain(walk(aggregated))(node.content)
   }
   return aggregated
-});
+})
 
 function cancel() {}
 const cssWithCancel = ramda.curry(function _cssWithCancel(
   canceller,
-  raw
+  raw,
 ) {
   return new fluture.Future(function parseCSS(bad, good) {
     try {
-      ramda.pipe(postcss.parse, postcssJs.objectify, good)(raw);
+      ramda.pipe(postcss.parse, postcssJs.objectify, good)(raw)
     } catch (e) {
-      bad(e);
+      bad(e)
     }
     return canceller
   })
-});
+})
 
 const htmlWithCancel = ramda.curry(function _htmlWithCancel(
   canceller,
-  raw
+  raw,
 ) {
   return new fluture.Future(function parseHTMLAsync(bad, good) {
     try {
-      const steps = [];
-      const parsed = posthtmlParser.parser(raw, { lowerCaseTags: true });
-      ramda.pipe(ramda.head, walk(steps), ramda.uniqBy(ramda.prop('id')), good)(parsed);
+      if (!ramda.is(String, raw)) {
+        bad(new TypeError('Expected an html string'))
+      } else {
+        const steps = []
+        const parsed = posthtmlParser.parser(raw, {
+          lowerCaseTags: true,
+        })
+        ramda.pipe(
+          ramda.head,
+          walk(steps),
+          ramda.uniqBy(ramda.prop('id')),
+          good,
+        )(parsed)
+      }
     } catch (e) {
-      bad(e);
+      bad(e)
     }
-    return () => {}
+    return canceller
   })
-});
+})
 
-const css$1 = cssWithCancel(cancel);
-const html$1 = htmlWithCancel(cancel);
+const css$1 = cssWithCancel(cancel)
+const html$1 = htmlWithCancel(cancel)
 
 const readAndParseWith = fn =>
-  ramda.pipe(torpor.readFile(ramda.__, 'utf8'), ramda.chain(fn));
+  ramda.pipe(torpor.readFile(ramda.__, 'utf8'), ramda.chain(fn))
 
-const css = readAndParseWith(css$1);
-const html = readAndParseWith(html$1);
+const css = readAndParseWith(css$1)
+const html = readAndParseWith(html$1)
 
-var callWithScopeWhen = curry(function (effect, when, what, value) {
-  var scope = what(value);
-  if (when(scope)) effect(scope);
-  return value;
-});
-var callBinaryWithScopeWhen = curry(function (effect, when, what, tag, value) {
-  var scope = what(value);
-  if (when(tag, scope)) effect(tag, scope);
-  return value;
-});
-
-var always = function always() {
-  return true;
-};
-var I = function I(x) {
-  return x;
-};
-
-callWithScopeWhen($, $, I);
-callWithScopeWhen($, always, I);
-callWithScopeWhen($, always);
-callBinaryWithScopeWhen($, $, I);
-callBinaryWithScopeWhen($, always);
-callBinaryWithScopeWhen($, always, I);
-
-var traceWithScopeWhen = callBinaryWithScopeWhen(console.log);
-var traceWithScope = traceWithScopeWhen(always);
-var inspect = traceWithScope;
-inspect(I);
-callBinaryWithScopeWhen(console.log, $, I);
-
-var segment = curryObjectN(3, function (_ref) {
-  var _ref$what = _ref.what,
-      what = _ref$what === void 0 ? I : _ref$what,
-      _ref$when = _ref.when,
-      when = _ref$when === void 0 ? always : _ref$when,
-      tag = _ref.tag,
-      value = _ref.value,
-      effect = _ref.effect;
-  if (when(tag, what(value))) {
-    effect(tag, what(value));
-  }
-  return value;
-});
-segment({
-  effect: console.log
-});
-
-const classify = z => `.${z}`;
-const classifyAll = ramda.map(classify);
+const classify = z => `.${z}`
+const classifyAll = ramda.map(classify)
 
 const anyMatch = ramda.curry(function _anyMatch(a, b) {
   return ramda.any(ramda.includes(ramda.__, a))(b)
-});
+})
 
 const cleanSplit = ramda.pipe(
   ramda.split(' '),
-  ramda.map(ramda.pipe(ramda.replace(/\n/g, ''), ramda.trim))
-);
+  ramda.map(ramda.pipe(ramda.replace(/,\n/g, ''), ramda.trim)),
+)
+
+ramda.pipe(ramda.split(/,\n/g), ramda.filter(ramda.identity))
+
+const hasColon = ramda.pipe(ramda.indexOf(':'), ramda.lt(0))
+ramda.when(
+  hasColon,
+  ramda.pipe(ramda.indexOf(':'), ramda.slice(ramda.__, Infinity)),
+)
+
+const isEmptyObject = ramda.pipe(
+  ramda.keys,
+  ramda.length,
+  ramda.equals(0),
+)
+const isNotEmptyObject = ramda.complement(isEmptyObject)
+
+const isAtRule = ramda.startsWith('@')
+const isMediaRule = ramda.includes('media')
+const isAtMediaRule = ramda.both(isAtRule, isMediaRule)
+ramda.filter(ramda.pipe(ramda.head, isAtRule))
+const getResponsiveSelectors = ramda.pipe(
+  ramda.filter(ramda.pipe(ramda.head, isAtMediaRule)),
+  ramda.chain(
+    ramda.pipe(
+      ramda.nth(1),
+      ramda.toPairs,
+      ramda.map(([k, v]) => [k.replace(/\\:/g, ':'), v]),
+    ),
+  ),
+)
+
+const matchingSelectors = ramda.curry(function _matchingSelectors(
+  dotClasses,
+  cssPairs,
+) {
+  return ramda.filter(
+    ramda.pipe(ramda.head, cleanSplit, anyMatch(dotClasses)),
+  )(cssPairs)
+})
+
+const conditionalMergeAs = ramda.curry((key, list, a, b) =>
+  ramda.ifElse(
+    isNotEmptyObject,
+    ramda.pipe(
+      ramda.objOf(key),
+      ramda.mergeRight(a),
+      ramda.of,
+      ramda.concat(list),
+    ),
+    ramda.always(list),
+  )(b),
+)
 
 const getAllClasses = ramda.pipe(
   ramda.map(ramda.prop('selector')),
   ramda.reduce(ramda.concat, []),
-  classifyAll
-);
+  classifyAll,
+)
 
 const cutClasses = ramda.curry(function _cutDownClasses(
   parsedCSS,
-  htmlClasses
+  htmlClasses,
 ) {
-  const dotClasses = getAllClasses(htmlClasses);
+  const dotClasses = getAllClasses(htmlClasses)
   return ramda.pipe(
     ramda.toPairs,
-    ramda.filter(([k]) => anyMatch(dotClasses, cleanSplit(k))),
-    ramda.fromPairs
+    pairs =>
+      ramda.pipe(
+        getResponsiveSelectors,
+        ramda.concat(pairs),
+        matchingSelectors(dotClasses),
+      )(pairs),
+    ramda.fromPairs,
   )(parsedCSS)
-});
+})
 
-const grabDefinition = ramda.curry(function _grabDefinition(defs, lookup) {
-  return ramda.pipe(ramda.map(cls => defs[cls]))(lookup)
-});
+const looseClassMatch = ramda.curry(function _looseClassMatch(
+  defs,
+  cls,
+) {
+  const lookup = defs[cls]
+  return lookup ? [cls, lookup] : false
+})
 
-const consumer = ramda.curry((parsedCSS, htmlClasses) => {
-  const filtered = cutClasses(parsedCSS, htmlClasses);
-  console.log({ filtered });
-  ramda.pipe(
-    ramda.reduce((agg, def) => {
-      const grabbed = grabDefinition(
-        filtered,
-        classifyAll(def.selector)
-      );
-      console.log({ def, grabbed });
-      return agg.concat(grabbed)
-    }, [])
-  )(htmlClasses);
-  return filtered
-});
+const grabDefinition = ramda.curry(function _grabDefinition(
+  defs,
+  lookup,
+) {
+  return ramda.pipe(
+    ramda.map(looseClassMatch(defs)),
+    ramda.filter(ramda.identity),
+    ramda.fromPairs,
+  )(lookup)
+})
+
+const consumer = ramda.curry(function _consumer(
+  parsedCSS,
+  htmlClasses,
+) {
+  return ramda.reduce(
+    (agg, def) =>
+      ramda.pipe(
+        ramda.propOr([], 'selector'),
+        classifyAll,
+        grabDefinition(cutClasses(parsedCSS, htmlClasses)),
+        conditionalMergeAs('definitions', agg, def),
+      )(def),
+    [],
+    htmlClasses,
+  )
+})
 
 const passwind = ramda.curry(function _passwind(cssFile, htmlFile) {
-  return ramda.pipe(fluture.ap(css(cssFile)), fluture.ap(html(htmlFile)))(fluture.resolve(consumer))
-});
+  return ramda.pipe(
+    fluture.ap(css(cssFile)),
+    fluture.ap(html(htmlFile)),
+  )(fluture.resolve(consumer))
+})
 
 const reader = {
   readAndParseWith,
   css: css,
-  html: html
-};
+  html: html,
+}
 
 const parser = {
   walk,
   cssWithCancel,
   css: css$1,
   htmlWithCancel,
-  html: html$1
-};
+  html: html$1,
+}
 
-exports.parser = parser;
-exports.passwind = passwind;
-exports.reader = reader;
+exports.parser = parser
+exports.passwind = passwind
+exports.reader = reader

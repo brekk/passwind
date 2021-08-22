@@ -8,9 +8,10 @@ module.exports = {
       script: 'jest',
       description: 'test stuff',
       snapshot: 'nps "test -u"',
-      coverage: 'nps "test --coverage"'
+      coverage: 'nps "test --coverage"',
+      watch: 'nps "test --watchAll"',
     },
     care: 'nps lint test bundle',
-    precommit: 'nps test bundle'
-  }
+    precommit: 'nps test bundle',
+  },
 }

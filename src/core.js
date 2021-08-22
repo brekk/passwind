@@ -1,55 +1,73 @@
 import { ap, resolve } from 'fluture'
 import {
-  pipe,
+  propOr,
+  concat,
   curry,
   filter,
-  toPairs,
   fromPairs,
-  reduce,
-  concat,
+  identity as I,
+  map,
+  pipe,
   prop,
-  map
+  reduce,
+  toPairs,
 } from 'ramda'
-import { trace } from 'xtrace'
 import { css, html } from './reader'
-import { anyMatch, classifyAll, cleanSplit } from './utils'
+import {
+  matchingSelectors,
+  classifyAll,
+  conditionalMergeAs,
+  getResponsiveSelectors,
+} from './utils'
 
 const getAllClasses = pipe(
   map(prop('selector')),
   reduce(concat, []),
-  classifyAll
+  classifyAll,
 )
 
 const cutClasses = curry(function _cutDownClasses(
   parsedCSS,
-  htmlClasses
+  htmlClasses,
 ) {
   const dotClasses = getAllClasses(htmlClasses)
   return pipe(
     toPairs,
-    filter(([k]) => anyMatch(dotClasses, cleanSplit(k))),
-    fromPairs
+    pairs =>
+      pipe(
+        getResponsiveSelectors,
+        concat(pairs),
+        matchingSelectors(dotClasses),
+      )(pairs),
+    fromPairs,
   )(parsedCSS)
 })
 
-const grabDefinition = curry(function _grabDefinition(defs, lookup) {
-  return pipe(map(cls => defs[cls]))(lookup)
+const looseClassMatch = curry(function _looseClassMatch(defs, cls) {
+  const lookup = defs[cls]
+  return lookup ? [cls, lookup] : false
 })
 
-const consumer = curry((parsedCSS, htmlClasses) => {
-  const filtered = cutClasses(parsedCSS, htmlClasses)
-  console.log({ filtered })
-  pipe(
-    reduce((agg, def) => {
-      const grabbed = grabDefinition(
-        filtered,
-        classifyAll(def.selector)
-      )
-      console.log({ def, grabbed })
-      return agg.concat(grabbed)
-    }, [])
-  )(htmlClasses)
-  return filtered
+const grabDefinition = curry(function _grabDefinition(defs, lookup) {
+  return pipe(
+    map(looseClassMatch(defs)),
+    filter(I),
+    fromPairs,
+  )(lookup)
+})
+
+const consumer = curry(function _consumer(parsedCSS, htmlClasses) {
+  return reduce(
+    (agg, def) =>
+      pipe(
+        propOr([], 'selector'),
+        classifyAll,
+        grabDefinition(cutClasses(parsedCSS, htmlClasses)),
+        conditionalMergeAs('definitions', agg, def),
+      )(def),
+    [],
+    htmlClasses,
+  )
 })
 
 export const passwind = curry(function _passwind(cssFile, htmlFile) {
