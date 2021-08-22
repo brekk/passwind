@@ -15,5 +15,5 @@ test('passwind - small case', done => {
   fork(done)(result => {
     expect(result).toMatchSnapshot()
     done()
-  })(passwind(fixture.smallCSS, fixture.html))
+  })(passwind({}, fixture.smallCSS, fixture.html))
 })

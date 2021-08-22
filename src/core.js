@@ -1,20 +1,25 @@
 import { ap, resolve } from 'fluture'
 import {
-  uniqBy,
-  of,
   ap as functionAp,
-  propOr,
   apply,
   concat,
   curry,
   filter,
   fromPairs,
   identity as I,
+  join,
   map,
+  mergeRight,
+  objOf,
+  of,
+  omit,
   pipe,
   prop,
+  propOr,
   reduce,
   toPairs,
+  uniqBy,
+  values,
 } from 'ramda'
 import { css, html } from './reader'
 import {
@@ -24,9 +29,10 @@ import {
   getResponsiveSelectors,
   getHoverSelectors,
 } from './utils'
+import { DEFINITION, DEFINITIONS, SELECTOR } from './constants'
 
 const getAllClasses = pipe(
-  map(prop('selector')),
+  map(prop(SELECTOR)),
   reduce(concat, []),
   classifyAll,
   uniqBy(I),
@@ -64,21 +70,75 @@ const grabDefinition = curry(function _grabDefinition(defs, lookup) {
   )(lookup)
 })
 
-const consumer = curry(function _consumer(parsedCSS, htmlClasses) {
-  const cut = cutClasses(parsedCSS, htmlClasses)
-  return reduce(
-    (agg, def) =>
-      pipe(
-        propOr([], 'selector'),
-        classifyAll,
-        grabDefinition(cut),
-        conditionalMergeAs('definitions', agg, def),
-      )(def),
-    [],
-    htmlClasses,
+const cleanKey = propertyName =>
+  propertyName.replace(
+    /[A-Z]/g,
+    (match, offset) => (offset > 0 ? '-' : '') + match.toLowerCase(),
   )
+
+const fixKeys = pipe(
+  toPairs,
+  map(([k, v]) => [cleanKey(k), v]),
+  fromPairs,
+)
+
+const mergeDefinitions = raw =>
+  pipe(
+    propOr([], DEFINITIONS),
+    values,
+    reduce((agg, x) => mergeRight(agg, fixKeys(x)), {}),
+    objOf(DEFINITION),
+    mergeRight(raw),
+  )(raw)
+const print = pipe(
+  toPairs,
+  map(pipe(join(': '), z => `  ${z};`)),
+  join('\n'),
+)
+
+const stringifyDefinition = ({
+  id,
+  selector,
+  definition,
+}) => `.${id} {
+  /* tailwind selectors: ${selector.join(' ')} */
+${print(definition)}
+}`
+const stringifyDefinitions = pipe(
+  map(stringifyDefinition),
+  join('\n'),
+)
+
+const consumer = curry(function _consumer(
+  options,
+  parsedCSS,
+  htmlClasses,
+) {
+  const cut = cutClasses(parsedCSS, htmlClasses)
+  return pipe(
+    reduce(
+      (agg, def) =>
+        pipe(
+          propOr([], SELECTOR),
+          classifyAll,
+          grabDefinition(cut),
+          conditionalMergeAs(DEFINITIONS, agg, def),
+        )(def),
+      [],
+    ),
+    map(mergeDefinitions),
+    options.drop ? map(omit([DEFINITIONS, SELECTOR])) : I,
+    options.flatten ? stringifyDefinitions : I,
+  )(htmlClasses)
 })
 
-export const passwind = curry(function _passwind(cssFile, htmlFile) {
-  return pipe(ap(css(cssFile)), ap(html(htmlFile)))(resolve(consumer))
+export const passwind = curry(function _passwind(
+  options,
+  cssFile,
+  htmlFile,
+) {
+  return pipe(
+    ap(css(cssFile)),
+    ap(html(htmlFile)),
+  )(resolve(consumer(options)))
 })

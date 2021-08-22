@@ -31,6 +31,14 @@ import {
   trim,
   when,
 } from 'ramda'
+import {
+  COMMA_NEWLINE,
+  COLON,
+  ESCAPED_COLON,
+  AT,
+  MEDIA,
+  DOT_HOVER,
+} from './constants'
 
 export const classify = z => `.${z}`
 export const classifyAll = map(classify)
@@ -41,32 +49,32 @@ export const anyMatch = curry(function _anyMatch(a, b) {
 
 export const cleanSplit = pipe(
   split(' '),
-  map(pipe(replace(/,\n/g, ''), trim)),
+  map(pipe(replace(COMMA_NEWLINE, ''), trim)),
 )
 
-export const cleanSelector = pipe(split(/,\n/g), filter(I))
+export const cleanSelector = pipe(split(COMMA_NEWLINE), filter(I))
 
-export const hasColon = pipe(indexOf(':'), lt(0))
+export const hasColon = pipe(indexOf(COLON), lt(0))
 export const getScopedClass = when(
   hasColon,
-  pipe(indexOf(':'), slice($, Infinity)),
+  pipe(indexOf(COLON), slice($, Infinity)),
 )
 
 export const isEmptyObject = pipe(keys, length, equals(0))
 export const isNotEmptyObject = complement(isEmptyObject)
 
-export const isAtRule = startsWith('@')
-export const isMediaRule = includes('media')
+export const isAtRule = startsWith(AT)
+export const isMediaRule = includes(MEDIA)
 export const isAtMediaRule = both(isAtRule, isMediaRule)
 export const getAtRules = filter(pipe(head, isAtRule))
-export const fixColons = replace(/\\:/g, ':')
+export const fixColons = replace(ESCAPED_COLON, COLON)
 export const fixColonPairs = map(([k, v]) => [fixColons(k), v])
 export const getResponsiveSelectors = pipe(
   filter(pipe(head, isAtMediaRule)),
   chain(pipe(nth(1), toPairs, fixColonPairs)),
 )
 export const getHoverSelectors = pipe(
-  filter(pipe(head, startsWith('.hover'))),
+  filter(pipe(head, startsWith(DOT_HOVER))),
   fixColonPairs,
   map(([k, v]) => [k.slice(0, -6), v]),
 )

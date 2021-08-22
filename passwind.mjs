@@ -1,8 +1,8 @@
-import { pipe as pipe$1, times, join, pathOr, memoizeWith, ifElse, equals, always, split, map, trim, replace, filter as filter$1, length as length$1, lt, curry as curry$1, chain, is, head, uniqBy, prop as prop$1, __, any, includes, identity, indexOf, when, slice, keys as keys$1, complement, startsWith, both, nth, toPairs, objOf, mergeRight, of, concat, reduce, fromPairs, propOr } from 'ramda';
+import { pipe as pipe$1, times, join, pathOr, memoizeWith, ifElse, equals, always, split, map, trim, replace, filter as filter$1, length as length$1, lt, curry as curry$1, chain, is, head, uniqBy, prop as prop$1, __, any, includes, identity, indexOf, when, slice, keys as keys$1, complement, startsWith, both, nth, toPairs, objOf, mergeRight, of, concat, reduce, ap, apply, fromPairs, propOr, omit, values } from 'ramda';
 import { readFile } from 'torpor';
 import { parse } from 'postcss';
 import { objectify } from 'postcss-js';
-import { Future, ap, resolve } from 'fluture';
+import { Future, ap as ap$1, resolve } from 'fluture';
 import { parser as parser$1 } from 'posthtml-parser';
 
 var PLACEHOLDER = "🍛";
@@ -677,9 +677,13 @@ var pkg = {
 const random = new unusual(`${pkg.name}${pkg.version}`);
 
 const ALPHABET = `abcdefghijklmnopqrstuvwxyz`;
+const NUMBERS = `0123456789`;
 const letter = () => random.pick(ALPHABET);
+const number = () => random.pick(NUMBERS);
 
-const uniqId = () => pipe$1(times(letter), join(''))(8);
+const letters = pipe$1(times(letter), join(''));
+const numbers = pipe$1(times(number), join(''));
+const uniqId = () => letters(8) + '-' + numbers(4);
 
 // const uniq = uniqBy(I)
 //
@@ -754,6 +758,16 @@ const readAndParseWith = fn =>
 const css = readAndParseWith(css$1);
 const html = readAndParseWith(html$1);
 
+const SELECTOR = 'selector';
+const DEFINITIONS = 'definitions';
+const DEFINITION = 'definition';
+const COMMA_NEWLINE = /,\n/g;
+const COLON = ':';
+const ESCAPED_COLON = /\\:/g;
+const AT = '@';
+const MEDIA = 'media';
+const DOT_HOVER = '.hover';
+
 const classify = z => `.${z}`;
 const classifyAll = map(classify);
 
@@ -763,33 +777,34 @@ const anyMatch = curry$1(function _anyMatch(a, b) {
 
 const cleanSplit = pipe$1(
   split(' '),
-  map(pipe$1(replace(/,\n/g, ''), trim)),
+  map(pipe$1(replace(COMMA_NEWLINE, ''), trim)),
 );
 
-pipe$1(split(/,\n/g), filter$1(identity));
+pipe$1(split(COMMA_NEWLINE), filter$1(identity));
 
-const hasColon = pipe$1(indexOf(':'), lt(0));
+const hasColon = pipe$1(indexOf(COLON), lt(0));
 when(
   hasColon,
-  pipe$1(indexOf(':'), slice(__, Infinity)),
+  pipe$1(indexOf(COLON), slice(__, Infinity)),
 );
 
 const isEmptyObject = pipe$1(keys$1, length$1, equals(0));
 const isNotEmptyObject = complement(isEmptyObject);
 
-const isAtRule = startsWith('@');
-const isMediaRule = includes('media');
+const isAtRule = startsWith(AT);
+const isMediaRule = includes(MEDIA);
 const isAtMediaRule = both(isAtRule, isMediaRule);
 filter$1(pipe$1(head, isAtRule));
+const fixColons = replace(ESCAPED_COLON, COLON);
+const fixColonPairs = map(([k, v]) => [fixColons(k), v]);
 const getResponsiveSelectors = pipe$1(
   filter$1(pipe$1(head, isAtMediaRule)),
-  chain(
-    pipe$1(
-      nth(1),
-      toPairs,
-      map(([k, v]) => [k.replace(/\\:/g, ':'), v]),
-    ),
-  ),
+  chain(pipe$1(nth(1), toPairs, fixColonPairs)),
+);
+const getHoverSelectors = pipe$1(
+  filter$1(pipe$1(head, startsWith(DOT_HOVER))),
+  fixColonPairs,
+  map(([k, v]) => [k.slice(0, -6), v]),
 );
 
 const matchingSelectors = curry$1(function _matchingSelectors(
@@ -810,9 +825,10 @@ const conditionalMergeAs = curry$1((key, list, a, b) =>
 );
 
 const getAllClasses = pipe$1(
-  map(prop$1('selector')),
+  map(prop$1(SELECTOR)),
   reduce(concat, []),
   classifyAll,
+  uniqBy(identity),
 );
 
 const cutClasses = curry$1(function _cutDownClasses(
@@ -824,7 +840,9 @@ const cutClasses = curry$1(function _cutDownClasses(
     toPairs,
     pairs =>
       pipe$1(
-        getResponsiveSelectors,
+        of,
+        ap([getResponsiveSelectors, getHoverSelectors]),
+        apply(concat),
         concat(pairs),
         matchingSelectors(dotClasses),
       )(pairs),
@@ -845,22 +863,77 @@ const grabDefinition = curry$1(function _grabDefinition(defs, lookup) {
   )(lookup)
 });
 
-const consumer = curry$1(function _consumer(parsedCSS, htmlClasses) {
-  return reduce(
-    (agg, def) =>
-      pipe$1(
-        propOr([], 'selector'),
-        classifyAll,
-        grabDefinition(cutClasses(parsedCSS, htmlClasses)),
-        conditionalMergeAs('definitions', agg, def),
-      )(def),
-    [],
-    htmlClasses,
-  )
+const cleanKey = propertyName =>
+  propertyName.replace(
+    /[A-Z]/g,
+    (match, offset) => (offset > 0 ? '-' : '') + match.toLowerCase(),
+  );
+
+const fixKeys = pipe$1(
+  toPairs,
+  map(([k, v]) => [cleanKey(k), v]),
+  fromPairs,
+);
+
+const mergeDefinitions = raw =>
+  pipe$1(
+    propOr([], DEFINITIONS),
+    values,
+    reduce((agg, x) => mergeRight(agg, fixKeys(x)), {}),
+    objOf(DEFINITION),
+    mergeRight(raw),
+  )(raw);
+const print = pipe$1(
+  toPairs,
+  map(pipe$1(join(': '), z => `  ${z};`)),
+  join('\n'),
+);
+
+const stringifyDefinition = ({
+  id,
+  selector,
+  definition,
+}) => `.${id} {
+  /* tailwind selectors: ${selector.join(' ')} */
+${print(definition)}
+}`;
+const stringifyDefinitions = pipe$1(
+  map(stringifyDefinition),
+  join('\n'),
+);
+
+const consumer = curry$1(function _consumer(
+  options,
+  parsedCSS,
+  htmlClasses,
+) {
+  const cut = cutClasses(parsedCSS, htmlClasses);
+  return pipe$1(
+    reduce(
+      (agg, def) =>
+        pipe$1(
+          propOr([], SELECTOR),
+          classifyAll,
+          grabDefinition(cut),
+          conditionalMergeAs(DEFINITIONS, agg, def),
+        )(def),
+      [],
+    ),
+    map(mergeDefinitions),
+    options.drop ? map(omit([DEFINITIONS, SELECTOR])) : identity,
+    options.flatten ? stringifyDefinitions : identity,
+  )(htmlClasses)
 });
 
-const passwind = curry$1(function _passwind(cssFile, htmlFile) {
-  return pipe$1(ap(css(cssFile)), ap(html(htmlFile)))(resolve(consumer))
+const passwind = curry$1(function _passwind(
+  options,
+  cssFile,
+  htmlFile,
+) {
+  return pipe$1(
+    ap$1(css(cssFile)),
+    ap$1(html(htmlFile)),
+  )(resolve(consumer(options)))
 });
 
 const reader = {

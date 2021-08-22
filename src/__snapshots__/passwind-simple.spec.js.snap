@@ -3,6 +3,10 @@
 exports[`passwind - small case 1`] = `
 Array [
   Object {
+    "definition": Object {
+      "display": "flex",
+      "min-height": "100vh",
+    },
     "definitions": Object {
       ".flex": Object {
         "display": "flex",
@@ -11,7 +15,7 @@ Array [
         "minHeight": "100vh",
       },
     },
-    "id": "gspemxyf",
+    "id": "gspemxyf-4042",
     "selector": Array [
       "min-h-screen",
       "flex",
@@ -19,13 +23,17 @@ Array [
     ],
   },
   Object {
+    "definition": Object {
+      "--tw-bg-opacity": "1",
+      "background-color": "rgba(255, 255, 255, var(--tw-bg-opacity))",
+    },
     "definitions": Object {
       ".hover:bg-white": Object {
         "--tw-bg-opacity": "1",
         "backgroundColor": "rgba(255, 255, 255, var(--tw-bg-opacity))",
       },
     },
-    "id": "mcmgofus",
+    "id": "ofusfhxb-4808",
     "selector": Array [
       "font-extended",
       "relative",
@@ -37,12 +45,15 @@ Array [
     ],
   },
   Object {
+    "definition": Object {
+      "height": "100vh",
+    },
     "definitions": Object {
       ".h-screen": Object {
         "height": "100vh",
       },
     },
-    "id": "fhxblwav",
+    "id": "yajtwnup-2867",
     "selector": Array [
       "absolute",
       "z-20",
@@ -57,12 +68,15 @@ Array [
     ],
   },
   Object {
+    "definition": Object {
+      "display": "flex",
+    },
     "definitions": Object {
       ".flex": Object {
         "display": "flex",
       },
     },
-    "id": "yajtwnup",
+    "id": "txgmurfj-3048",
     "selector": Array [
       "flex",
       "flex-col",
@@ -70,12 +84,15 @@ Array [
     ],
   },
   Object {
+    "definition": Object {
+      "display": "flex",
+    },
     "definitions": Object {
       ".flex": Object {
         "display": "flex",
       },
     },
-    "id": "gurttxgm",
+    "id": "njcclkrf-1424",
     "selector": Array [
       "flex",
       "my-10",
@@ -84,6 +101,10 @@ Array [
     ],
   },
   Object {
+    "definition": Object {
+      "display": "flex",
+      "height": "100%",
+    },
     "definitions": Object {
       ".flex": Object {
         "display": "flex",
@@ -92,7 +113,7 @@ Array [
         "height": "100%",
       },
     },
-    "id": "elfkwtca",
+    "id": "viejgmnp-5900",
     "selector": Array [
       "flex",
       "items-center",
@@ -101,18 +122,28 @@ Array [
     ],
   },
   Object {
+    "definition": Object {
+      "margin-left": "0.5rem",
+    },
     "definitions": Object {
       ".ml-2": Object {
         "marginLeft": "0.5rem",
       },
     },
-    "id": "cddyexlt",
+    "id": "wvrxbkiw-7504",
     "selector": Array [
       "ml-2",
       "text-black",
     ],
   },
   Object {
+    "definition": Object {
+      "--tw-bg-opacity": "1",
+      "background-color": "rgba(0, 0, 0, var(--tw-bg-opacity))",
+      "display": "flex",
+      "height": "3rem",
+      "margin-left": "1rem",
+    },
     "definitions": Object {
       ".flex": Object {
         "display": "flex",
@@ -131,7 +162,7 @@ Array [
         "marginLeft": "1rem",
       },
     },
-    "id": "tarvliqr",
+    "id": "wfjlcydf-0290",
     "selector": Array [
       "flex",
       "justify-center",
@@ -155,12 +186,15 @@ Array [
     ],
   },
   Object {
+    "definition": Object {
+      "display": "flex",
+    },
     "definitions": Object {
       ".flex": Object {
         "display": "flex",
       },
     },
-    "id": "animviej",
+    "id": "fwjkdrng-9337",
     "selector": Array [
       "flex",
       "items-stretch",
@@ -170,6 +204,9 @@ Array [
     ],
   },
   Object {
+    "definition": Object {
+      "display": "flex",
+    },
     "definitions": Object {
       ".hidden": Object {
         "display": "none",
@@ -178,7 +215,7 @@ Array [
         "display": "flex",
       },
     },
-    "id": "wvrxbkiw",
+    "id": "njodlcss-3621",
     "selector": Array [
       "hidden",
       "md:flex",
@@ -187,6 +224,10 @@ Array [
     ],
   },
   Object {
+    "definition": Object {
+      "display": "flex",
+      "height": "100%",
+    },
     "definitions": Object {
       ".flex": Object {
         "display": "flex",
@@ -195,7 +236,7 @@ Array [
         "height": "100%",
       },
     },
-    "id": "tobmwfjl",
+    "id": "eilequsi-2867",
     "selector": Array [
       "px-3",
       "lg:px-4.5",
@@ -206,17 +247,27 @@ Array [
     ],
   },
   Object {
+    "definition": Object {
+      "display": "none",
+    },
     "definitions": Object {
       ".md:hidden": Object {
         "display": "none",
       },
     },
-    "id": "cydfagzb",
+    "id": "iuzutywi-9401",
     "selector": Array [
       "md:hidden",
     ],
   },
   Object {
+    "definition": Object {
+      "display": "flex",
+      "height": "auto",
+      "margin-bottom": "4rem",
+      "padding-left": "1rem",
+      "padding-right": "1rem",
+    },
     "definitions": Object {
       ".flex": Object {
         "display": "flex",
@@ -232,7 +283,7 @@ Array [
         "paddingRight": "1rem",
       },
     },
-    "id": "yiitxqor",
+    "id": "almvmixl-5304",
     "selector": Array [
       "offset-box",
       "z-10",
@@ -254,12 +305,15 @@ Array [
     ],
   },
   Object {
+    "definition": Object {
+      "margin-bottom": "2rem",
+    },
     "definitions": Object {
       ".mb-8": Object {
         "marginBottom": "2rem",
       },
     },
-    "id": "ygkkcqrk",
+    "id": "ughiebhn-3649",
     "selector": Array [
       "text-4xl",
       "text-center",
@@ -268,6 +322,11 @@ Array [
     ],
   },
   Object {
+    "definition": Object {
+      "display": "flex",
+      "height": "4rem",
+      "max-height": "4rem",
+    },
     "definitions": Object {
       ".flex": Object {
         "display": "flex",
@@ -279,7 +338,7 @@ Array [
         "maxHeight": "4rem",
       },
     },
-    "id": "njodlcss",
+    "id": "jcbjbjcv-5676",
     "selector": Array [
       "font-favorit",
       "flex",
@@ -297,35 +356,44 @@ Array [
     ],
   },
   Object {
+    "definition": Object {
+      "margin-bottom": "0.1875rem",
+    },
     "definitions": Object {
       ".mb-px3": Object {
         "marginBottom": "0.1875rem",
       },
     },
-    "id": "kqgdeile",
+    "id": "azwgnnsy-2459",
     "selector": Array [
       "text-xs",
       "mb-px3",
     ],
   },
   Object {
+    "definition": Object {
+      "display": "flex",
+    },
     "definitions": Object {
       ".flex": Object {
         "display": "flex",
       },
     },
-    "id": "iuzutywi",
+    "id": "rdzofske-3403",
     "selector": Array [
       "flex",
     ],
   },
   Object {
+    "definition": Object {
+      "margin-bottom": "2rem",
+    },
     "definitions": Object {
       ".mb-8": Object {
         "marginBottom": "2rem",
       },
     },
-    "id": "almvmixl",
+    "id": "cfpgcgrj-5787",
     "selector": Array [
       "p-2",
       "text-sm",
@@ -337,6 +405,17 @@ Array [
     ],
   },
   Object {
+    "definition": Object {
+      "background-color": "transparent",
+      "display": "flex",
+      "font-size": "1.25rem",
+      "line-height": "1.75rem",
+      "margin-bottom": "1rem",
+      "padding-bottom": "1.25rem",
+      "padding-left": "1rem",
+      "padding-right": "1rem",
+      "padding-top": "1.25rem",
+    },
     "definitions": Object {
       ".flex": Object {
         "display": "flex",
@@ -360,7 +439,7 @@ Array [
         "lineHeight": "1.75rem",
       },
     },
-    "id": "oiblughi",
+    "id": "tystzesn-8277",
     "selector": Array [
       "flex",
       "justify-center",
@@ -386,12 +465,15 @@ Array [
     ],
   },
   Object {
+    "definition": Object {
+      "margin-bottom": "1rem",
+    },
     "definitions": Object {
       ".mb-4": Object {
         "marginBottom": "1rem",
       },
     },
-    "id": "ebhnjsmz",
+    "id": "mhezyybm-6418",
     "selector": Array [
       "font-favorit",
       "p-2",
@@ -403,19 +485,28 @@ Array [
     ],
   },
   Object {
+    "definition": Object {
+      "padding-left": "3rem",
+      "padding-right": "3rem",
+    },
     "definitions": Object {
       ".md:px-12": Object {
         "paddingLeft": "3rem",
         "paddingRight": "3rem",
       },
     },
-    "id": "mkglgibu",
+    "id": "uogpyjrg-3493",
     "selector": Array [
       "px-0",
       "md:px-12",
     ],
   },
   Object {
+    "definition": Object {
+      "display": "flex",
+      "flex-direction": "row",
+      "width": "100%",
+    },
     "definitions": Object {
       ".flex": Object {
         "display": "flex",
@@ -427,7 +518,7 @@ Array [
         "width": "100%",
       },
     },
-    "id": "oiourdzo",
+    "id": "qcurxqdp-0507",
     "selector": Array [
       "flex",
       "flex-col",
@@ -440,12 +531,15 @@ Array [
     ],
   },
   Object {
+    "definition": Object {
+      "margin-top": "0",
+    },
     "definitions": Object {
       ".md:mt-0": Object {
         "marginTop": "0",
       },
     },
-    "id": "fuhfdzhy",
+    "id": "hnqtrlvr-7581",
     "selector": Array [
       "mt-8",
       "md:mt-0",
@@ -453,6 +547,12 @@ Array [
     ],
   },
   Object {
+    "definition": Object {
+      "background-color": "transparent",
+      "display": "flex",
+      "height": "2.5rem",
+      "margin-top": "0",
+    },
     "definitions": Object {
       ".flex": Object {
         "display": "flex",
@@ -467,7 +567,7 @@ Array [
         "marginTop": "0",
       },
     },
-    "id": "otxutyst",
+    "id": "kmsoylxc-5606",
     "selector": Array [
       "flex",
       "justify-center",
@@ -489,12 +589,15 @@ Array [
     ],
   },
   Object {
+    "definition": Object {
+      "display": "flex",
+    },
     "definitions": Object {
       ".flex": Object {
         "display": "flex",
       },
     },
-    "id": "zesnvftt",
+    "id": "eorfxfus-7886",
     "selector": Array [
       "flex",
       "justify-between",
@@ -505,6 +608,9 @@ Array [
     ],
   },
   Object {
+    "definition": Object {
+      "display": "inline",
+    },
     "definitions": Object {
       ".hidden": Object {
         "display": "none",
@@ -513,19 +619,22 @@ Array [
         "display": "inline",
       },
     },
-    "id": "mhezyybm",
+    "id": "cvddcwvt-7490",
     "selector": Array [
       "hidden",
       "md:inline",
     ],
   },
   Object {
+    "definition": Object {
+      "display": "flex",
+    },
     "definitions": Object {
       ".flex": Object {
         "display": "flex",
       },
     },
-    "id": "pmdwmqji",
+    "id": "ttbhzjjw-1591",
     "selector": Array [
       "flex",
       "justify-between",

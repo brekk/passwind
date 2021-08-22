@@ -698,10 +698,13 @@ var pkg = {
 const random = new unusual(`${pkg.name}${pkg.version}`)
 
 const ALPHABET = `abcdefghijklmnopqrstuvwxyz`
+const NUMBERS = `0123456789`
 const letter = () => random.pick(ALPHABET)
+const number = () => random.pick(NUMBERS)
 
-const uniqId = () =>
-  ramda.pipe(ramda.times(letter), ramda.join(''))(8)
+const letters = ramda.pipe(ramda.times(letter), ramda.join(''))
+const numbers = ramda.pipe(ramda.times(number), ramda.join(''))
+const uniqId = () => letters(8) + '-' + numbers(4)
 
 // const uniq = uniqBy(I)
 //
@@ -783,6 +786,16 @@ const readAndParseWith = fn =>
 const css = readAndParseWith(css$1)
 const html = readAndParseWith(html$1)
 
+const SELECTOR = 'selector'
+const DEFINITIONS = 'definitions'
+const DEFINITION = 'definition'
+const COMMA_NEWLINE = /,\n/g
+const COLON = ':'
+const ESCAPED_COLON = /\\:/g
+const AT = '@'
+const MEDIA = 'media'
+const DOT_HOVER = '.hover'
+
 const classify = z => `.${z}`
 const classifyAll = ramda.map(classify)
 
@@ -792,15 +805,15 @@ const anyMatch = ramda.curry(function _anyMatch(a, b) {
 
 const cleanSplit = ramda.pipe(
   ramda.split(' '),
-  ramda.map(ramda.pipe(ramda.replace(/,\n/g, ''), ramda.trim)),
+  ramda.map(ramda.pipe(ramda.replace(COMMA_NEWLINE, ''), ramda.trim)),
 )
 
-ramda.pipe(ramda.split(/,\n/g), ramda.filter(ramda.identity))
+ramda.pipe(ramda.split(COMMA_NEWLINE), ramda.filter(ramda.identity))
 
-const hasColon = ramda.pipe(ramda.indexOf(':'), ramda.lt(0))
+const hasColon = ramda.pipe(ramda.indexOf(COLON), ramda.lt(0))
 ramda.when(
   hasColon,
-  ramda.pipe(ramda.indexOf(':'), ramda.slice(ramda.__, Infinity)),
+  ramda.pipe(ramda.indexOf(COLON), ramda.slice(ramda.__, Infinity)),
 )
 
 const isEmptyObject = ramda.pipe(
@@ -810,19 +823,20 @@ const isEmptyObject = ramda.pipe(
 )
 const isNotEmptyObject = ramda.complement(isEmptyObject)
 
-const isAtRule = ramda.startsWith('@')
-const isMediaRule = ramda.includes('media')
+const isAtRule = ramda.startsWith(AT)
+const isMediaRule = ramda.includes(MEDIA)
 const isAtMediaRule = ramda.both(isAtRule, isMediaRule)
 ramda.filter(ramda.pipe(ramda.head, isAtRule))
+const fixColons = ramda.replace(ESCAPED_COLON, COLON)
+const fixColonPairs = ramda.map(([k, v]) => [fixColons(k), v])
 const getResponsiveSelectors = ramda.pipe(
   ramda.filter(ramda.pipe(ramda.head, isAtMediaRule)),
-  ramda.chain(
-    ramda.pipe(
-      ramda.nth(1),
-      ramda.toPairs,
-      ramda.map(([k, v]) => [k.replace(/\\:/g, ':'), v]),
-    ),
-  ),
+  ramda.chain(ramda.pipe(ramda.nth(1), ramda.toPairs, fixColonPairs)),
+)
+const getHoverSelectors = ramda.pipe(
+  ramda.filter(ramda.pipe(ramda.head, ramda.startsWith(DOT_HOVER))),
+  fixColonPairs,
+  ramda.map(([k, v]) => [k.slice(0, -6), v]),
 )
 
 const matchingSelectors = ramda.curry(function _matchingSelectors(
@@ -848,9 +862,10 @@ const conditionalMergeAs = ramda.curry((key, list, a, b) =>
 )
 
 const getAllClasses = ramda.pipe(
-  ramda.map(ramda.prop('selector')),
+  ramda.map(ramda.prop(SELECTOR)),
   ramda.reduce(ramda.concat, []),
   classifyAll,
+  ramda.uniqBy(ramda.identity),
 )
 
 const cutClasses = ramda.curry(function _cutDownClasses(
@@ -862,7 +877,9 @@ const cutClasses = ramda.curry(function _cutDownClasses(
     ramda.toPairs,
     pairs =>
       ramda.pipe(
-        getResponsiveSelectors,
+        ramda.of,
+        ramda.ap([getResponsiveSelectors, getHoverSelectors]),
+        ramda.apply(ramda.concat),
         ramda.concat(pairs),
         matchingSelectors(dotClasses),
       )(pairs),
@@ -889,28 +906,79 @@ const grabDefinition = ramda.curry(function _grabDefinition(
   )(lookup)
 })
 
+const cleanKey = propertyName =>
+  propertyName.replace(
+    /[A-Z]/g,
+    (match, offset) => (offset > 0 ? '-' : '') + match.toLowerCase(),
+  )
+
+const fixKeys = ramda.pipe(
+  ramda.toPairs,
+  ramda.map(([k, v]) => [cleanKey(k), v]),
+  ramda.fromPairs,
+)
+
+const mergeDefinitions = raw =>
+  ramda.pipe(
+    ramda.propOr([], DEFINITIONS),
+    ramda.values,
+    ramda.reduce((agg, x) => ramda.mergeRight(agg, fixKeys(x)), {}),
+    ramda.objOf(DEFINITION),
+    ramda.mergeRight(raw),
+  )(raw)
+const print = ramda.pipe(
+  ramda.toPairs,
+  ramda.map(ramda.pipe(ramda.join(': '), z => `  ${z};`)),
+  ramda.join('\n'),
+)
+
+const stringifyDefinition = ({
+  id,
+  selector,
+  definition,
+}) => `.${id} {
+  /* tailwind selectors: ${selector.join(' ')} */
+${print(definition)}
+}`
+const stringifyDefinitions = ramda.pipe(
+  ramda.map(stringifyDefinition),
+  ramda.join('\n'),
+)
+
 const consumer = ramda.curry(function _consumer(
+  options,
   parsedCSS,
   htmlClasses,
 ) {
-  return ramda.reduce(
-    (agg, def) =>
-      ramda.pipe(
-        ramda.propOr([], 'selector'),
-        classifyAll,
-        grabDefinition(cutClasses(parsedCSS, htmlClasses)),
-        conditionalMergeAs('definitions', agg, def),
-      )(def),
-    [],
-    htmlClasses,
-  )
+  const cut = cutClasses(parsedCSS, htmlClasses)
+  return ramda.pipe(
+    ramda.reduce(
+      (agg, def) =>
+        ramda.pipe(
+          ramda.propOr([], SELECTOR),
+          classifyAll,
+          grabDefinition(cut),
+          conditionalMergeAs(DEFINITIONS, agg, def),
+        )(def),
+      [],
+    ),
+    ramda.map(mergeDefinitions),
+    options.drop
+      ? ramda.map(ramda.omit([DEFINITIONS, SELECTOR]))
+      : ramda.identity,
+    options.flatten ? stringifyDefinitions : ramda.identity,
+  )(htmlClasses)
 })
 
-const passwind = ramda.curry(function _passwind(cssFile, htmlFile) {
+const passwind = ramda.curry(function _passwind(
+  options,
+  cssFile,
+  htmlFile,
+) {
   return ramda.pipe(
     fluture.ap(css(cssFile)),
     fluture.ap(html(htmlFile)),
-  )(fluture.resolve(consumer))
+  )(fluture.resolve(consumer(options)))
 })
 
 const reader = {

@@ -1,0 +1,9 @@
+export const SELECTOR = 'selector'
+export const DEFINITIONS = 'definitions'
+export const DEFINITION = 'definition'
+export const COMMA_NEWLINE = /,\n/g
+export const COLON = ':'
+export const ESCAPED_COLON = /\\:/g
+export const AT = '@'
+export const MEDIA = 'media'
+export const DOT_HOVER = '.hover'
