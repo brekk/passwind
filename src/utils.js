@@ -59,15 +59,16 @@ export const isAtRule = startsWith('@')
 export const isMediaRule = includes('media')
 export const isAtMediaRule = both(isAtRule, isMediaRule)
 export const getAtRules = filter(pipe(head, isAtRule))
+export const fixColons = replace(/\\:/g, ':')
+export const fixColonPairs = map(([k, v]) => [fixColons(k), v])
 export const getResponsiveSelectors = pipe(
   filter(pipe(head, isAtMediaRule)),
-  chain(
-    pipe(
-      nth(1),
-      toPairs,
-      map(([k, v]) => [k.replace(/\\:/g, ':'), v]),
-    ),
-  ),
+  chain(pipe(nth(1), toPairs, fixColonPairs)),
+)
+export const getHoverSelectors = pipe(
+  filter(pipe(head, startsWith('.hover'))),
+  fixColonPairs,
+  map(([k, v]) => [k.slice(0, -6), v]),
 )
 
 export const matchingSelectors = curry(function _matchingSelectors(

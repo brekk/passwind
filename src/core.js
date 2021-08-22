@@ -1,6 +1,10 @@
 import { ap, resolve } from 'fluture'
 import {
+  uniqBy,
+  of,
+  ap as functionAp,
   propOr,
+  apply,
   concat,
   curry,
   filter,
@@ -18,12 +22,14 @@ import {
   classifyAll,
   conditionalMergeAs,
   getResponsiveSelectors,
+  getHoverSelectors,
 } from './utils'
 
 const getAllClasses = pipe(
   map(prop('selector')),
   reduce(concat, []),
   classifyAll,
+  uniqBy(I),
 )
 
 const cutClasses = curry(function _cutDownClasses(
@@ -35,7 +41,9 @@ const cutClasses = curry(function _cutDownClasses(
     toPairs,
     pairs =>
       pipe(
-        getResponsiveSelectors,
+        of,
+        functionAp([getResponsiveSelectors, getHoverSelectors]),
+        apply(concat),
         concat(pairs),
         matchingSelectors(dotClasses),
       )(pairs),
@@ -57,12 +65,13 @@ const grabDefinition = curry(function _grabDefinition(defs, lookup) {
 })
 
 const consumer = curry(function _consumer(parsedCSS, htmlClasses) {
+  const cut = cutClasses(parsedCSS, htmlClasses)
   return reduce(
     (agg, def) =>
       pipe(
         propOr([], 'selector'),
         classifyAll,
-        grabDefinition(cutClasses(parsedCSS, htmlClasses)),
+        grabDefinition(cut),
         conditionalMergeAs('definitions', agg, def),
       )(def),
     [],

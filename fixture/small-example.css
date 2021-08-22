@@ -112,3 +112,18 @@ html {
     line-height: 1.75rem;
   }
 }
+.hover\:bg-transparent:hover {
+  background-color: transparent;
+}
+.hover\:bg-black:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgba(0, 0, 0, var(--tw-bg-opacity));
+}
+.hover\:bg-white:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+}
+.hover\:bg-iflightgray:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgba(236, 236, 236, var(--tw-bg-opacity));
+}

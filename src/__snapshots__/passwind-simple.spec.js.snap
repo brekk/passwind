@@ -20,6 +20,24 @@ Array [
   },
   Object {
     "definitions": Object {
+      ".hover:bg-white": Object {
+        "--tw-bg-opacity": "1",
+        "backgroundColor": "rgba(255, 255, 255, var(--tw-bg-opacity))",
+      },
+    },
+    "id": "mcmgofus",
+    "selector": Array [
+      "font-extended",
+      "relative",
+      "hover:bg-white",
+      "hover:shadow-navbar",
+      "hover:text-black",
+      "bg-ifpink",
+      "text-black",
+    ],
+  },
+  Object {
+    "definitions": Object {
       ".h-screen": Object {
         "height": "100vh",
       },
@@ -104,6 +122,10 @@ Array [
       },
       ".h-12": Object {
         "height": "3rem",
+      },
+      ".hover:bg-black": Object {
+        "--tw-bg-opacity": "1",
+        "backgroundColor": "rgba(0, 0, 0, var(--tw-bg-opacity))",
       },
       ".ml-4": Object {
         "marginLeft": "1rem",
@@ -319,6 +341,9 @@ Array [
       ".flex": Object {
         "display": "flex",
       },
+      ".hover:bg-transparent": Object {
+        "backgroundColor": "transparent",
+      },
       ".mb-4": Object {
         "marginBottom": "1rem",
       },
@@ -434,6 +459,9 @@ Array [
       },
       ".h-10": Object {
         "height": "2.5rem",
+      },
+      ".hover:bg-transparent": Object {
+        "backgroundColor": "transparent",
       },
       ".md:mt-0": Object {
         "marginTop": "0",

@@ -30,6 +30,14 @@ Array [
       ".font-extended": Object {
         "fontFamily": "extended-regular, helvetica, sans-serif",
       },
+      ".hover:bg-white": Object {
+        "--tw-bg-opacity": "1",
+        "backgroundColor": "rgba(255, 255, 255, var(--tw-bg-opacity))",
+      },
+      ".hover:text-black": Object {
+        "--tw-text-opacity": "1",
+        "color": "rgba(0, 0, 0, var(--tw-text-opacity))",
+      },
       ".relative": Object {
         "position": "relative",
       },
@@ -247,6 +255,14 @@ Array [
       },
       ".h-12": Object {
         "height": "3rem",
+      },
+      ".hover:bg-black": Object {
+        "--tw-bg-opacity": "1",
+        "backgroundColor": "rgba(0, 0, 0, var(--tw-bg-opacity))",
+      },
+      ".hover:text-white": Object {
+        "--tw-text-opacity": "1",
+        "color": "rgba(255, 255, 255, var(--tw-text-opacity))",
       },
       ".items-center": Object {
         "alignItems": "center",
@@ -722,6 +738,13 @@ Array [
       ".font-extended": Object {
         "fontFamily": "extended-regular, helvetica, sans-serif",
       },
+      ".hover:bg-transparent": Object {
+        "backgroundColor": "transparent",
+      },
+      ".hover:text-black": Object {
+        "--tw-text-opacity": "1",
+        "color": "rgba(0, 0, 0, var(--tw-text-opacity))",
+      },
       ".items-center": Object {
         "alignItems": "center",
       },
@@ -1044,6 +1067,13 @@ Array [
       },
       ".h-10": Object {
         "height": "2.5rem",
+      },
+      ".hover:bg-transparent": Object {
+        "backgroundColor": "transparent",
+      },
+      ".hover:text-black": Object {
+        "--tw-text-opacity": "1",
+        "color": "rgba(0, 0, 0, var(--tw-text-opacity))",
       },
       ".items-center": Object {
         "alignItems": "center",
